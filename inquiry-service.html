@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A/S 신청 | GREEN POWER</title>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sub-common.css">
+</head>
+<body>
+    <header class="header sub-header" id="header">
+        <div class="h-inner">
+            <h1 class="logo"><a href="index.html">GREEN POWER</a></h1>
+            <ul class="gnb">
+                <li><a href="company-greeting.html">Company</a>
+                    <div class="depth2">
+                        <a href="company-greeting.html">인사말</a>
+                        <a href="company-history.html">회사연혁</a>
+                        <a href="company-certifications.html">인증 및 특허 현황</a>
+                        <a href="company-partners.html">주요 협력사</a>
+                        <a href="company-location.html">오시는 길</a>
+                    </div>
+                </li>
+                <li><a href="products-green.html">Products</a>
+                    <div class="depth2">
+                        <a href="products-green.html">GREEN UPS</a>
+                        <a href="products-eaton.html">EATON SOLUTIONS</a>
+                        <a href="products-battery.html">INDUSTRIAL BATTERY</a>
+                    </div>
+                </li>
+                <li><a href="inquiry-quote.html">Inquiry</a>
+                    <div class="depth2">
+                        <a href="inquiry-quote.html">견적문의</a>
+                        <a href="inquiry-consulting.html">제품상담</a>
+                        <a href="inquiry-service.html">A/S 신청</a>
+                    </div>
+                </li>
+                <li><a href="support-notice.html">Support</a>
+                    <div class="depth2">
+                        <a href="support-notice.html">공지사항</a>
+                        <a href="support-catalog.html">카다로그</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="h-util">
+                <a href="#" class="lang-toggle">KOR</a>
+                <button class="hamburger" aria-label="메뉴 열기"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="sub-visual light">
+            <div class="sv-bg"></div>
+            <div class="inner"><h2 class="sv-title text-center">INQUIRY</h2></div>
+        </div>
+        <div class="sub-util">
+            <div class="inner"><div class="breadcrumb"><a href="index.html">Home</a> <span class="bc-arr">&gt;</span> Inquiry <span class="bc-arr">&gt;</span> A/S 신청</div></div>
+        </div>
+
+        <section class="sub-container type-center inner">
+            <aside class="lnb-wrap">
+                <h3 class="lnb-tit">INQUIRY</h3>
+                <ul class="lnb-list">
+                    <li><a href="inquiry-quote.html">견적문의</a></li>
+                    <li><a href="inquiry-consulting.html">제품상담</a></li>
+                    <li class="active"><a href="inquiry-service.html">A/S 신청</a></li>
+                </ul>
+            </aside>
+            <div class="sub-content anim-ele">
+                
+                <div class="h-tabs" style="margin-bottom:30px;">
+                    <a href="inquiry-quote.html" class="">견적문의</a>
+                    <a href="inquiry-consulting.html" class="">제품상담</a>
+                    <a href="inquiry-service.html" class="active">A/S 신청</a>
+                </div>
+                <h3 class="contents-tit line-top" style="text-align:center;">A/S 신청</h3>
+                <div class="article-text" style="background:#f4f5f7; padding: 30px; margin-bottom: 40px; border-left: 4px solid var(--c-accent); font-weight:600;">
+                    사용 중이신 제품에 문제가 발생했습니까? 정확한 진단을 위해 증상을 상세히 남겨주세요.<br>
+                    긴급 복구가 필요한 중요 인프라의 경우, 반드시 전화(031-768-4500)로 먼저 접수 바랍니다.
+                </div>
+                
+                <form class="form-wrap" onsubmit="return false;">
+                    <div class="form-row">
+                        <div class="form-lbl">장애 유형</div>
+                        <div class="form-input">
+                            <select>
+                                <option>전원 꺼짐 / 켜지지 않음</option>
+                                <option>경고음 발생</option>
+                                <option>과열 / 소음</option>
+                                <option>통신 / 모니터링 장애</option>
+                                <option>기타 정비 요망</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-lbl">제품군 / 모델명</div>
+                        <div class="form-input"><input type="text" placeholder="예: Myria (10kVA) 등 입력"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-lbl">연락처 및 설치 장소</div>
+                        <div class="form-input"><input type="text" placeholder="연락처 및 현장 방문 주소 기재"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-lbl">상세 증상 기재</div>
+                        <div class="form-input"><textarea placeholder="현재 발생한 증상과 오류 코드 등을 자유롭게 적어주십시오."></textarea></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">A/S 접수하기</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="ft-inner">
+            <div class="ft-top">
+                <strong class="ft-logo">GREEN POWER</strong>
+            </div>
+            <div class="ft-mid">
+                <div class="ft-info">
+                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
+                    <p>TEL : 031-768-4500 &nbsp;<span class="div">|</span>&nbsp; FAX : 031-768-4517</p>
+                </div>
+            </div>
+            <div class="ft-bot"><p class="copy">COPYRIGHT© 2026 GREEN POWER TECHNOLOGY ALL RIGHTS RESERVED.</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="subpages-data.js"></script>
+    <script src="sub-common.js"></script>
+</body>
+</html>

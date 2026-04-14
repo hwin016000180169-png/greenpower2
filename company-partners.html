@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주요 협력사 | GREEN POWER</title>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sub-common.css">
+</head>
+<body>
+    <header class="header sub-header" id="header">
+        <div class="h-inner">
+            <h1 class="logo"><a href="index.html">GREEN POWER</a></h1>
+            <ul class="gnb">
+                <li><a href="company-greeting.html">Company</a>
+                    <div class="depth2">
+                        <a href="company-greeting.html">인사말</a>
+                        <a href="company-history.html">회사연혁</a>
+                        <a href="company-certifications.html">인증 및 특허 현황</a>
+                        <a href="company-partners.html">주요 협력사</a>
+                        <a href="company-location.html">오시는 길</a>
+                    </div>
+                </li>
+                <li><a href="products-green.html">Products</a>
+                    <div class="depth2">
+                        <a href="products-green.html">GREEN UPS</a>
+                        <a href="products-eaton.html">EATON SOLUTIONS</a>
+                        <a href="products-battery.html">INDUSTRIAL BATTERY</a>
+                    </div>
+                </li>
+                <li><a href="inquiry-quote.html">Inquiry</a>
+                    <div class="depth2">
+                        <a href="inquiry-quote.html">견적문의</a>
+                        <a href="inquiry-consulting.html">제품상담</a>
+                        <a href="inquiry-service.html">A/S 신청</a>
+                    </div>
+                </li>
+                <li><a href="support-notice.html">Support</a>
+                    <div class="depth2">
+                        <a href="support-notice.html">공지사항</a>
+                        <a href="support-catalog.html">카다로그</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="h-util">
+                <a href="#" class="lang-toggle">KOR</a>
+                <button class="hamburger" aria-label="메뉴 열기"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="sub-visual">
+            <div class="sv-bg"></div>
+            <div class="inner"><h2 class="sv-title text-center">COMPANY</h2></div>
+        </div>
+        <div class="sub-util">
+            <div class="inner"><div class="breadcrumb"><a href="index.html">Home</a> <span class="bc-arr">&gt;</span> Company <span class="bc-arr">&gt;</span> 주요 협력사</div></div>
+        </div>
+
+        <section class="sub-container inner">
+            <aside class="lnb-wrap">
+                <h3 class="lnb-tit">COMPANY</h3>
+                <ul class="lnb-list">
+                    <li><a href="company-greeting.html">인사말</a></li>
+                    <li><a href="company-history.html">회사연혁</a></li>
+                    <li><a href="company-certifications.html">인증 및 특허 현황</a></li>
+                    <li class="active"><a href="company-partners.html">주요 협력사</a></li>
+                    <li><a href="company-location.html">오시는 길</a></li>
+                </ul>
+            </aside>
+            <div class="sub-content anim-ele">
+                <h3 class="contents-tit line-top">주요 협력사</h3>
+                <div class="article-text" style="margin-bottom: 40px;">
+                    <strong style="color:var(--c-accent); font-size:24px;">신뢰를 바탕으로 함께 성장하는 글로벌 네트워크</strong><br><br>
+                    <p>그린파워테크놀로지는 최고 수준의 기업들과 파트너십을 맺고, 국내외 핵심 기반 산업 및 공공기관에 완벽한 전력 솔루션을 공급하고 있습니다.</p>
+                </div>
+                <div class="partner-grid" id="partner-container">
+                    <!-- Javascript will populate this -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="ft-inner">
+            <div class="ft-top">
+                <strong class="ft-logo">GREEN POWER</strong>
+            </div>
+            <div class="ft-mid">
+                <div class="ft-info">
+                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
+                    <p>TEL : 031-768-4500 &nbsp;<span class="div">|</span>&nbsp; FAX : 031-768-4517</p>
+                </div>
+            </div>
+            <div class="ft-bot"><p class="copy">COPYRIGHT© 2026 GREEN POWER TECHNOLOGY ALL RIGHTS RESERVED.</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="subpages-data.js"></script>
+    <script src="sub-common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('partner-container');
+            if(window.GREEN_DATA && window.GREEN_DATA.partners) {
+                let html = '';
+                window.GREEN_DATA.partners.forEach(name => {
+                    html += `<div class="partner-item">${name}</div>`;
+                });
+                container.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>
