@@ -1,6 +1,13 @@
 // sub-common.js
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Force header to opaque state on sub-pages (no hero slider present)
+    const header = document.getElementById('header');
+    if (header && !document.querySelector('.hero-slider')) {
+        header.classList.add('is-scrolled');
+        header.dataset.tone = 'dark';
+    }
+
     // Reveal animation initial trigger
     setTimeout(() => {
         const elems = document.querySelectorAll('.anim-ele');

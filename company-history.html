@@ -3,115 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회사연혁 | GREEN POWER</title>
+    <title>회사 연혁 | GREEN POWER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="sub-common.css">
+    <link rel="icon" type="image/png" href="images/fav_logo.png">
 </head>
 <body>
-    <header class="header sub-header" id="header">
-        <div class="h-inner">
-            <h1 class="logo"><a href="index.html">GREEN POWER</a></h1>
-            <ul class="gnb">
-                <li><a href="company-greeting.html">Company</a>
-                    <div class="depth2">
-                        <a href="company-greeting.html">인사말</a>
-                        <a href="company-history.html">회사연혁</a>
-                        <a href="company-certifications.html">인증 및 특허 현황</a>
-                        <a href="company-partners.html">주요 협력사</a>
-                        <a href="company-location.html">오시는 길</a>
-                    </div>
-                </li>
-                <li><a href="products-green.html">Products</a>
-                    <div class="depth2">
-                        <a href="products-green.html">GREEN UPS</a>
-                        <a href="products-eaton.html">EATON SOLUTIONS</a>
-                        <a href="products-battery.html">INDUSTRIAL BATTERY</a>
-                    </div>
-                </li>
-                <li><a href="inquiry-quote.html">Inquiry</a>
-                    <div class="depth2">
-                        <a href="inquiry-quote.html">견적문의</a>
-                        <a href="inquiry-consulting.html">제품상담</a>
-                        <a href="inquiry-service.html">A/S 신청</a>
-                    </div>
-                </li>
-                <li><a href="support-notice.html">Support</a>
-                    <div class="depth2">
-                        <a href="support-notice.html">공지사항</a>
-                        <a href="support-catalog.html">카다로그</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="h-util">
-                <a href="#" class="lang-toggle">KOR</a>
-                <button class="hamburger" aria-label="메뉴 열기"><span></span><span></span></button>
-            </div>
-        </div>
-    </header>
-
-    <main id="main">
-        <div class="sub-visual">
-            <div class="sv-bg"></div>
-            <div class="inner"><h2 class="sv-title text-center">COMPANY</h2></div>
-        </div>
-        <div class="sub-util">
-            <div class="inner"><div class="breadcrumb"><a href="index.html">Home</a> <span class="bc-arr">&gt;</span> Company <span class="bc-arr">&gt;</span> 회사연혁</div></div>
-        </div>
-
-        <section class="sub-container inner">
-            <aside class="lnb-wrap">
-                <h3 class="lnb-tit">COMPANY</h3>
-                <ul class="lnb-list">
-                    <li><a href="company-greeting.html">인사말</a></li>
-                    <li class="active"><a href="company-history.html">회사연혁</a></li>
-                    <li><a href="company-certifications.html">인증 및 특허 현황</a></li>
-                    <li><a href="company-partners.html">주요 협력사</a></li>
-                    <li><a href="company-location.html">오시는 길</a></li>
-                </ul>
-            </aside>
-            <div class="sub-content anim-ele">
-                <h3 class="contents-tit line-top">회사연혁</h3>
-                <div class="history-wrap" id="history-container">
-                    <!-- Javascript will populate this -->
+    <div class="page-shell">
+        <header class="site-header" id="header" data-tone="dark">
+            <div class="header-shell">
+                <h1 class="brand"><a href="index.html"><img src="images/main_logo.png" alt="GREEN POWER"></a></h1>
+                <nav class="main-nav" aria-label="주요 메뉴">
+                    <ul>
+                        <li class="nav-item"><a href="company-greeting.html">기업소개</a>
+                            <div class="nav-dropdown">
+                                <a href="company-greeting.html">CEO 인사말</a>
+                                <a href="company-history.html">회사 연혁</a>
+                                <a href="company-certifications.html">인증 현황</a>
+                                <a href="company-partners.html">주요 파트너</a>
+                                <a href="company-location.html">오시는 길</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="products-green.html">사업영역</a>
+                            <div class="nav-dropdown">
+                                <a href="products-green.html">GREEN UPS</a>
+                                <a href="products-eaton.html">EATON 솔루션</a>
+                                <a href="products-battery.html">산업용 배터리</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="inquiry-consulting.html">문의</a>
+                            <div class="nav-dropdown">
+                                <a href="inquiry-consulting.html">도입 상담</a>
+                                <a href="inquiry-quote.html">견적 문의</a>
+                                <a href="inquiry-service.html">서비스 요청</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="support-notice.html">홍보센터</a>
+                            <div class="nav-dropdown">
+                                <a href="support-notice.html">공지사항</a>
+                                <a href="support-catalog.html">카탈로그</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="index.html" class="lang-toggle" aria-label="Current language">KOR</a>
+                    <button class="menu-toggle" type="button" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+                        <span></span><span></span><span></span>
+                    </button>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="nav-backdrop" aria-hidden="true"></div>
+        </header>
 
-    <footer class="footer">
-        <div class="ft-inner">
-            <div class="ft-top">
-                <strong class="ft-logo">GREEN POWER</strong>
-            </div>
-            <div class="ft-mid">
-                <div class="ft-info">
-                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-                    <p>TEL : 031-768-4500 &nbsp;<span class="div">|</span>&nbsp; FAX : 031-768-4517</p>
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <div class="mobile-menu__inner">
+                <div class="mobile-menu__top">
+                    <strong class="mobile-brand"><img src="images/main_logo.png" alt="GREEN POWER"></strong>
+                    <button class="mobile-close" type="button" id="mobileClose" aria-label="메뉴 닫기">닫기</button>
                 </div>
-            </div>
-            <div class="ft-bot"><p class="copy">COPYRIGHT© 2026 GREEN POWER TECHNOLOGY ALL RIGHTS RESERVED.</p></div>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-    <script src="subpages-data.js"></script>
-    <script src="sub-common.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('history-container');
-            if(window.GREEN_DATA && window.GREEN_DATA.history) {
-                let html = '';
-                window.GREEN_DATA.history.forEach(item => {
-                    html += `
-                        <div class="history-row" data-y="${item.year.substring(2)}">
-                            <div class="h-timeline"><strong class="h-year">${item.year}</strong></div>
-                            <div class="h-event"><p class="h-desc">${item.desc}</p></div>
+                <div class="mobile-menu__body">
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">기업소개</button>
+                        <div class="mobile-item__panel">
+                            <a href="company-greeting.html">CEO 인사말</a>
+                            <a href="company-history.html">회사 연혁</a>
+                            <a href="company-certifications.html">인증 현황</a>
+                            <a href="company-partners.html">주요 파트너</a>
+                            <a href="company-location.html">오시는 길</a>
                         </div>
-                    `;
-                });
-                container.innerHTML = html;
-            }
-        });
-    </script>
+                    </div>
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">사업영역</button>
+                        <div class="mobile-item__panel">
+                            <a href="products-green.html">GREEN UPS</a>
+                            <a href="products-eaton.html">EATON 솔루션</a>
+                            <a href="products-battery.html">산업용 배터리</a>
+                        </div>
+                    </div>
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">문의</button>
+                        <div class="mobile-item__panel">
+                            <a href="inquiry-consulting.html">도입 상담</a>
+                            <a href="inquiry-quote.html">견적 문의</a>
+                            <a href="inquiry-service.html">서비스 요청</a>
+                        </div>
+                    </div>
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
+                        <div class="mobile-item__panel">
+                            <a href="support-notice.html">공지사항</a>
+                            <a href="support-catalog.html">카탈로그</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <!-- 페이지 히어로 -->
+            <div class="page-hero page-hero--deeper">
+                <div class="container">
+                    <div>
+                        <p class="page-hero__kicker">Company</p>
+                        <h2 class="page-hero__title">회사 연혁</h2>
+                        <p class="page-hero__sub">2005년 창립 이래 전원설비 전문 기업으로 성장해 온 그린파워테크놀로지의 발자취입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 브레드크럼 -->
+            <div class="breadcrumb-bar">
+                <div class="container">
+                    <a href="index.html">Home</a>
+                    <span class="bc-sep">›</span>
+                    <span>기업소개</span>
+                    <span class="bc-sep">›</span>
+                    <span class="bc-cur">회사 연혁</span>
+                </div>
+            </div>
+
+            <!-- 본문 -->
+            <div class="page-body">
+                <div class="container">
+                    <div class="page-layout">
+                        <!-- LNB -->
+                        <aside class="page-lnb">
+                            <p class="page-lnb__title">기업소개</p>
+                            <ul class="page-lnb__list">
+                                <li><a href="company-greeting.html">CEO 인사말</a></li>
+                                <li class="is-active"><a href="company-history.html">회사 연혁</a></li>
+                                <li><a href="company-certifications.html">인증 현황</a></li>
+                                <li><a href="company-partners.html">주요 파트너</a></li>
+                                <li><a href="company-location.html">오시는 길</a></li>
+                            </ul>
+                        </aside>
+
+                        <!-- 콘텐츠 -->
+                        <div>
+                            <div class="content-head">
+                                <h2>회사 연혁</h2>
+                                <p>그린파워테크놀로지가 걸어온 길을 소개합니다.</p>
+                            </div>
+
+                            <div class="history-tl">
+                                <div class="history-item">
+                                    <div class="history-item__year">2019</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>04</strong> 전기공사업 등록</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2018</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li>품질경영체제인증서 KS·ISO 9001:2015 갱신 (KTC)</li>
+                                            <li>환경경영체제인증서 KS·ISO 14001:2015 갱신 (KTC)</li>
+                                            <li>KS 인증 취득 (KTC 삼상 10kVA초과 30kVA이하)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2017</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>03</strong> 중국 KEHUA 사와 기술협약</li>
+                                            <li><strong>12</strong> KS 인증 획득 (한국표준협회 단상 5kVA초과 20kVA이하, 삼상 30kVA초과 75kVA이하)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2016</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>07</strong> 본사 사옥 이전</li>
+                                            <li><strong>08</strong> 공장등록허가</li>
+                                            <li>무정전전원공급장치 직접생산인증 취득</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2015</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>02</strong> 무정전전원공급장치 KC 안전인증 획득</li>
+                                            <li><strong>04</strong> EATON(POWERWARE) PARTNERSHIP 체결</li>
+                                            <li><strong>04</strong> VYCON 미국 플라이휠 PARTNERSHIP 체결</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2014</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>01</strong> 중소기업은행 UPS 공급협력업체 등록</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2013</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>02</strong> 환경경영체제인증서 KS ISO 14001 획득</li>
+                                            <li><strong>05</strong> 한국중부발전 정비정격업체 인증</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2012</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>11</strong> 품질경영체제인증서 KS ISO 9001 획득</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2011</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>09</strong> (주)그린파워테크놀로지 법인전환</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2010</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>05</strong> 한전남동발전 삼천포화력 UPS 보수업체 등록</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2006</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>02</strong> 포스코 기자재 납품 업체 등록</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-item__year">2005</div>
+                                    <div class="history-item__events">
+                                        <ul>
+                                            <li><strong>05</strong> 아세아이엔지 설립</li>
+                                            <li><strong>08</strong> 한국가스공사 강원지사 무정전전원공급장치 보수업체 등록</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-top">
+                <div>
+                    <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
+                    <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 안정된 전원을 공급합니다.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="company-greeting.html">기업소개</a>
+                    <a href="products-green.html">사업영역</a>
+                    <a href="support-notice.html">홍보센터</a>
+                    <a href="inquiry-consulting.html">문의</a>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <div class="footer-info">
+                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
+                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
+                    <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+                </div>
+                <p class="footer-copyright">COPYRIGHT &copy; 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="sub-common.js"></script>
 </body>
 </html>

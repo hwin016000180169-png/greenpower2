@@ -3,133 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A/S 신청 | GREEN POWER</title>
+    <title>서비스 요청 | GREEN POWER</title>
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="sub-common.css">
+    <link rel="icon" type="image/png" href="images/fav_logo.png">
 </head>
 <body>
-    <header class="header sub-header" id="header">
-        <div class="h-inner">
-            <h1 class="logo"><a href="index.html">GREEN POWER</a></h1>
-            <ul class="gnb">
-                <li><a href="company-greeting.html">Company</a>
-                    <div class="depth2">
-                        <a href="company-greeting.html">인사말</a>
-                        <a href="company-history.html">회사연혁</a>
-                        <a href="company-certifications.html">인증 및 특허 현황</a>
-                        <a href="company-partners.html">주요 협력사</a>
-                        <a href="company-location.html">오시는 길</a>
-                    </div>
-                </li>
-                <li><a href="products-green.html">Products</a>
-                    <div class="depth2">
-                        <a href="products-green.html">GREEN UPS</a>
-                        <a href="products-eaton.html">EATON SOLUTIONS</a>
-                        <a href="products-battery.html">INDUSTRIAL BATTERY</a>
-                    </div>
-                </li>
-                <li><a href="inquiry-quote.html">Inquiry</a>
-                    <div class="depth2">
-                        <a href="inquiry-quote.html">견적문의</a>
-                        <a href="inquiry-consulting.html">제품상담</a>
-                        <a href="inquiry-service.html">A/S 신청</a>
-                    </div>
-                </li>
-                <li><a href="support-notice.html">Support</a>
-                    <div class="depth2">
-                        <a href="support-notice.html">공지사항</a>
-                        <a href="support-catalog.html">카다로그</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="h-util">
-                <a href="#" class="lang-toggle">KOR</a>
-                <button class="hamburger" aria-label="메뉴 열기"><span></span><span></span></button>
-            </div>
-        </div>
-    </header>
 
-    <main id="main">
-        <div class="sub-visual light">
-            <div class="sv-bg"></div>
-            <div class="inner"><h2 class="sv-title text-center">INQUIRY</h2></div>
+<header class="site-header" id="header" data-tone="dark">
+  <div class="header-shell">
+    <h1 class="brand"><a href="index.html"><img src="images/main_logo.png" alt="GREEN POWER"></a></h1>
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <ul>
+        <li class="nav-item"><a href="company-greeting.html">기업소개</a>
+          <div class="nav-dropdown">
+            <a href="company-greeting.html">CEO 인사말</a>
+            <a href="company-history.html">회사 연혁</a>
+            <a href="company-certifications.html">인증 현황</a>
+            <a href="company-partners.html">주요 파트너</a>
+            <a href="company-location.html">오시는 길</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="products-green.html">사업영역</a>
+          <div class="nav-dropdown">
+            <a href="products-green.html">GREEN UPS</a>
+            <a href="products-eaton.html">EATON 솔루션</a>
+            <a href="products-battery.html">산업용 배터리</a>
+          </div>
+        </li>
+        <li class="nav-item is-active"><a href="inquiry-consulting.html">문의</a>
+          <div class="nav-dropdown">
+            <a href="inquiry-consulting.html">도입 상담</a>
+            <a href="inquiry-quote.html">견적 문의</a>
+            <a href="inquiry-service.html">서비스 요청</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="support-notice.html">홍보센터</a>
+          <div class="nav-dropdown">
+            <a href="support-notice.html">공지사항</a>
+            <a href="support-catalog.html">카탈로그</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="index.html" class="lang-toggle" aria-label="Current language">KOR</a>
+      <button class="menu-toggle" type="button" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-backdrop" aria-hidden="true"></div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__inner">
+    <div class="mobile-menu__top">
+      <strong class="mobile-brand"><img src="images/main_logo.png" alt="GREEN POWER"></strong>
+      <button class="mobile-close" type="button" id="mobileClose" aria-label="메뉴 닫기">닫기</button>
+    </div>
+    <div class="mobile-menu__body">
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">기업소개</button>
+        <div class="mobile-item__panel">
+          <a href="company-greeting.html">CEO 인사말</a>
+          <a href="company-history.html">회사 연혁</a>
+          <a href="company-certifications.html">인증 현황</a>
+          <a href="company-partners.html">주요 파트너</a>
+          <a href="company-location.html">오시는 길</a>
         </div>
-        <div class="sub-util">
-            <div class="inner"><div class="breadcrumb"><a href="index.html">Home</a> <span class="bc-arr">&gt;</span> Inquiry <span class="bc-arr">&gt;</span> A/S 신청</div></div>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">사업영역</button>
+        <div class="mobile-item__panel">
+          <a href="products-green.html">GREEN UPS</a>
+          <a href="products-eaton.html">EATON 솔루션</a>
+          <a href="products-battery.html">산업용 배터리</a>
+        </div>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">문의</button>
+        <div class="mobile-item__panel">
+          <a href="inquiry-consulting.html">도입 상담</a>
+          <a href="inquiry-quote.html">견적 문의</a>
+          <a href="inquiry-service.html">서비스 요청</a>
+        </div>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
+        <div class="mobile-item__panel">
+          <a href="support-notice.html">공지사항</a>
+          <a href="support-catalog.html">카탈로그</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <p class="page-hero__kicker">문의</p>
+      <h2 class="page-hero__title">서비스 요청</h2>
+      <p class="page-hero__sub">장애 발생 시 증상을 상세히 남겨주시면 신속하게 대응합니다.</p>
+    </div>
+  </section>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-bar__inner">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-bar__sep">›</span>
+      <a href="inquiry-consulting.html">문의</a>
+      <span class="breadcrumb-bar__sep">›</span>
+      <span class="breadcrumb-bar__current">서비스 요청</span>
+    </div>
+  </div>
+
+  <!-- 긴급 연락 배너 -->
+  <div class="service-urgent-bar">
+    <div class="service-urgent-bar__inner">
+      <p class="service-urgent-bar__label">긴급 장애 발생 시</p>
+      <p class="service-urgent-bar__tel"><a href="tel:0317684500">031-768-4500</a>으로 먼저 연락 주십시오.</p>
+      <p class="service-urgent-bar__note">중요 인프라의 경우 전화 접수를 우선으로 합니다. 평일 09:00 – 18:00</p>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="page-body__inner">
+
+      <div class="inquiry-layout">
+
+        <!-- 접수 절차 안내 -->
+        <aside>
+          <p class="service-process__title">서비스 접수 절차</p>
+
+          <div class="service-step">
+            <div class="service-step__num">1</div>
+            <div>
+              <p class="service-step__title">온라인 접수</p>
+              <p class="service-step__desc">아래 양식을 작성하여 제출하시면 담당자에게 즉시 전달됩니다.</p>
+            </div>
+          </div>
+
+          <div class="service-step">
+            <div class="service-step__num">2</div>
+            <div>
+              <p class="service-step__title">접수 확인 연락</p>
+              <p class="service-step__desc">영업일 기준 1일 이내에 담당자가 확인 전화 또는 이메일을 드립니다.</p>
+            </div>
+          </div>
+
+          <div class="service-step">
+            <div class="service-step__num">3</div>
+            <div>
+              <p class="service-step__title">현장 출장 일정 조율</p>
+              <p class="service-step__desc">증상 및 장비 정보를 확인한 후 출장 기술자 파견 일정을 협의합니다.</p>
+            </div>
+          </div>
+
+          <div class="service-step">
+            <div class="service-step__num">4</div>
+            <div>
+              <p class="service-step__title">현장 수리 및 완료 확인</p>
+              <p class="service-step__desc">기술자 출장 후 현장 수리를 진행하며 정상 동작 여부를 확인합니다.</p>
+            </div>
+          </div>
+
+          <div class="inquiry-contact__hours" style="margin-top: 32px;">
+            <p class="inquiry-contact__hours-label">긴급 연락처</p>
+            <p class="inquiry-contact__hours-value">031-768-4500</p>
+          </div>
+        </aside>
+
+        <!-- 서비스 신청 폼 -->
+        <div class="inquiry-form form-wrap">
+          <p class="inquiry-form__title">서비스 신청서 작성</p>
+          <form action="#" method="post" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="s-name">담당자명 <span class="req">*</span></label>
+                <input type="text" id="s-name" name="name" placeholder="담당자명을 입력해주세요" required>
+              </div>
+              <div class="form-field">
+                <label for="s-tel">연락처 <span class="req">*</span></label>
+                <input type="tel" id="s-tel" name="tel" placeholder="예) 010-0000-0000" required>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="s-address">설치 장소 <span class="req">*</span></label>
+                <input type="text" id="s-address" name="address" placeholder="현장 주소를 입력해주세요" required>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="s-fault">장애 유형 <span class="req">*</span></label>
+                <select id="s-fault" name="fault" required>
+                  <option value="" disabled selected>장애 유형을 선택해주세요</option>
+                  <option value="power-off">전원 꺼짐 / 켜지지 않음</option>
+                  <option value="alarm">경고음 발생</option>
+                  <option value="heat">과열 / 소음</option>
+                  <option value="comm">통신 / 모니터링 장애</option>
+                  <option value="battery">배터리 관련</option>
+                  <option value="other">기타 정비 요망</option>
+                </select>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="s-model">제품군 / 모델명</label>
+                <input type="text" id="s-model" name="model" placeholder="예) GREEN UPS 10kVA, EATON 9PX 등">
+              </div>
+              <div class="form-field form-field--full">
+                <label for="s-message">상세 증상 <span class="req">*</span></label>
+                <textarea id="s-message" name="message" rows="6" placeholder="발생한 증상, 오류 코드, 발생 시점 등을 자세히 작성해주세요." required></textarea>
+              </div>
+            </div>
+            <div class="form-agree">
+              <input type="checkbox" id="s-agree" name="agree" required>
+              <label for="s-agree">개인정보 수집 및 이용에 동의합니다. 수집된 정보는 서비스 처리 목적으로만 사용되며, 처리 완료 후 즉시 파기됩니다.</label>
+            </div>
+            <div class="form-submit-wrap">
+              <button type="submit" class="btn-form-submit">서비스 접수하기</button>
+            </div>
+          </form>
         </div>
 
-        <section class="sub-container type-center inner">
-            <aside class="lnb-wrap">
-                <h3 class="lnb-tit">INQUIRY</h3>
-                <ul class="lnb-list">
-                    <li><a href="inquiry-quote.html">견적문의</a></li>
-                    <li><a href="inquiry-consulting.html">제품상담</a></li>
-                    <li class="active"><a href="inquiry-service.html">A/S 신청</a></li>
-                </ul>
-            </aside>
-            <div class="sub-content anim-ele">
-                
-                <div class="h-tabs" style="margin-bottom:30px;">
-                    <a href="inquiry-quote.html" class="">견적문의</a>
-                    <a href="inquiry-consulting.html" class="">제품상담</a>
-                    <a href="inquiry-service.html" class="active">A/S 신청</a>
-                </div>
-                <h3 class="contents-tit line-top" style="text-align:center;">A/S 신청</h3>
-                <div class="article-text" style="background:#f4f5f7; padding: 30px; margin-bottom: 40px; border-left: 4px solid var(--c-accent); font-weight:600;">
-                    사용 중이신 제품에 문제가 발생했습니까? 정확한 진단을 위해 증상을 상세히 남겨주세요.<br>
-                    긴급 복구가 필요한 중요 인프라의 경우, 반드시 전화(031-768-4500)로 먼저 접수 바랍니다.
-                </div>
-                
-                <form class="form-wrap" onsubmit="return false;">
-                    <div class="form-row">
-                        <div class="form-lbl">장애 유형</div>
-                        <div class="form-input">
-                            <select>
-                                <option>전원 꺼짐 / 켜지지 않음</option>
-                                <option>경고음 발생</option>
-                                <option>과열 / 소음</option>
-                                <option>통신 / 모니터링 장애</option>
-                                <option>기타 정비 요망</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-lbl">제품군 / 모델명</div>
-                        <div class="form-input"><input type="text" placeholder="예: Myria (10kVA) 등 입력"></div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-lbl">연락처 및 설치 장소</div>
-                        <div class="form-input"><input type="text" placeholder="연락처 및 현장 방문 주소 기재"></div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-lbl">상세 증상 기재</div>
-                        <div class="form-input"><textarea placeholder="현재 발생한 증상과 오류 코드 등을 자유롭게 적어주십시오."></textarea></div>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn-submit">A/S 접수하기</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
+      </div>
 
-    <footer class="footer">
-        <div class="ft-inner">
-            <div class="ft-top">
-                <strong class="ft-logo">GREEN POWER</strong>
-            </div>
-            <div class="ft-mid">
-                <div class="ft-info">
-                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-                    <p>TEL : 031-768-4500 &nbsp;<span class="div">|</span>&nbsp; FAX : 031-768-4517</p>
-                </div>
-            </div>
-            <div class="ft-bot"><p class="copy">COPYRIGHT© 2026 GREEN POWER TECHNOLOGY ALL RIGHTS RESERVED.</p></div>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-    <script src="subpages-data.js"></script>
-    <script src="sub-common.js"></script>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
+      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 안정된 전원을 공급합니다.</p>
+    </div>
+    <div class="footer-links">
+      <a href="company-greeting.html">기업소개</a>
+      <a href="products-green.html">사업영역</a>
+      <a href="support-notice.html">홍보센터</a>
+      <a href="inquiry-consulting.html">문의</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="footer-info">
+      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
+      <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
+      <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+    </div>
+    <p class="footer-copyright">COPYRIGHT &copy; 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="sub-common.js"></script>
 </body>
 </html>

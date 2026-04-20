@@ -1,301 +1,587 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GREEN POWER TECHNOLOGY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/png" href="images/fav_logo.png">
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="h-inner">
-            <h1 class="logo"><a href="index.html">GREEN POWER</a></h1>
-            <ul class="gnb">
-                <li><a href="company-greeting.html">Company</a>
-                    <div class="depth2">
-                        <a href="company-greeting.html">인사말</a>
-                        <a href="company-history.html">회사연혁</a>
-                        <a href="company-certifications.html">인증 및 특허 현황</a>
-                        <a href="company-partners.html">주요 협력사</a>
-                        <a href="company-location.html">오시는 길</a>
+    <div class="page-shell">
+        <header class="site-header" id="header" data-tone="light">
+            <div class="header-shell">
+                <h1 class="brand"><a href="index.html"><img src="images/main_logo.png" alt="GREEN POWER"></a></h1>
+                <nav class="main-nav" aria-label="주요 메뉴">
+                    <ul>
+                        <li class="nav-item">
+                            <a href="company-greeting.html">기업소개</a>
+                            <div class="nav-dropdown">
+                                <a href="company-greeting.html">CEO 인사말</a>
+                                <a href="company-history.html">회사 연혁</a>
+                                <a href="company-certifications.html">인증 현황</a>
+                                <a href="company-partners.html">주요 파트너</a>
+                                <a href="company-location.html">오시는 길</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products-green.html">사업영역</a>
+                            <div class="nav-dropdown">
+                                <a href="products-green.html">GREEN UPS</a>
+                                <a href="products-eaton.html">EATON 솔루션</a>
+                                <a href="products-battery.html">산업용 배터리</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="inquiry-consulting.html">문의</a>
+                            <div class="nav-dropdown">
+                                <a href="inquiry-consulting.html">도입 상담</a>
+                                <a href="inquiry-quote.html">견적 문의</a>
+                                <a href="inquiry-service.html">서비스 요청</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support-notice.html">홍보센터</a>
+                            <div class="nav-dropdown">
+                                <a href="support-notice.html">공지사항</a>
+                                <a href="support-catalog.html">카탈로그</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="index.html" class="lang-toggle" aria-label="Current language">KOR</a>
+                    <button class="menu-toggle" type="button" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false"
+                        aria-controls="mobileMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-backdrop" aria-hidden="true"></div>
+        </header>
+
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <div class="mobile-menu__inner">
+                <div class="mobile-menu__top">
+                    <strong class="mobile-brand"><img src="images/main_logo.png" alt="GREEN POWER"></strong>
+                    <button class="mobile-close" type="button" id="mobileClose" aria-label="메뉴 닫기">닫기</button>
+                </div>
+                <div class="mobile-menu__body">
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">기업소개</button>
+                        <div class="mobile-item__panel">
+                            <a href="company-greeting.html">CEO 인사말</a>
+                            <a href="company-history.html">회사 연혁</a>
+                            <a href="company-certifications.html">인증 현황</a>
+                            <a href="company-partners.html">주요 파트너</a>
+                            <a href="company-location.html">오시는 길</a>
+                        </div>
                     </div>
-                </li>
-                <li><a href="products-green.html">Business</a>
-                    <div class="depth2">
-                        <a href="products-green.html">GREEN UPS</a>
-                        <a href="products-eaton.html">EATON SOLUTIONS</a>
-                        <a href="products-battery.html">INDUSTRIAL BATTERY</a>
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">사업영역</button>
+                        <div class="mobile-item__panel">
+                            <a href="products-green.html">GREEN UPS</a>
+                            <a href="products-eaton.html">EATON 솔루션</a>
+                            <a href="products-battery.html">산업용 배터리</a>
+                        </div>
                     </div>
-                </li>
-                <li><a href="index.html" onclick="alert('준비중입니다.');return false;">Sustainability</a></li>
-                <li><a href="support-notice.html">PR Room</a>
-                    <div class="depth2">
-                        <a href="support-notice.html">공지사항</a>
-                        <a href="support-catalog.html">카다로그</a>
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">문의</button>
+                        <div class="mobile-item__panel">
+                            <a href="inquiry-consulting.html">도입 상담</a>
+                            <a href="inquiry-quote.html">견적 문의</a>
+                            <a href="inquiry-service.html">서비스 요청</a>
+                        </div>
                     </div>
-                </li>
-            </ul>
-            <div class="h-util">
-                <a href="#" class="lang-toggle">KOR</a>
-                <button class="hamburger" aria-label="메뉴 열기"><span></span><span></span></button>
+                    <div class="mobile-item">
+                        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
+                        <div class="mobile-item__panel">
+                            <a href="support-notice.html">공지사항</a>
+                            <a href="support-catalog.html">카탈로그</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="gnb-bg"></div>
-    </header>
 
-    <main id="main">
-        <!-- 1. Hero -->
-        <section class="sec-hero">
-            <div class="hero-bg" style="background-image: url('hero-enterprise.png');"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="hero-text-wrap">
-                    <h2 class="hero-title">
-                        <span class="block"><span class="rev-text">Beyond</span></span>
-                        <span class="block"><span class="rev-text delay-1">The Limits.</span></span>
-                    </h2>
-                    <p class="hero-desc rev-fade delay-2">초격차 전력 솔루션으로 완성하는<br>지속가능한 산업의 미래</p>
-                </div>
-            </div>
-            <!-- Quick Highlight / CTA Banner inside Hero bottom (POSTECH Style) -->
-            <div class="hero-bottom rev-fade delay-3">
-                <div class="hl-grid">
-                    <a href="#" class="hl-item">
-                        <strong class="hl-tit">ABOUT ENTERPRISE</strong>
-                        <span class="hl-desc">기업 로드맵 및 비전 확인</span>
-                        <span class="hl-arr">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
-                        </span>
-                    </a>
-                    <a href="#" class="hl-item dark">
-                        <strong class="hl-tit">CORE BUSINESS</strong>
-                        <span class="hl-desc">핵심 인프라 솔루션 가이드</span>
-                        <span class="hl-arr">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
-                        </span>
-                    </a>
-                    <a href="#" class="hl-item accent">
-                        <strong class="hl-tit">BUSINESS INQUIRY</strong>
-                        <span class="hl-desc">도입 및 기술 상담 예약</span>
-                        <span class="hl-arr">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="scroll-down">
-                <span class="line"></span>
-            </div>
-        </section>
-
-        <!-- 2. Stats section (Big Impact) -->
-        <section class="sec-stats anim-ele">
-            <div class="inner">
-                <div class="st-head">
-                    <h3 class="sec-tit">IMPACT FACTOR</h3>
-                    <p class="sec-desc">그린파워테크놀로지가 증명하는 견고한 기술 역량과 글로벌 신뢰도 지표</p>
-                </div>
-                <div class="st-list">
-                    <div class="st-item">
-                        <div class="st-num-grp"><span class="counter" data-target="24">0</span><span class="unit">/7</span></div>
-                        <p class="st-txt">시간 단 1초의 오차 없는<br>무중단 전원 공급체계</p>
-                    </div>
-                    <div class="st-item">
-                        <div class="st-num-grp"><span class="counter" data-target="150">0</span><span class="unit">+</span></div>
-                        <p class="st-txt">글로벌 엔터프라이즈<br>파트너 및 고객사 네트워크</p>
-                    </div>
-                    <div class="st-item">
-                        <div class="st-num-grp"><span class="counter" data-target="99.9">0</span><span class="unit">%</span></div>
-                        <p class="st-txt">극한의 환경에서도 유지되는<br>독보적 시스템 신뢰도</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. About Us (Card / Grid) -->
-        <section class="sec-about anim-ele">
-            <div class="inner">
-                <div class="ab-layout">
-                    <div class="ab-head">
-                        <h3 class="sec-tit line-top">ABOUT US</h3>
-                        <p class="ab-headline">압도적 기술력,<br>신뢰의 기준을<br>세우다.</p>
-                        <a href="#" class="btn-more">기업소개 전체보기 <span>→</span></a>
-                    </div>
-                    <div class="ab-card-grid">
-                        <div class="ab-card">
-                            <figure class="ab-fig"><div class="bg" style="background-image:url('about_1.png')"></div></figure>
-                            <div class="ab-info">
-                                <span class="ab-cat">PHILOSOPHY</span>
-                                <strong class="ab-tit">지치지 않는 심장</strong>
-                                <p class="ab-txt">단 1초의 멈춤도 허용하지 않습니다. 고효율 UPS와 차세대 전력 인프라를 통해 글로벌 산업 현장의 무결점 가동을 보장합니다.</p>
+        <main id="content">
+            <section class="hero" id="hero">
+                <div class="hero-slider" data-autoplay="8000">
+                    <article class="hero-slide is-active" data-slide data-header="light">
+                        <div class="hero-media hero-media--video">
+                            <video autoplay muted loop playsinline poster="hero-enterprise.png">
+                                <source src="video/video_web.webm" type="video/webm">
+                            </video>
+                        </div>
+                        <div class="hero-overlay"></div>
+                        <div class="hero-inner container">
+                            <p class="hero-kicker">UPS · AVR · 충전기 · 주파수변환기</p>
+                            <h2 class="hero-title">
+                                <span>최상의 안정된 전원을</span>
+                                <span>공급하는 기업</span>
+                            </h2>
+                            <p class="hero-copy">
+                                그린파워테크놀로지는 산업 현장, 데이터센터, 철도 및 선박 등
+                                다양한 환경에 안정된 전원을 공급하고 설비를 보호합니다.
+                            </p>
+                            <div class="hero-actions">
+                                <a href="company-greeting.html" class="button button--solid">기업소개 보기</a>
+                                <a href="inquiry-consulting.html" class="button button--ghost">도입 상담</a>
                             </div>
                         </div>
-                        <div class="ab-card">
-                            <figure class="ab-fig"><div class="bg" style="background-image:url('about_2.png')"></div></figure>
-                            <div class="ab-info">
-                                <span class="ab-cat">CAPABILITY</span>
-                                <strong class="ab-tit">극한을 견디는 설계</strong>
-                                <p class="ab-txt">반도체, 플랜트, 하이퍼스케일 데이터센터 등 초정밀 공정이 요구되는 가혹한 환경에 특화된 고강도 장비 라인업을 제공합니다.</p>
+                    </article>
+                    <article class="hero-slide" data-slide data-header="light">
+                        <div class="hero-media">
+                            <img src="images/hero_2.png" alt="">
+                        </div>
+                        <div class="hero-overlay"></div>
+                        <div class="hero-inner container">
+                            <p class="hero-kicker">GLOBAL PARTNER SOLUTIONS</p>
+                            <h2 class="hero-title">
+                                <span>EATON · VYCON · KEHUA</span>
+                                <span>글로벌 기술 파트너십</span>
+                            </h2>
+                            <p class="hero-copy">
+                                세계 선도 전력 브랜드와의 공식 파트너십을 통해
+                                검증된 솔루션을 국내 현장에 최적화하여 제공합니다.
+                            </p>
+                            <div class="hero-actions">
+                                <a href="products-eaton.html" class="button button--solid">EATON 솔루션 보기</a>
+                                <a href="company-partners.html" class="button button--ghost">파트너 현황</a>
                             </div>
                         </div>
-                        <div class="ab-card">
-                            <figure class="ab-fig"><div class="bg" style="background-image:url('about_3.png')"></div></figure>
-                            <div class="ab-info">
-                                <span class="ab-cat">EXPERTISE</span>
-                                <strong class="ab-tit">엔지니어링의 정점</strong>
-                                <p class="ab-txt">수십 년 축적된 노하우를 바탕으로, 단순 납품을 넘어 철저한 시뮬레이션을 동반한 최적의 공간 설계 및 운영 매니지먼트를 제시합니다.</p>
+                    </article>
+                    <article class="hero-slide" data-slide data-header="light">
+                        <div class="hero-media">
+                            <img src="images/hero_3.png" alt="">
+                        </div>
+                        <div class="hero-overlay"></div>
+                        <div class="hero-inner container">
+                            <p class="hero-kicker">TRUSTED SINCE 2005</p>
+                            <h2 class="hero-title">
+                                <span>사람과 미래를 생각하는</span>
+                                <span>친환경 에너지 기업</span>
+                            </h2>
+                            <p class="hero-copy">
+                                2005년 설립 이래 국방부, 한국전력, 인천공항공사 등
+                                국내 주요 기관에 전원 인프라를 공급해왔습니다.
+                            </p>
+                            <div class="hero-actions">
+                                <a href="company-history.html" class="button button--solid">회사 연혁 보기</a>
+                                <a href="company-certifications.html" class="button button--ghost">인증 현황 보기</a>
                             </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="hero-ui container">
+                    <div class="hero-paging" role="tablist" aria-label="메인 비주얼">
+                        <button type="button" class="hero-dot is-active" data-slide-index="0" aria-label="1번 슬라이드로 이동"
+                            aria-selected="true"></button>
+                        <button type="button" class="hero-dot" data-slide-index="1" aria-label="2번 슬라이드로 이동"
+                            aria-selected="false"></button>
+                        <button type="button" class="hero-dot" data-slide-index="2" aria-label="3번 슬라이드로 이동"
+                            aria-selected="false"></button>
+                    </div>
+                    <div class="hero-progress" aria-hidden="true"><span></span></div>
+                    <div class="hero-arrows">
+                        <button type="button" class="hero-arrow" data-direction="prev" aria-label="이전 슬라이드">이전</button>
+                        <button type="button" class="hero-arrow" data-direction="next" aria-label="다음 슬라이드">다음</button>
+                    </div>
+                </div>
+
+                <div class="hero-shortcuts">
+                    <a href="company-greeting.html" class="shortcut-card">
+                        <strong>기업소개</strong>
+                        <span>회사 방향성과 비전, 파트너십 정보를 확인해보세요.</span>
+                    </a>
+                    <a href="#businessPanels" class="shortcut-card shortcut-card--dark">
+                        <strong>핵심 사업</strong>
+                        <span>주요 솔루션 라인업과 프로젝트 범위를 살펴보세요.</span>
+                    </a>
+                    <a href="inquiry-quote.html" class="shortcut-card shortcut-card--accent">
+                        <strong>사업 문의</strong>
+                        <span>도입 상담, 견적 문의, 서비스 요청으로 바로 연결됩니다.</span>
+                    </a>
+                </div>
+
+                <button class="hero-scroll" type="button" data-scroll-target="#overview">
+                    <span>Scroll</span>
+                </button>
+            </section>
+
+            <section class="flow-band" aria-hidden="true">
+                <div class="flow-row">
+                    <div class="flow-track">
+                        <span class="flow-logo"><img src="images/logo_01.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_02.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_03.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_04.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_05.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_06.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_07.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_08.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_09.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_10.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_11.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_12.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_13.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_14.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_15.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_16.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_17.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_18.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_19.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_20.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_21.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_22.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_23.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_24.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_25.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_26.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_27.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_01.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_02.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_03.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_04.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_05.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_06.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_07.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_08.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_09.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_10.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_11.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_12.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_13.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_14.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_15.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_16.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_17.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_18.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_19.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_20.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_21.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_22.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_23.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_24.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_25.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_26.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_27.png" alt=""></span>
+                    </div>
+                </div>
+                <div class="flow-row">
+                    <div class="flow-track flow-track--rev">
+                        <span class="flow-logo"><img src="images/logo_27.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_26.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_25.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_24.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_23.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_22.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_21.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_20.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_19.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_18.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_17.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_16.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_15.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_14.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_13.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_12.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_11.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_10.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_09.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_08.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_07.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_06.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_05.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_04.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_03.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_02.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_01.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_27.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_26.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_25.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_24.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_23.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_22.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_21.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_20.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_19.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_18.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_17.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_16.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_15.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_14.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_13.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_12.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_11.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_10.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_09.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_08.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_07.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_06.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_05.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_04.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_03.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_02.png" alt=""></span>
+                        <span class="flow-logo"><img src="images/logo_01.png" alt=""></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="overview section-pad" id="overview">
+                <canvas id="energyCanvas"></canvas>
+                <div class="container overview-grid">
+                    <div class="overview-copy reveal">
+                        <p class="section-label">기업 개요</p>
+                        <h2 class="highlight-text">안정성과 지속가능성을<br>함께 설계하는 전력 인프라 파트너</h2>
+                        <p>
+                            당사는 UPS, AVR, 충전기, 주파수변환기 전문 제조업체로서
+                            다양한 기술과 우수한 시공능력을 보유하고 있습니다.
+                            산업 현장, 데이터센터, 상업시설, 철도 및 선박까지
+                            전원이상으로부터 부하기기를 완전히 보호합니다.
+                        </p>
+                        <a href="company-greeting.html" class="text-link">기업소개 자세히 보기</a>
+                    </div>
+
+                    <div class="overview-stats">
+                        <article class="stat-card reveal">
+                            <div class="stat-value">
+                                <span class="counter" data-target="20">0</span>
+                                <em>년+</em>
+                            </div>
+                            <h3>업력과 현장 경험</h3>
+                            <p>2005년 설립 이래 축적한 전원 설비 공급 및 유지보수 경험입니다.</p>
+                        </article>
+                        <article class="stat-card reveal">
+                            <div class="stat-value">
+                                <span class="counter" data-target="30">0</span>
+                                <em>+</em>
+                            </div>
+                            <h3>주요 납품 고객사</h3>
+                            <p>국방부, 한국전력, 인천공항공사, LG CNS 등 국내 주요 기관과 함께합니다.</p>
+                        </article>
+                        <article class="stat-card reveal">
+                            <div class="stat-value">
+                                <span class="counter" data-target="3">0</span>
+                                <em>개국</em>
+                            </div>
+                            <h3>글로벌 파트너십</h3>
+                            <p>미국 EATON·VYCON, 중국 KEHUA와의 공식 기술 파트너십을 운영합니다.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="container capability-strip">
+                    <article class="capability-card reveal">
+                        <span class="capability-index">01</span>
+                        <strong>제품 설계 · 제조</strong>
+                        <p>UPS, AVR, 충전기, 주파수변환기를 현장 조건에 맞게 설계하고 직접 제조합니다.</p>
+                    </article>
+                    <article class="capability-card reveal">
+                        <span class="capability-index">02</span>
+                        <strong>공급 · 시공</strong>
+                        <p>자체 전기공사업 면허를 보유하여 장비 공급부터 설치, 시운전까지 일괄 수행합니다.</p>
+                    </article>
+                    <article class="capability-card reveal">
+                        <span class="capability-index">03</span>
+                        <strong>유지보수 · A/S</strong>
+                        <p>배터리 교체, 예방 점검, 긴급 대응까지 설치 이후 안정 운영을 지원합니다.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="business">
+                <div class="container business-head reveal">
+                    <p class="section-label">핵심 사업</p>
+                    <h2>전원 설비 공급부터<br>유지보수까지 하나의 창구에서</h2>
+                    <p>자체 브랜드 UPS·EATON 글로벌 솔루션 공급과 배터리 유지보수를 전문적으로 수행합니다.</p>
+                </div>
+
+                <div class="business-panels" id="businessPanels">
+                    <a href="products-green.html" class="business-panel is-active" data-panel>
+                        <div class="business-panel__bg" style="background-image: url('images/left_box_img.png');"></div>
+                        <div class="business-panel__shade"></div>
+                        <div class="business-panel__inner">
+                            <span class="panel-index">01</span>
+                            <div class="panel-copy">
+                                <strong>UPS 솔루션</strong>
+                                <p>자체 개발·제조 GREEN UPS와 EATON(POWERWARE) 글로벌 솔루션을 함께 공급합니다. 단상 소용량부터 데이터센터급 대용량까지 KS·KC
+                                    인증 제품으로 현장에 맞는 전원 시스템을 구성합니다.</p>
+                            </div>
+                            <span class="panel-link">자세히 보기</span>
+                        </div>
+                    </a>
+                    <a href="products-battery.html" class="business-panel" data-panel>
+                        <div class="business-panel__bg" style="background-image: url('images/left_box_img.png');"></div>
+                        <div class="business-panel__shade"></div>
+                        <div class="business-panel__inner">
+                            <span class="panel-index">02</span>
+                            <div class="panel-copy">
+                                <strong>배터리 유지보수</strong>
+                                <p>UPS 배터리 수명 진단, 정기 예방 점검, 긴급 교체까지 전문적으로 관리합니다. 배터리 상태를 지속적으로 모니터링하여 비상 시 전원 공급 안정성을
+                                    유지합니다.</p>
+                            </div>
+                            <span class="panel-link">자세히 보기</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="global-network section-pad">
+                <div class="container">
+                    <div class="global-network__frame reveal">
+                        <div class="global-network__map" aria-hidden="true">
+                            <img src="images/mid_box_img.png" alt="" class="global-network__map-image">
+                        </div>
+
+                        <div class="global-network__content">
+                            <p class="section-label">GLOBAL NETWORKS</p>
+                            <h2 class="highlight-text">미국 · 중국 글로벌 파트너와 함께하는 전력 기술 네트워크</h2>
+                            <p>
+                                EATON(POWERWARE, 미국), VYCON(미국), KEHUA(중국)와의 공식 파트너십을 통해
+                                세계 최고 수준의 전원 기술을 국내 현장에 직접 적용합니다.
+                            </p>
+                            <div class="global-network__actions">
+                                <a href="company-partners.html" class="global-network__button">파트너 현황 보기</a>
+                                <a href="inquiry-consulting.html" class="global-network__link">도입 상담</a>
+                            </div>
+                        </div>
+
+                        <div class="global-network__rail" aria-label="빠른 링크">
+                            <a href="support-notice.html">NEWS</a>
+                            <a href="company-partners.html">NETWORK</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 4. Business (Large Banner Style) -->
-        <section class="sec-biz anim-ele">
-            <div class="inner">
-                <div class="sec-head-center">
-                    <h3 class="sec-tit line-top">CORE BUSINESS</h3>
-                    <p class="sec-desc">미래 산업을 견인하는 안정적이고 포괄적인 파워 인프라 솔루션</p>
-                </div>
-                <div class="bz-banner-list">
-                    <a href="#" class="bz-banner">
-                        <div class="bz-bg" style="background-image:url('about_1.png')"></div>
-                        <div class="bz-dim"></div>
-                        <div class="bz-con">
-                            <div class="in-top">
-                                <span class="bz-num">01</span>
-                            </div>
-                            <div class="in-bot">
-                                <strong class="bz-tit">GREEN UPS</strong>
-                                <p class="bz-txt">자체 개발 친환경 고효율 UPS 시스템 생태계 구축</p>
-                            </div>
-                            <div class="bz-hover-btn">자세히 보기 <span>→</span></div>
+            <section class="news section-pad">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <p class="section-label">홍보센터</p>
+                        <div class="section-head__row">
+                            <h2>그린파워테크놀로지 주요 소식과 자료를 확인하세요</h2>
+                            <p>
+                                제품 카탈로그, 인증 현황, 공지사항을
+                                한 곳에서 빠르게 확인하실 수 있습니다.
+                            </p>
                         </div>
-                    </a>
-                    <a href="#" class="bz-banner">
-                        <div class="bz-bg" style="background-image:url('about_3.png')"></div>
-                        <div class="bz-dim"></div>
-                        <div class="bz-con">
-                            <div class="in-top">
-                                <span class="bz-num">02</span>
-                            </div>
-                            <div class="in-bot">
-                                <strong class="bz-tit">EATON SOLUTIONS</strong>
-                                <p class="bz-txt">글로벌 파워 매니지먼트 리더 EATON 프리미엄 장비</p>
-                            </div>
-                            <div class="bz-hover-btn">자세히 보기 <span>→</span></div>
-                        </div>
-                    </a>
-                    <a href="#" class="bz-banner">
-                        <div class="bz-bg" style="background-image:url('about_2.png')"></div>
-                        <div class="bz-dim"></div>
-                        <div class="bz-con">
-                            <div class="in-top">
-                                <span class="bz-num">03</span>
-                            </div>
-                            <div class="in-bot">
-                                <strong class="bz-tit">INDUSTRIAL BATTERY</strong>
-                                <p class="bz-txt">고성능, 장수명의 안전한 산업용 배터리 인프라</p>
-                            </div>
-                            <div class="bz-hover-btn">자세히 보기 <span>→</span></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+                    </div>
 
-        <!-- 5. PR Room (Mock News, Institutional board style) -->
-        <section class="sec-pr anim-ele">
-            <div class="inner">
-                <div class="flex-head">
-                    <h3 class="sec-tit line-top">PR ROOM</h3>
-                    <a href="#" class="btn-more">소식 더보기 <span>+</span></a>
-                </div>
-                <div class="pr-grid">
-                    <a href="#" class="pr-card main-pr">
-                        <div class="pr-cat">PRESS</div>
-                        <strong class="pr-tit">그린파워테크놀로지, 차세대 친환경 UPS 모델 글로벌 시장 성공적 론칭</strong>
-                        <p class="pr-txt">기존 모델 대비 전력 효율을 15% 이상 개선하고 탄소 배출을 획기적으로 줄인 신규 라인업이 글로벌 파트너들의 호평을 받으며 론칭되었습니다...</p>
-                        <span class="pr-date">2026. 03. 15</span>
-                    </a>
-                    <div class="pr-sub-list">
-                        <a href="#" class="pr-row">
-                            <div class="pr-cat">PROJECT</div>
-                            <strong class="pr-tit">국내 최대 규모 하이퍼스케일 데이터센터 전력망 구축 사업 수주</strong>
-                            <span class="pr-date">2026. 02. 28</span>
-                        </a>
-                        <a href="#" class="pr-row">
-                            <div class="pr-cat">NOTICE</div>
-                            <strong class="pr-tit">2026년 상반기 대규모 엔지니어링 경력직 및 신입 사원 특별 채용</strong>
-                            <span class="pr-date">2026. 01. 10</span>
-                        </a>
-                        <a href="#" class="pr-row">
-                            <div class="pr-cat">PRESS</div>
-                            <strong class="pr-tit">EATON 본사 임원진 방한, 그린파워와 전략적 파트너십 강화 상호 논의</strong>
-                            <span class="pr-date">2025. 11. 22</span>
-                        </a>
+                    <div class="news-carousel reveal">
+                        <div class="news-controls">
+                            <button type="button" class="news-arrow" data-news-direction="prev"
+                                aria-label="이전 소식">이전</button>
+                            <button type="button" class="news-arrow" data-news-direction="next"
+                                aria-label="다음 소식">다음</button>
+                        </div>
+                        <div class="news-track" id="newsTrack">
+                            <article class="news-card">
+                                <span class="news-category">제품안내</span>
+                                <h3>GREEN UPS — KS·KC 인증 취득 국산 고효율 UPS</h3>
+                                <p>단상 5kVA~20kVA, 삼상 10kVA~75kVA까지 KS 및 KC 안전인증을 받은 자체 제조 UPS 제품군을 소개합니다.</p>
+                                <a href="products-green.html" class="text-link">제품 보기</a>
+                            </article>
+                            <article class="news-card">
+                                <span class="news-category">파트너십</span>
+                                <h3>EATON(POWERWARE) 공식 파트너 — 글로벌 전력 솔루션 공급</h3>
+                                <p>세계 1위 전력 브랜드 EATON의 공식 파트너로서 데이터센터, 산업시설에 최적화된 솔루션을 제공합니다.</p>
+                                <a href="products-eaton.html" class="text-link">솔루션 보기</a>
+                            </article>
+                            <article class="news-card">
+                                <span class="news-category">기업정보</span>
+                                <h3>전기공사업 면허 보유 — 공급부터 시공까지 One-Stop 서비스</h3>
+                                <p>2019년 전기공사업 등록을 통해 장비 공급과 시공을 단일 창구에서 처리하는 체계를 갖추었습니다.</p>
+                                <a href="company-history.html" class="text-link">연혁 보기</a>
+                            </article>
+                            <article class="news-card">
+                                <span class="news-category">서비스안내</span>
+                                <h3>배터리 유지보수 — 수명 진단부터 교체까지 전문 관리</h3>
+                                <p>UPS 배터리 상태 진단, 정기 예방 점검, 긴급 교체 서비스를 통해 시스템 비상 대응력을 유지합니다.</p>
+                                <a href="products-battery.html" class="text-link">서비스 보기</a>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 6. Vision / Sustainability (Full bleed image) -->
-        <section class="sec-vision anim-ele">
-            <figure class="vs-bg"><div class="bg" style="background-image:url('vision_bg.png')"></div></figure>
-            <div class="vs-overlay"></div>
-            <div class="vs-content">
-                <div class="inner">
-                    <span class="vs-badge">SUSTAINABILITY</span>
-                    <h3 class="vs-tit">PIONEERING<br>THE FUTURE.</h3>
-                    <p class="vs-desc">
-                        단순한 전력을 넘어, 인류가 나아갈 지속가능한 에너지를 연구합니다.<br>
-                        안전하고 깨끗한 미래 인프라, 그린파워테크놀로지가 그 표준을 정의합니다.
+            <section class="cta-stack" id="ctaStack">
+                <div class="cta-stage">
+                    <article class="cta-card cta-card--primary">
+                        <div class="cta-card__media" style="background-image: url('vision_bg.png');"></div>
+                        <div class="cta-card__overlay"></div>
+                        <div class="cta-card__content container">
+                            <p class="section-label section-label--light">품질 인증</p>
+                            <h2>ISO 9001 · ISO 14001 · KS 인증으로<br>엄격하게 검증된 제품과 공정</h2>
+                            <p>
+                                품질경영, 환경경영 인증과 KS 규격 취득을 통해
+                                제품 신뢰성과 생산 안정성을 공인된 기준으로 증명합니다.
+                            </p>
+                            <div class="cta-links">
+                                <a href="company-certifications.html" class="button button--solid">인증 현황 보기</a>
+                                <a href="support-catalog.html" class="button button--ghost">제품 자료실</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="cta-card cta-card--secondary">
+                        <div class="cta-card__media" style="background-image: url('hero-enterprise.png');"></div>
+                        <div class="cta-card__overlay"></div>
+                        <div class="cta-card__content container">
+                            <p class="section-label section-label--light">사업 문의</p>
+                            <h2>UPS 장비 도입부터 배터리 유지보수까지,<br>전문가에게 지금 바로 문의하세요</h2>
+                            <p>
+                                도입 규모와 현장 조건에 맞는 솔루션을 제안해 드립니다.
+                                상담 접수 후 신속하게 답변해 드리겠습니다.
+                            </p>
+                            <div class="cta-links">
+                                <a href="inquiry-consulting.html" class="button button--solid">도입 상담</a>
+                                <a href="inquiry-quote.html" class="button button--ghost">견적 문의</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-top">
+                <div>
+                    <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
+                    <p class="footer-copy">
+                        UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로
+                        2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.
                     </p>
-                    <div class="vs-tags">
-                        <span>ECO-FRIENDLY</span>
-                        <span>CARBON ZERO</span>
-                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="company-greeting.html">기업소개</a>
+                    <a href="products-green.html">사업영역</a>
+                    <a href="support-notice.html">홍보센터</a>
+                    <a href="inquiry-consulting.html">문의</a>
                 </div>
             </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="ft-inner">
-            <div class="ft-top">
-                <strong class="ft-logo">GREEN POWER</strong>
-                <div class="ft-nav">
-                    <a href="#">회사소개</a>
-                    <a href="#">오시는길</a>
-                    <a href="#" class="point">개인정보처리방침</a>
-                    <a href="#">이메일무단수집거부</a>
-                </div>
-            </div>
-            <div class="ft-mid">
-                <div class="ft-info">
+            <div class="container footer-bottom">
+                <div class="footer-info">
                     <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-                    <p>TEL : 031-768-4500 &nbsp;<span class="div">|</span>&nbsp; FAX : 031-768-4517</p>
+                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
+                    <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
                 </div>
-                <!-- POSTECH style family site select -->
-                <div class="ft-family">
-                    <select aria-label="패밀리 사이트 선택">
-                        <option value="">FAMILY SITE</option>
-                        <option value="eaton">EATON GLOBAL</option>
-                        <option value="cs">CUSTOMER SERVICE</option>
-                    </select>
-                </div>
+                <p class="footer-copyright">COPYRIGHT © 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
             </div>
-            <div class="ft-bot">
-                <p class="copy">COPYRIGHT© 2026 GREEN POWER TECHNOLOGY CO., LTD. ALL RIGHTS RESERVED.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
