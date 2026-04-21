@@ -1,13 +1,278 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EATON 솔루션 | GREEN POWER</title>
-    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="sub-common.css">
-    <link rel="icon" type="image/png" href="images/fav_logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유지보수 솔루션 | GREEN POWER</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sub-common.css">
+  <link rel="icon" type="image/png" href="images/fav_logo.png">
+  <style>
+    /* ── 유지보수 솔루션 전용 스타일 ── */
+    .maint-intro {
+      padding: 64px 0 0;
+    }
+    .maint-intro__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+    @media (max-width: 860px) { .maint-intro__grid { grid-template-columns: 1fr; gap: 40px; } }
+    .maint-intro__kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 16px;
+    }
+    .maint-intro__title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .maint-intro__desc {
+      color: var(--text-muted, #6b7280);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+    .maint-intro__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .maint-badge {
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(46,125,50,0.08);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .maint-intro__img {
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a2e14, #1b5e20);
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .maint-intro__img-inner {
+      text-align: center;
+      color: rgba(255,255,255,0.8);
+    }
+    .maint-intro__img-inner svg { width: 72px; height: 72px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1; margin-bottom: 20px; }
+    .maint-intro__img-inner p { font-size: 14px; }
+
+    /* ── 서비스 카드 ── */
+    .maint-services {
+      margin-bottom: 72px;
+    }
+    .maint-service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .maint-service-grid { grid-template-columns: 1fr; } }
+    .maint-service-card {
+      border-radius: 20px;
+      border: 1px solid rgba(17,23,20,0.08);
+      padding: 36px 32px;
+      background: #fff;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .maint-service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+    }
+    .maint-service-card__num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-dark);
+      margin-bottom: 18px;
+    }
+    .maint-service-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(46,125,50,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .maint-service-card__icon svg { width: 26px; height: 26px; stroke: var(--accent-dark); fill: none; stroke-width: 2; }
+    .maint-service-card__title { font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; }
+    .maint-service-card__desc { font-size: 14px; color: var(--text-muted, #6b7280); line-height: 1.75; margin-bottom: 20px; }
+    .maint-service-card__list { list-style: none; padding: 0; margin: 0; }
+    .maint-service-card__list li {
+      font-size: 13px;
+      color: var(--text);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(17,23,20,0.06);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .maint-service-card__list li:last-child { border-bottom: none; }
+    .maint-service-card__list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent, #4caf50);
+      flex-shrink: 0;
+    }
+
+    /* ── 점검 프로세스 ── */
+    .maint-process {
+      background: #f8f9f8;
+      border-radius: 24px;
+      padding: 56px 48px;
+      margin-bottom: 72px;
+    }
+    @media (max-width: 640px) { .maint-process { padding: 36px 24px; } }
+    .maint-process__title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+    .maint-process__sub { color: var(--text-muted, #6b7280); font-size: 15px; margin-bottom: 48px; }
+    .maint-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    @media (max-width: 860px) { .maint-steps { grid-template-columns: 1fr; gap: 16px; } }
+    .maint-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: rgba(46,125,50,0.2);
+    }
+    @media (max-width: 860px) { .maint-steps::before { display: none; } }
+    .maint-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .maint-step__dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid rgba(46,125,50,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .maint-step__label { font-size: 13px; font-weight: 700; line-height: 1.4; }
+    .maint-step__desc { font-size: 12px; color: var(--text-muted, #6b7280); line-height: 1.5; }
+
+    /* ── 계약 유형 ── */
+    .maint-plans {
+      margin-bottom: 72px;
+    }
+    .maint-plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .maint-plan-grid { grid-template-columns: 1fr; } }
+    .maint-plan {
+      border-radius: 20px;
+      padding: 32px 28px;
+      border: 1.5px solid rgba(17,23,20,0.1);
+      background: #fff;
+      position: relative;
+    }
+    .maint-plan--featured {
+      background: linear-gradient(135deg, #0a2e14, #1b5e20);
+      border-color: transparent;
+      color: #fff;
+    }
+    .maint-plan--featured .maint-plan__desc { color: rgba(255,255,255,0.7); }
+    .maint-plan--featured .maint-plan__item { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
+    .maint-plan--featured .maint-plan__item::before { background: rgba(255,255,255,0.6); }
+    .maint-plan__badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent, #4caf50);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .maint-plan__type { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+    .maint-plan--featured .maint-plan__type { color: rgba(255,255,255,0.6); }
+    .maint-plan__name { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; }
+    .maint-plan__desc { font-size: 13px; color: var(--text-muted, #6b7280); line-height: 1.6; margin-bottom: 24px; }
+    .maint-plan__items { list-style: none; padding: 0; margin: 0; }
+    .maint-plan__item {
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(17,23,20,0.06);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .maint-plan__item:last-child { border-bottom: none; }
+    .maint-plan__item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent, #4caf50);
+      flex-shrink: 0;
+    }
+
+    /* ── CTA ── */
+    .maint-cta {
+      background: linear-gradient(135deg, #0a2e14, #1b5e20);
+      border-radius: 24px;
+      padding: 60px 48px;
+      text-align: center;
+    }
+    @media (max-width: 640px) { .maint-cta { padding: 40px 24px; } }
+    .maint-cta h3 { font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .maint-cta p { color: rgba(255,255,255,0.65); font-size: 15px; margin-bottom: 36px; }
+    .maint-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .maint-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 15px 32px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .maint-cta__btn--white { background: #fff; color: #1b5e20; }
+    .maint-cta__btn--white:hover { background: #e8f5e9; }
+    .maint-cta__btn--ghost { border: 1.5px solid rgba(255,255,255,0.45); color: #fff; }
+    .maint-cta__btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+  </style>
 </head>
 <body>
 
@@ -27,9 +292,9 @@
         </li>
         <li class="nav-item is-active"><a href="products-green.html">사업영역</a>
           <div class="nav-dropdown">
-            <a href="products-green.html">GREEN UPS</a>
-            <a href="products-eaton.html">EATON 솔루션</a>
-            <a href="products-battery.html">산업용 배터리</a>
+            <a href="products-green.html">UPS 솔루션</a>
+            <a href="products-eaton.html">유지보수 솔루션</a>
+            <a href="products-battery.html">배터리 솔루션</a>
           </div>
         </li>
         <li class="nav-item"><a href="inquiry-consulting.html">문의</a>
@@ -48,7 +313,7 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <a href="index.html" class="lang-toggle" aria-label="Current language">KOR</a>
+      <a href="index.html" class="lang-toggle">KOR</a>
       <button class="menu-toggle" type="button" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -77,9 +342,9 @@
       <div class="mobile-item">
         <button class="mobile-item__toggle" type="button" aria-expanded="false">사업영역</button>
         <div class="mobile-item__panel">
-          <a href="products-green.html">GREEN UPS</a>
-          <a href="products-eaton.html">EATON 솔루션</a>
-          <a href="products-battery.html">산업용 배터리</a>
+          <a href="products-green.html">UPS 솔루션</a>
+          <a href="products-eaton.html">유지보수 솔루션</a>
+          <a href="products-battery.html">배터리 솔루션</a>
         </div>
       </div>
       <div class="mobile-item">
@@ -106,8 +371,8 @@
   <section class="page-hero page-hero--deeper">
     <div class="page-hero__inner">
       <p class="page-hero__kicker">사업영역</p>
-      <h2 class="page-hero__title">EATON 솔루션</h2>
-      <p class="page-hero__sub">세계 1위 전력 브랜드 EATON의 공식 파트너</p>
+      <h2 class="page-hero__title">유지보수 솔루션</h2>
+      <p class="page-hero__sub">UPS 설비의 안정적 운영을 위한 전문 유지보수 서비스</p>
     </div>
   </section>
 
@@ -117,7 +382,7 @@
       <span class="breadcrumb-bar__sep">›</span>
       <a href="products-green.html">사업영역</a>
       <span class="breadcrumb-bar__sep">›</span>
-      <span class="breadcrumb-bar__current">EATON 솔루션</span>
+      <span class="breadcrumb-bar__current">유지보수 솔루션</span>
     </div>
   </div>
 
@@ -125,163 +390,201 @@
     <div class="page-body__inner">
 
       <nav class="section-tabs" aria-label="사업영역">
-        <a href="products-green.html" class="section-tabs__item">GREEN UPS</a>
-        <a href="products-eaton.html" class="section-tabs__item is-active">EATON 솔루션</a>
-        <a href="products-battery.html" class="section-tabs__item">산업용 배터리</a>
+        <a href="products-green.html" class="section-tabs__item">UPS 솔루션</a>
+        <a href="products-eaton.html" class="section-tabs__item is-active">유지보수 솔루션</a>
+        <a href="products-battery.html" class="section-tabs__item">배터리 솔루션</a>
       </nav>
 
-    </div>
-
-    <!-- Partnership Band — full width -->
-    <div class="partner-band">
-      <div class="partner-band__inner">
-        <div>
-          <p class="partner-band__label">Official Partner</p>
-          <h3 class="partner-band__title">EATON POWERWARE<br>공식 파트너</h3>
-          <p class="partner-band__since">파트너십 체결: 2015년~</p>
-        </div>
-        <div>
-          <p class="partner-band__desc">EATON은 150여 개국에서 전력 관리 솔루션을 공급하는 세계 최대 전력 관리 전문 기업입니다. 그린파워테크놀로지는 2015년 EATON POWERWARE 공식 파트너로 선정되어 국내 고객에게 검증된 글로벌 솔루션을 제공합니다. 데이터센터, 산업 현장, 의료기관 등 다양한 분야에서 EATON의 기술력과 그린파워의 현장 역량이 결합된 최적의 솔루션을 경험하실 수 있습니다.</p>
+      <!-- 인트로 -->
+      <div class="maint-intro">
+        <div class="maint-intro__grid">
+          <div>
+            <p class="maint-intro__kicker">MAINTENANCE SERVICE</p>
+            <h2 class="maint-intro__title">설치 이후도<br>그린파워가 책임집니다</h2>
+            <p class="maint-intro__desc">
+              UPS 장비는 설치 후 지속적인 점검과 관리가 안정적인 운전의 핵심입니다.
+              그린파워테크놀로지는 2005년 설립 이래 축적한 풍부한 현장 경험을 바탕으로
+              정기점검부터 긴급 A/S, 배터리 교체까지 전담 엔지니어가 직접 방문하여
+              체계적인 유지보수 서비스를 제공합니다.
+            </p>
+            <div class="maint-intro__badges">
+              <span class="maint-badge">전담 엔지니어 배정</span>
+              <span class="maint-badge">긴급 출동 서비스</span>
+              <span class="maint-badge">예방 점검 체계</span>
+              <span class="maint-badge">이력 관리 시스템</span>
+            </div>
+          </div>
+          <div class="maint-intro__img">
+            <div class="maint-intro__img-inner">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              <p>전문 엔지니어 현장 서비스</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
+      <!-- 서비스 유형 -->
+      <div class="maint-services">
+        <h3 class="body-section-title">주요 서비스</h3>
+        <div class="maint-service-grid">
+
+          <div class="maint-service-card reveal">
+            <p class="maint-service-card__num">SERVICE 01</p>
+            <div class="maint-service-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h4 class="maint-service-card__title">정기 예방 점검</h4>
+            <p class="maint-service-card__desc">
+              정기적인 현장 방문을 통해 UPS 장비의 상태를 사전에 점검하고
+              잠재적 고장 요인을 조기에 발견하여 비상 상황을 예방합니다.
+            </p>
+            <ul class="maint-service-card__list">
+              <li>입출력 전압·전류 측정</li>
+              <li>배터리 용량 및 수명 진단</li>
+              <li>내부 부품 청소 및 체결 점검</li>
+              <li>냉각 팬·필터 상태 확인</li>
+              <li>점검 보고서 발행</li>
+            </ul>
+          </div>
+
+          <div class="maint-service-card reveal">
+            <p class="maint-service-card__num">SERVICE 02</p>
+            <div class="maint-service-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h4 class="maint-service-card__title">긴급 A/S 출동</h4>
+            <p class="maint-service-card__desc">
+              UPS 장비 이상 발생 시 전담 엔지니어가 신속히 현장에 출동하여
+              원인을 진단하고 즉각적인 복구 조치를 취합니다.
+            </p>
+            <ul class="maint-service-card__list">
+              <li>24시간 긴급 출동 접수</li>
+              <li>현장 고장 원인 진단</li>
+              <li>임시 조치 및 즉시 복구</li>
+              <li>부품 교체 및 수리</li>
+              <li>사후 조치 결과 보고</li>
+            </ul>
+          </div>
+
+          <div class="maint-service-card reveal">
+            <p class="maint-service-card__num">SERVICE 03</p>
+            <div class="maint-service-card__icon">
+              <svg viewBox="0 0 24 24"><rect x="1" y="6" width="22" height="12" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <h4 class="maint-service-card__title">배터리 교체 서비스</h4>
+            <p class="maint-service-card__desc">
+              UPS 배터리 수명을 정밀 진단하고 적시에 교체하여
+              비상 시 안정적인 전원 공급 능력을 유지합니다.
+            </p>
+            <ul class="maint-service-card__list">
+              <li>배터리 용량 정밀 측정</li>
+              <li>수명 예측 및 교체 시기 안내</li>
+              <li>VRLA·AGM·리튬 배터리 대응</li>
+              <li>무정전 상태 교체 지원</li>
+              <li>폐배터리 적법 처리</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /.page-body__inner -->
+
+    <!-- 점검 프로세스 (풀 폭) -->
     <div class="page-body__inner">
-
-      <h3 class="body-section-title">EATON 제품 카테고리</h3>
-
-      <div class="product-cards">
-
-        <!-- 01 EATON 9000 Series (대형 3상) -->
-        <div class="product-card-v2"
-          data-video="ScMzIvxBSi4"
-          data-name="9000 Series (9395 · 9390 · 93PM)"
-          data-spec="데이터센터·산업시설용 대형 3상 온라인 UPS. 9395: 최대 1100kVA · 9390: 40~160kVA · 93PM: 모듈형 확장 · 이중변환 방식 · 고가용성 설계"
-          data-pdf="#"
-          role="button" tabindex="0">
-          <div class="product-card-v2__img">
-            <div class="product-card-v2__img-placeholder">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>이미지 준비중</span>
-            </div>
-            <span class="product-card-v2__badge">영상 보기 ▶</span>
+      <div class="maint-process reveal">
+        <h3 class="maint-process__title">서비스 진행 절차</h3>
+        <p class="maint-process__sub">접수부터 사후 관리까지 체계적인 5단계 프로세스로 진행합니다.</p>
+        <div class="maint-steps">
+          <div class="maint-step">
+            <div class="maint-step__dot">01</div>
+            <p class="maint-step__label">서비스 접수</p>
+            <p class="maint-step__desc">전화·이메일·온라인 접수</p>
           </div>
-          <div class="product-card-v2__body">
-            <span class="product-card-v2__num">01</span>
-            <p class="product-card-v2__name">9000 Series</p>
-            <p class="product-card-v2__spec">9395 · 9390 · 93PM · 대형 3상 UPS</p>
+          <div class="maint-step">
+            <div class="maint-step__dot">02</div>
+            <p class="maint-step__label">현장 출동</p>
+            <p class="maint-step__desc">전담 엔지니어 배정 및 방문</p>
           </div>
-        </div>
-
-        <!-- 02 EATON 5PX Series (중형 단상) -->
-        <div class="product-card-v2"
-          data-video="hxvpqO3e3lc"
-          data-name="5PX Series (5PX1500 · 5PX2200 · 5PX3000)"
-          data-spec="IT 인프라·서버룸용 중형 단상 UPS. 5PX1500: 1500VA · 5PX2200: 2200VA · 5PX3000: 3000VA · Rack/Tower 겸용 · 높은 에너지 효율 · 관리 소프트웨어 제공"
-          data-pdf="#"
-          role="button" tabindex="0">
-          <div class="product-card-v2__img">
-            <div class="product-card-v2__img-placeholder">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>이미지 준비중</span>
-            </div>
-            <span class="product-card-v2__badge">영상 보기 ▶</span>
+          <div class="maint-step">
+            <div class="maint-step__dot">03</div>
+            <p class="maint-step__label">정밀 진단</p>
+            <p class="maint-step__desc">장비 상태 전수 점검</p>
           </div>
-          <div class="product-card-v2__body">
-            <span class="product-card-v2__num">02</span>
-            <p class="product-card-v2__name">5PX Series</p>
-            <p class="product-card-v2__spec">5PX1500 · 5PX2200 · 5PX3000 · 단상 UPS</p>
+          <div class="maint-step">
+            <div class="maint-step__dot">04</div>
+            <p class="maint-step__label">조치 및 수리</p>
+            <p class="maint-step__desc">부품 교체 · 수리 · 설정</p>
+          </div>
+          <div class="maint-step">
+            <div class="maint-step__dot">05</div>
+            <p class="maint-step__label">보고서 발행</p>
+            <p class="maint-step__desc">점검 결과 및 이력 관리</p>
           </div>
         </div>
-
-        <!-- 03 EATON ECO Series -->
-        <div class="product-card-v2"
-          data-video="tntOCGkgt98"
-          data-name="ECO Series (ECO650 · ECO1200USB · ECO1600USB)"
-          data-spec="소형 오피스·IT 장비용 UPS. ECO650/ECO650USB · ECO1200USB · ECO1600USB · USB 통신 · 컴팩트 설계 · 배터리 백업 및 서지 보호"
-          data-pdf="#"
-          role="button" tabindex="0">
-          <div class="product-card-v2__img">
-            <div class="product-card-v2__img-placeholder">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>이미지 준비중</span>
-            </div>
-            <span class="product-card-v2__badge">영상 보기 ▶</span>
-          </div>
-          <div class="product-card-v2__body">
-            <span class="product-card-v2__num">03</span>
-            <p class="product-card-v2__name">ECO Series</p>
-            <p class="product-card-v2__spec">ECO650 · ECO1200USB · ECO1600USB</p>
-          </div>
-        </div>
-
-        <!-- 04 EATON ENV Series -->
-        <div class="product-card-v2"
-          data-video="YkgkThdzX-8"
-          data-name="ENV Series (ENV600 · ENV800 · ENV1000 · ENV1400 · ENV2000)"
-          data-spec="가정·소규모 사무실용 입문형 UPS. ENV600 · ENV800 · ENV1000 · ENV1400 · ENV2000 · 라인 인터랙티브 방식 · 자동전압조정(AVR) · 콤팩트 디자인"
-          data-pdf="#"
-          role="button" tabindex="0">
-          <div class="product-card-v2__img">
-            <div class="product-card-v2__img-placeholder">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>이미지 준비중</span>
-            </div>
-            <span class="product-card-v2__badge">영상 보기 ▶</span>
-          </div>
-          <div class="product-card-v2__body">
-            <span class="product-card-v2__num">04</span>
-            <p class="product-card-v2__name">ENV Series</p>
-            <p class="product-card-v2__spec">ENV600 · ENV800 · ENV1000 · ENV1400 · ENV2000</p>
-          </div>
-        </div>
-
-      </div><!-- /.product-cards -->
-
-      <!-- 상세 패널 -->
-      <div class="product-detail-panel" id="productDetail">
-        <div class="product-detail-panel__inner">
-          <!-- 왼쪽: 영상 -->
-          <div class="product-detail__video">
-            <div class="product-detail__video-ph">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <span>카드를 클릭하면 영상이 재생됩니다</span>
-            </div>
-            <iframe src="" title="제품 소개 영상" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-          </div>
-          <!-- 오른쪽: 정보 + 액션 -->
-          <div class="product-detail__side">
-            <p class="product-detail__label">EATON 솔루션</p>
-            <p class="product-detail__name"></p>
-            <p class="product-detail__spec"></p>
-            <div class="product-detail__actions">
-              <a href="#" class="product-detail__pdf is-disabled" download>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                매뉴얼 PDF 다운로드
-              </a>
-              <a href="inquiry-consulting.html" class="product-detail__inquiry">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                도입 상담 문의
-              </a>
-            </div>
-            <button class="product-detail__close" type="button" aria-label="닫기">✕ 닫기</button>
-          </div>
-        </div>
-      </div><!-- /.product-detail-panel -->
-
-    </div>
-  </div>
-
-  <!-- CTA Bar -->
-  <div class="cta-bar">
-    <div class="cta-bar__inner">
-      <div>
-        <p class="cta-bar__text">EATON 제품 도입을 검토 중이신가요?</p>
-        <p class="cta-bar__sub">최적의 솔루션을 제안해드립니다. 지금 바로 문의해보세요.</p>
       </div>
-      <a href="inquiry-consulting.html" class="cta-bar__btn">도입 상담 문의</a>
     </div>
-  </div>
+
+    <!-- 유지보수 계약 유형 -->
+    <div class="page-body__inner">
+      <div class="maint-plans">
+        <h3 class="body-section-title">유지보수 계약 유형</h3>
+        <div class="maint-plan-grid">
+
+          <div class="maint-plan reveal">
+            <p class="maint-plan__type">BASIC</p>
+            <h4 class="maint-plan__name">기본 점검 계약</h4>
+            <p class="maint-plan__desc">연 1~2회 정기점검으로 기본 상태를 유지합니다.</p>
+            <ul class="maint-plan__items">
+              <li class="maint-plan__item">연 1~2회 정기점검</li>
+              <li class="maint-plan__item">점검 보고서 발행</li>
+              <li class="maint-plan__item">전화 기술 지원</li>
+              <li class="maint-plan__item">배터리 수명 진단</li>
+            </ul>
+          </div>
+
+          <div class="maint-plan maint-plan--featured reveal">
+            <div class="maint-plan__badge">추천</div>
+            <p class="maint-plan__type">STANDARD</p>
+            <h4 class="maint-plan__name">표준 유지보수 계약</h4>
+            <p class="maint-plan__desc">정기점검과 긴급 출동을 포함한 종합 관리 서비스입니다.</p>
+            <ul class="maint-plan__items">
+              <li class="maint-plan__item">연 2~4회 정기점검</li>
+              <li class="maint-plan__item">긴급 출동 서비스</li>
+              <li class="maint-plan__item">배터리 수명 진단</li>
+              <li class="maint-plan__item">부품 우선 공급</li>
+              <li class="maint-plan__item">설비 이력 관리</li>
+            </ul>
+          </div>
+
+          <div class="maint-plan reveal">
+            <p class="maint-plan__type">PREMIUM</p>
+            <h4 class="maint-plan__name">프리미엄 관리 계약</h4>
+            <p class="maint-plan__desc">무제한 출동과 부품 교체를 포함한 All-in-One 서비스입니다.</p>
+            <ul class="maint-plan__items">
+              <li class="maint-plan__item">분기 정기점검</li>
+              <li class="maint-plan__item">무제한 긴급 출동</li>
+              <li class="maint-plan__item">소모 부품 교체 포함</li>
+              <li class="maint-plan__item">배터리 교체 우선 지원</li>
+              <li class="maint-plan__item">전담 엔지니어 배정</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 하단 CTA -->
+      <div class="maint-cta reveal">
+        <h3>지금 바로 유지보수 서비스를 신청하세요</h3>
+        <p>현장 조건에 맞는 최적의 유지보수 계획을 제안해 드립니다. 상담 접수 후 신속하게 답변드리겠습니다.</p>
+        <div class="maint-cta__actions">
+          <a href="inquiry-service.html" class="maint-cta__btn maint-cta__btn--white">서비스 요청</a>
+          <a href="inquiry-consulting.html" class="maint-cta__btn maint-cta__btn--ghost">도입 상담</a>
+        </div>
+      </div>
+
+    </div><!-- /.page-body__inner -->
+  </div><!-- /.page-body -->
 
 </main>
 
@@ -289,7 +592,7 @@
   <div class="container footer-top">
     <div>
       <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
-      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 안정된 전원을 공급합니다.</p>
+      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
     </div>
     <div class="footer-links">
       <a href="company-greeting.html">기업소개</a>
@@ -304,62 +607,10 @@
       <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
       <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
     </div>
-    <p class="footer-copyright">COPYRIGHT &copy; 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
+    <p class="footer-copyright">COPYRIGHT © 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
   </div>
 </footer>
 
 <script src="script.js"></script>
-<script src="sub-common.js"></script>
-<script>
-(function () {
-  var cards    = document.querySelectorAll('.product-card-v2');
-  var panel    = document.getElementById('productDetail');
-  if (!panel) return;
-  var iframe   = panel.querySelector('.product-detail__video iframe');
-  var vidPh    = panel.querySelector('.product-detail__video-ph');
-  var detName  = panel.querySelector('.product-detail__name');
-  var detSpec  = panel.querySelector('.product-detail__spec');
-  var detPdf   = panel.querySelector('.product-detail__pdf');
-  var closeBtn = panel.querySelector('.product-detail__close');
-
-  function openPanel(card) {
-    cards.forEach(function (c) { c.classList.remove('is-active'); });
-    card.classList.add('is-active');
-    var vid = card.dataset.video;
-    var pdf = card.dataset.pdf;
-    if (detName) detName.textContent = card.dataset.name;
-    if (detSpec) detSpec.textContent = card.dataset.spec;
-    if (detPdf) {
-      if (pdf && pdf !== '#') {
-        detPdf.href = pdf;
-        detPdf.setAttribute('download', '');
-        detPdf.classList.remove('is-disabled');
-      } else {
-        detPdf.href = '#';
-        detPdf.removeAttribute('download');
-        detPdf.classList.add('is-disabled');
-      }
-    }
-    if (iframe) iframe.src = 'https://www.youtube.com/embed/' + vid + '?rel=0&modestbranding=1';
-    if (vidPh) vidPh.classList.add('is-hidden');
-    panel.classList.add('is-open');
-    setTimeout(function () {
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 60);
-  }
-
-  function closePanel() {
-    panel.classList.remove('is-open');
-    cards.forEach(function (c) { c.classList.remove('is-active'); });
-    if (iframe) iframe.src = '';
-    if (vidPh) vidPh.classList.remove('is-hidden');
-  }
-
-  cards.forEach(function (card) {
-    card.addEventListener('click', function () { openPanel(this); });
-  });
-  if (closeBtn) closeBtn.addEventListener('click', closePanel);
-}());
-</script>
 </body>
 </html>

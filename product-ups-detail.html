@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제품 상세 | GREEN POWER</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sub-common.css">
+  <link rel="icon" type="image/png" href="images/fav_logo.png">
+  <style>
+    /* ── 제품 상세 페이지 전용 스타일 ── */
+    .pd-hero {
+      background: #0a1a10;
+      padding: 80px 0 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pd-hero__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .pd-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .pd-hero__back:hover { color: #fff; }
+    .pd-hero__back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .pd-hero__kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .pd-hero__title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .pd-hero__sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+    }
+
+    /* ── 메인 레이아웃 ── */
+    .pd-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+    .pd-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+    @media (max-width: 860px) {
+      .pd-main { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* 이미지 */
+    .pd-img-wrap {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    }
+    .pd-img-wrap img {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+    }
+
+    /* 정보 영역 */
+    .pd-info__label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+    }
+    .pd-info__name {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .pd-info__cat {
+      font-size: 15px;
+      color: var(--text-muted, #6b7280);
+      margin-bottom: 28px;
+    }
+
+    /* 스펙 테이블 */
+    .pd-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+    .pd-spec-table tr {
+      border-bottom: 1px solid rgba(17,23,20,0.07);
+    }
+    .pd-spec-table td:first-child {
+      width: 42%;
+      padding: 12px 0;
+      color: var(--text-muted, #6b7280);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .pd-spec-table td:last-child {
+      padding: 12px 0;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* 액션 버튼 */
+    .pd-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .pd-btn--primary {
+      background: var(--accent-dark, #1b5e20);
+      color: #fff;
+    }
+    .pd-btn--primary:hover { background: #2e7d32; }
+    .pd-btn--outline {
+      background: transparent;
+      border: 1.5px solid rgba(17,23,20,0.2);
+      color: var(--text);
+    }
+    .pd-btn--outline:hover { border-color: var(--accent-dark); color: var(--accent-dark); }
+    .pd-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    /* ── 탭 섹션 ── */
+    .pd-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid rgba(17,23,20,0.08);
+      margin-bottom: 40px;
+    }
+    .pd-tab {
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted, #6b7280);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .pd-tab.is-active {
+      color: var(--accent-dark, #1b5e20);
+      border-bottom-color: var(--accent-dark, #1b5e20);
+    }
+    .pd-tab-panel { display: none; }
+    .pd-tab-panel.is-active { display: block; }
+
+    /* 특징 그리드 */
+    .pd-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    .pd-feature-card {
+      padding: 24px;
+      border-radius: 16px;
+      background: #f8f9f8;
+      border: 1px solid rgba(17,23,20,0.06);
+    }
+    .pd-feature-card__icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(46,125,50,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .pd-feature-card__icon svg { width: 20px; height: 20px; stroke: var(--accent-dark, #1b5e20); fill: none; stroke-width: 2; }
+    .pd-feature-card__title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .pd-feature-card__desc { font-size: 13px; color: var(--text-muted, #6b7280); line-height: 1.6; }
+
+    /* 적용 분야 */
+    .pd-apps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pd-app-tag {
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(46,125,50,0.08);
+      color: var(--accent-dark, #1b5e20);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* 영상 섹션 */
+    .pd-video-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+      aspect-ratio: 16/9;
+    }
+    .pd-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .pd-video-ph {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+    .pd-video-ph svg { width: 48px; height: 48px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+    /* CTA */
+    .pd-cta {
+      margin-top: 72px;
+      background: linear-gradient(135deg, #0a2e14, #1b5e20);
+      border-radius: 24px;
+      padding: 56px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .pd-cta h3 { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .pd-cta p { color: rgba(255,255,255,0.65); font-size: 15px; }
+    .pd-cta__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pd-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .pd-cta__btn--white { background: #fff; color: #1b5e20; }
+    .pd-cta__btn--white:hover { background: #e8f5e9; }
+    .pd-cta__btn--ghost { border: 1.5px solid rgba(255,255,255,0.4); color: #fff; }
+    .pd-cta__btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    /* 관련 제품 */
+    .pd-related { margin-top: 72px; }
+    .pd-related__title { font-size: 1.25rem; font-weight: 800; margin-bottom: 24px; }
+
+    @media (max-width: 640px) {
+      .pd-body { padding: 40px 20px 80px; }
+      .pd-hero__inner { padding: 0 20px; }
+      .pd-cta { padding: 36px 24px; }
+      .pd-tabs { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="header" data-tone="dark">
+  <div class="header-shell">
+    <h1 class="brand"><a href="index.html"><img src="images/main_logo.png" alt="GREEN POWER"></a></h1>
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <ul>
+        <li class="nav-item"><a href="company-greeting.html">기업소개</a>
+          <div class="nav-dropdown">
+            <a href="company-greeting.html">CEO 인사말</a>
+            <a href="company-history.html">회사 연혁</a>
+            <a href="company-certifications.html">인증 현황</a>
+            <a href="company-partners.html">주요 파트너</a>
+            <a href="company-location.html">오시는 길</a>
+          </div>
+        </li>
+        <li class="nav-item is-active"><a href="products-green.html">사업영역</a>
+          <div class="nav-dropdown">
+            <a href="products-green.html">UPS 솔루션</a>
+            <a href="products-eaton.html">유지보수 솔루션</a>
+            <a href="products-battery.html">배터리 솔루션</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="inquiry-consulting.html">문의</a>
+          <div class="nav-dropdown">
+            <a href="inquiry-consulting.html">도입 상담</a>
+            <a href="inquiry-quote.html">견적 문의</a>
+            <a href="inquiry-service.html">서비스 요청</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="support-notice.html">홍보센터</a>
+          <div class="nav-dropdown">
+            <a href="support-notice.html">공지사항</a>
+            <a href="support-catalog.html">카탈로그</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="index.html" class="lang-toggle">KOR</a>
+      <button class="menu-toggle" type="button" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-backdrop" aria-hidden="true"></div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__inner">
+    <div class="mobile-menu__top">
+      <strong class="mobile-brand"><img src="images/main_logo.png" alt="GREEN POWER"></strong>
+      <button class="mobile-close" type="button" id="mobileClose" aria-label="메뉴 닫기">닫기</button>
+    </div>
+    <div class="mobile-menu__body">
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">기업소개</button>
+        <div class="mobile-item__panel">
+          <a href="company-greeting.html">CEO 인사말</a>
+          <a href="company-history.html">회사 연혁</a>
+          <a href="company-certifications.html">인증 현황</a>
+          <a href="company-partners.html">주요 파트너</a>
+          <a href="company-location.html">오시는 길</a>
+        </div>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">사업영역</button>
+        <div class="mobile-item__panel">
+          <a href="products-green.html">UPS 솔루션</a>
+          <a href="products-eaton.html">유지보수 솔루션</a>
+          <a href="products-battery.html">배터리 솔루션</a>
+        </div>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">문의</button>
+        <div class="mobile-item__panel">
+          <a href="inquiry-consulting.html">도입 상담</a>
+          <a href="inquiry-quote.html">견적 문의</a>
+          <a href="inquiry-service.html">서비스 요청</a>
+        </div>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
+        <div class="mobile-item__panel">
+          <a href="support-notice.html">공지사항</a>
+          <a href="support-catalog.html">카탈로그</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- 히어로 -->
+  <section class="pd-hero" id="pdHero">
+    <div class="pd-hero__inner">
+      <a href="products-green.html" class="pd-hero__back">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        UPS 솔루션 목록으로
+      </a>
+      <p class="pd-hero__kicker" id="pdKicker">GREEN UPS</p>
+      <h1 class="pd-hero__title" id="pdTitle">제품명</h1>
+      <p class="pd-hero__sub" id="pdSub">제품 카테고리</p>
+    </div>
+  </section>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-bar__inner">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-bar__sep">›</span>
+      <a href="products-green.html">UPS 솔루션</a>
+      <span class="breadcrumb-bar__sep">›</span>
+      <span class="breadcrumb-bar__current" id="pdBreadcrumb">제품 상세</span>
+    </div>
+  </div>
+
+  <div class="pd-body">
+
+    <!-- 메인: 이미지 + 스펙 -->
+    <div class="pd-main">
+      <div class="pd-img-wrap">
+        <img id="pdImg" src="" alt="">
+      </div>
+      <div class="pd-info">
+        <p class="pd-info__label">GREEN UPS</p>
+        <h2 class="pd-info__name" id="pdInfoName">-</h2>
+        <p class="pd-info__cat" id="pdInfoCat">-</p>
+        <table class="pd-spec-table" id="pdSpecTable"></table>
+        <div class="pd-actions">
+          <a href="inquiry-quote.html" class="pd-btn pd-btn--primary">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            견적 문의
+          </a>
+          <a href="#" class="pd-btn pd-btn--outline" id="pdPdfBtn">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            카탈로그 PDF
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 탭 섹션 -->
+    <div class="pd-tabs" role="tablist">
+      <button class="pd-tab is-active" data-tab="features" role="tab">주요 특징</button>
+      <button class="pd-tab" data-tab="applications" role="tab">적용 분야</button>
+      <button class="pd-tab" data-tab="video" role="tab">제품 영상</button>
+    </div>
+
+    <!-- 특징 -->
+    <div class="pd-tab-panel is-active" id="tab-features">
+      <div class="pd-features" id="pdFeatures"></div>
+    </div>
+
+    <!-- 적용 분야 -->
+    <div class="pd-tab-panel" id="tab-applications">
+      <p style="margin-bottom:20px;color:var(--text-muted,#6b7280);font-size:14px;">다양한 산업 현장에 최적화된 전원 보호 솔루션을 제공합니다.</p>
+      <div class="pd-apps" id="pdApps"></div>
+    </div>
+
+    <!-- 영상 -->
+    <div class="pd-tab-panel" id="tab-video">
+      <div class="pd-video-wrap">
+        <div class="pd-video-ph" id="pdVideoPh">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+          <span>영상을 불러오는 중입니다</span>
+        </div>
+        <iframe id="pdVideoFrame" src="" title="제품 소개 영상" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="pd-cta">
+      <div>
+        <h3>도입을 검토 중이신가요?</h3>
+        <p>현장 조건에 맞는 최적의 UPS 솔루션을 제안해 드립니다.</p>
+      </div>
+      <div class="pd-cta__actions">
+        <a href="inquiry-consulting.html" class="pd-cta__btn pd-cta__btn--white">도입 상담 신청</a>
+        <a href="inquiry-quote.html" class="pd-cta__btn pd-cta__btn--ghost">견적 문의</a>
+      </div>
+    </div>
+
+    <!-- 관련 제품 -->
+    <div class="pd-related">
+      <p class="pd-related__title">다른 제품 보기</p>
+      <div class="product-cards" id="pdRelated"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
+      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
+    </div>
+    <div class="footer-links">
+      <a href="company-greeting.html">기업소개</a>
+      <a href="products-green.html">사업영역</a>
+      <a href="support-notice.html">홍보센터</a>
+      <a href="inquiry-consulting.html">문의</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="footer-info">
+      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
+      <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
+      <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+    </div>
+    <p class="footer-copyright">COPYRIGHT © 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// ── 제품 데이터 ──
+const PRODUCTS = {
+  '01': {
+    name: 'Myria (60-200kVA)',
+    category: '대용량 삼상 온라인 이중변환 UPS',
+    image: 'images/product/Myria (60-200kVA).png',
+    video: 'dQw4w9WgXcQ',
+    specs: [
+      { label: '용량', value: '60 ~ 200kVA' },
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '삼상 (3상)' },
+      { label: '입력역률', value: '0.99 이상' },
+      { label: '종합효율', value: '95%' },
+      { label: '디스플레이', value: 'Touch Screen' },
+      { label: '부가기능', value: 'EPO' },
+    ],
+    features: [
+      { icon: 'zap', title: '고효율 95%', desc: '온라인 이중변환 방식으로 최고 수준의 전력 변환 효율을 달성합니다.' },
+      { icon: 'monitor', title: 'Touch Screen', desc: '직관적인 터치 스크린 디스플레이로 실시간 상태를 한눈에 확인합니다.' },
+      { icon: 'shield', title: 'EPO 비상차단', desc: '비상 전원 차단 기능으로 긴급 상황 시 즉각 대응이 가능합니다.' },
+      { icon: 'trending-up', title: '대용량 지원', desc: '60~200kVA 광범위한 용량으로 대형 데이터센터에 최적화되어 있습니다.' },
+    ],
+    applications: ['대형 데이터센터', '방송국', '금융 전산실', '통신 기지국', '대형 산업 설비'],
+  },
+  '02': {
+    name: 'Green-UK33',
+    category: '삼상 온라인 이중변환 UPS',
+    image: 'images/product/Green-UK33.png',
+    video: 'jNQXAC9IVRw',
+    specs: [
+      { label: '용량', value: '10 ~ 40kVA' },
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '삼상 (3상)' },
+      { label: '입력역률', value: '0.99 이상' },
+      { label: '종합효율', value: '95%' },
+      { label: '통신포트', value: 'RS-232 / USB' },
+      { label: '절체시간', value: '무순단 (0~4ms)' },
+      { label: '부가기능', value: 'ECO · EPO' },
+    ],
+    features: [
+      { icon: 'zap', title: '고역률 0.99이상', desc: '업계 최고 수준의 입력역률로 전력 손실을 최소화합니다.' },
+      { icon: 'wifi', title: '원격 통신', desc: 'RS-232/USB 포트로 PC 및 관제 시스템과 연동하여 원격 모니터링이 가능합니다.' },
+      { icon: 'settings', title: 'ECO 모드', desc: '부하 상태에 따라 자동으로 ECO 모드로 전환하여 에너지를 절약합니다.' },
+      { icon: 'clock', title: '무순단 절체', desc: '0~4ms 이내의 무순단 절체로 부하기기의 연속 운전을 보장합니다.' },
+    ],
+    applications: ['중형 데이터센터', '서버룸', '산업 제어 설비', '통신 장비', '병원·의료기기'],
+  },
+  '03': {
+    name: 'RM (10-40kVA)',
+    category: '19인치 Rack/Tower 겸용 삼상 온라인 UPS',
+    image: 'images/product/RM (10-40kVA).png',
+    video: '9bZkp7q19f0',
+    specs: [
+      { label: '용량', value: '10 ~ 40kVA' },
+      { label: '설치 형태', value: 'Rack / Tower 겸용' },
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '삼상 (3상)' },
+      { label: '고역률', value: '0.99 이상' },
+      { label: '종합효율', value: '92% 이상' },
+      { label: '통신포트', value: 'RS232 / RS485' },
+      { label: '절체시간', value: '무순단 (0~4ms)' },
+      { label: '배터리', value: 'Hot-Swap 지원' },
+    ],
+    features: [
+      { icon: 'server', title: 'Rack/Tower 겸용', desc: '19인치 랙과 타워형 모두 설치 가능하여 공간 활용도가 뛰어납니다.' },
+      { icon: 'battery-charging', title: 'Battery Hot-Swap', desc: '무정전 상태에서 배터리 교체가 가능하여 시스템 다운타임 없이 유지보수합니다.' },
+      { icon: 'wifi', title: 'RS485 통신', desc: 'RS232/RS485 통신으로 중앙 관제 시스템과 연계한 통합 모니터링이 가능합니다.' },
+      { icon: 'zap', title: '고효율 운전', desc: '92% 이상의 종합효율로 운용 비용을 절감합니다.' },
+    ],
+    applications: ['IT 서버룸', '랙 마운트 환경', '통신 설비', '소형 데이터센터', '제조 현장'],
+  },
+  '04': {
+    name: 'Green-11 T',
+    category: 'Tower형 단상 온라인 이중변환 UPS',
+    image: 'images/product/Green-11 T.png',
+    video: 'L_jWHffIx5E',
+    specs: [
+      { label: '형태', value: 'Tower형' },
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '단상 (1상)' },
+      { label: '입력역률', value: '0.99 이상' },
+      { label: '종합효율', value: '90 ~ 95%' },
+      { label: '디스플레이', value: 'LCD' },
+      { label: '통신포트', value: 'RS-232 / USB' },
+      { label: '절체시간', value: '무순단 (0~4ms)' },
+      { label: '인증', value: 'KS · KC' },
+      { label: '부가기능', value: 'ECO · EPO' },
+    ],
+    features: [
+      { icon: 'award', title: 'KS·KC 인증', desc: '한국표준(KS) 및 안전인증(KC)을 모두 취득한 검증된 국산 제품입니다.' },
+      { icon: 'monitor', title: 'LCD 디스플레이', desc: 'LCD 화면으로 입출력 전압, 부하율, 배터리 상태를 직관적으로 확인합니다.' },
+      { icon: 'shield', title: '완벽한 전원 보호', desc: '정전, 순간정전, 과전압, 저전압 등 모든 전원이상에서 부하기기를 보호합니다.' },
+      { icon: 'settings', title: 'ECO 절전 모드', desc: '정상 입력 조건에서 자동으로 ECO 모드로 운전하여 전력 소비를 절감합니다.' },
+    ],
+    applications: ['사무용 PC·서버', '의료기기', '정밀 계측기', '소규모 통신장비', '방송 장비'],
+  },
+  '05': {
+    name: 'Green-11',
+    category: '단상 온라인 이중변환 UPS',
+    image: 'images/product/Green-11.png',
+    video: 'kJQP7kiw5Fk',
+    specs: [
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '단상 (1상)' },
+      { label: '입력역률', value: '0.99 이상' },
+      { label: '종합효율', value: '90 ~ 95% (AC/AC)' },
+      { label: '디스플레이', value: 'LCD' },
+      { label: '통신포트', value: 'RS-232 / USB' },
+      { label: '절체시간', value: '무순단 (0~4ms)' },
+      { label: '인증', value: 'KS · KC' },
+      { label: '부가기능', value: 'ECO · EPO' },
+    ],
+    features: [
+      { icon: 'award', title: 'KS·KC 인증', desc: '국내 표준 및 안전 기준을 모두 충족하는 검증된 국산 UPS입니다.' },
+      { icon: 'zap', title: '고효율 변환', desc: '90~95%의 높은 AC/AC 변환효율로 에너지 낭비를 최소화합니다.' },
+      { icon: 'clock', title: '무순단 절체', desc: '0~4ms 이내의 빠른 절체로 부하 장비의 무중단 운전을 보장합니다.' },
+      { icon: 'wifi', title: '원격 통신 지원', desc: 'RS-232/USB 포트로 UPS 관리 소프트웨어와 연동하여 원격 감시합니다.' },
+    ],
+    applications: ['사무용 서버', '의료 진단 장비', '정밀기기', '방송 장비', '소형 통신 설비'],
+  },
+  '06': {
+    name: 'Myria (10-40kVA)',
+    category: '단상/삼상 겸용 온라인 UPS',
+    image: 'images/product/Myria (10-40kVA).png',
+    video: 'RgKAFK5djSk',
+    specs: [
+      { label: '용량', value: '10 ~ 40kVA' },
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '단상/삼상 선택 가능' },
+      { label: '입력역률', value: '0.99 이상' },
+      { label: '종합효율', value: '95%' },
+      { label: '디스플레이', value: 'Touch Screen' },
+      { label: '입력 THDi', value: '< 3%' },
+      { label: '부가기능', value: 'EPO' },
+    ],
+    features: [
+      { icon: 'settings', title: '단/삼상 겸용', desc: '입출력 상수를 현장 조건에 맞게 선택할 수 있어 설치 유연성이 높습니다.' },
+      { icon: 'monitor', title: 'Touch Screen', desc: '터치 스크린 방식의 직관적인 운용 인터페이스를 제공합니다.' },
+      { icon: 'zap', title: '저고조파 (THDi<3%)', desc: '입력 고조파를 3% 미만으로 억제하여 전원 품질을 보장합니다.' },
+      { icon: 'trending-up', title: '고효율 95%', desc: '최신 전력 변환 기술로 95%의 높은 효율을 달성합니다.' },
+    ],
+    applications: ['데이터센터', '산업 공장', '병원', '방송국', '철도 인프라'],
+  },
+  '07': {
+    name: 'RM (1-10kVA)',
+    category: '19인치 Rack/Tower 겸용 단상 온라인 UPS',
+    image: 'images/product/RM (1-10kVA).png',
+    video: 'ScMzIvxBSi4',
+    specs: [
+      { label: '용량', value: '1 ~ 10kVA' },
+      { label: '설치 형태', value: 'Rack / Tower 겸용' },
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '단상 (1상)' },
+      { label: '고역률', value: '0.99 이상' },
+      { label: '종합효율', value: '92% 이상' },
+      { label: '통신포트', value: 'RS232' },
+      { label: '절체시간', value: '무순단 (0~4ms)' },
+      { label: '배터리', value: 'Hot-Swap 지원' },
+      { label: '부가기능', value: 'ECO · EPO' },
+    ],
+    features: [
+      { icon: 'server', title: 'Rack/Tower 겸용', desc: '1U~4U 표준 19인치 랙 또는 타워형 모두 설치 가능합니다.' },
+      { icon: 'battery-charging', title: 'Hot-Swap 배터리', desc: '운전 중 배터리 교체가 가능하여 유지보수가 간편합니다.' },
+      { icon: 'settings', title: 'ECO·EPO', desc: 'ECO 절전 모드와 EPO 비상차단 기능으로 효율적이고 안전한 운전을 지원합니다.' },
+      { icon: 'zap', title: '소용량 최적화', desc: '1~10kVA 범위에서 소규모 IT 인프라에 최적화된 전원 보호를 제공합니다.' },
+    ],
+    applications: ['소규모 서버룸', 'PC·워크스테이션', '소형 통신 장비', '사무용 네트워크 장비'],
+  },
+  '08': {
+    name: 'Green-31',
+    category: '단상 온라인 고효율 이중변환 UPS',
+    image: 'images/product/green31.png',
+    video: 'hxvpqO3e3lc',
+    specs: [
+      { label: '방식', value: '온라인 이중변환' },
+      { label: '입출력', value: '단상 (1상)' },
+      { label: '입력역률', value: '0.99 이상' },
+      { label: '종합효율', value: '95% (AC/AC)' },
+      { label: '통신포트', value: 'RS232 / USB' },
+      { label: '입력 THDi', value: '< 5%' },
+      { label: '절체시간', value: '무순단 (0~4ms)' },
+      { label: '입력전압범위', value: '광범위 지원' },
+      { label: '부가기능', value: 'ECO · EPO' },
+    ],
+    features: [
+      { icon: 'zap', title: '최고 효율 95%', desc: '최첨단 전력 변환 기술로 95%의 AC/AC 변환효율을 실현합니다.' },
+      { icon: 'settings', title: '광범위 입력전압', desc: '폭넓은 입력전압 범위를 지원하여 불안정한 전원 환경에서도 안정적으로 동작합니다.' },
+      { icon: 'shield', title: '저고조파 (THDi<5%)', desc: '입력 고조파를 5% 미만으로 억제하여 전원 품질에 민감한 장비에 적합합니다.' },
+      { icon: 'clock', title: '무순단 절체', desc: '0~4ms의 무순단 절체로 민감한 부하기기도 안전하게 보호합니다.' },
+    ],
+    applications: ['정밀 의료기기', '방송 장비', '금융 단말기', '산업용 PC', '계측 장비'],
+  },
+};
+
+// ── 페이지 초기화 ──
+(function () {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') || '01';
+  const p = PRODUCTS[id];
+  if (!p) { location.href = 'products-green.html'; return; }
+
+  document.title = p.name + ' | GREEN POWER';
+  document.getElementById('pdKicker').textContent = 'GREEN UPS · 제품 상세';
+  document.getElementById('pdTitle').textContent = p.name;
+  document.getElementById('pdSub').textContent = p.category;
+  document.getElementById('pdBreadcrumb').textContent = p.name;
+  const img = document.getElementById('pdImg');
+  img.src = p.image; img.alt = p.name;
+  document.getElementById('pdInfoName').textContent = p.name;
+  document.getElementById('pdInfoCat').textContent = p.category;
+
+  // 스펙 테이블
+  const table = document.getElementById('pdSpecTable');
+  table.innerHTML = p.specs.map(s =>
+    `<tr><td>${s.label}</td><td>${s.value}</td></tr>`
+  ).join('');
+
+  // 특징 카드
+  const svgMap = {
+    'zap': '<polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+    'monitor': '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    'shield': '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    'trending-up': '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
+    'server': '<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/>',
+    'battery-charging': '<path d="M5 18H3a2 2 0 01-2-2V8a2 2 0 012-2h3.19M15 6h2a2 2 0 012 2v8a2 2 0 01-2 2h-3.19M23 13v-2M11 6l-3 6h4l-3 6"/>',
+    'wifi': '<path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
+    'settings': '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>',
+    'clock': '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+    'award': '<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>',
+  };
+  document.getElementById('pdFeatures').innerHTML = p.features.map(f =>
+    `<div class="pd-feature-card">
+      <div class="pd-feature-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true">${svgMap[f.icon] || ''}</svg></div>
+      <p class="pd-feature-card__title">${f.title}</p>
+      <p class="pd-feature-card__desc">${f.desc}</p>
+    </div>`
+  ).join('');
+
+  // 적용 분야
+  document.getElementById('pdApps').innerHTML = p.applications.map(a =>
+    `<span class="pd-app-tag">${a}</span>`
+  ).join('');
+
+  // 영상
+  if (p.video) {
+    document.getElementById('pdVideoPh').style.display = 'none';
+    document.getElementById('pdVideoFrame').src = `https://www.youtube.com/embed/${p.video}?rel=0`;
+  }
+
+  // 관련 제품 (현재 제품 제외 최대 4개)
+  const related = Object.entries(PRODUCTS).filter(([k]) => k !== id).slice(0, 4);
+  document.getElementById('pdRelated').innerHTML = related.map(([k, rp]) =>
+    `<a href="product-ups-detail.html?id=${k}" class="product-card-v2 product-card-v2--link">
+      <div class="product-card-v2__img">
+        <img src="${rp.image}" alt="${rp.name}">
+        <div class="product-card-v2__badge">상세 보기</div>
+      </div>
+      <div class="product-card-v2__body">
+        <p class="product-card-v2__num">${k}</p>
+        <p class="product-card-v2__name">${rp.name}</p>
+        <p class="product-card-v2__spec">${rp.category}</p>
+      </div>
+    </a>`
+  ).join('');
+
+  // 탭 전환
+  document.querySelectorAll('.pd-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pd-tab').forEach(b => b.classList.remove('is-active'));
+      document.querySelectorAll('.pd-tab-panel').forEach(p => p.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('is-active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
