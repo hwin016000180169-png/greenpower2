@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 /* ==========================================================================
    Subpage Common CSS — Redesign 2026
@@ -2288,3 +2288,36 @@ a.product-card-v2,
     }
 }
 
+
+/* ──────────────────────────────────────────────
+   EmailJS 폼 피드백 스타일
+─────────────────────────────────────────────── */
+.form-result-msg {
+    margin-top: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+.form-result-msg--success {
+    background: rgba(46, 125, 50, 0.08);
+    color: #1b5e20;
+    border: 1px solid rgba(46, 125, 50, 0.25);
+}
+.form-result-msg--error {
+    background: rgba(198, 40, 40, 0.07);
+    color: #b71c1c;
+    border: 1px solid rgba(198, 40, 40, 0.2);
+}
+
+/* 필수 항목 에러 표시 */
+input.is-error,
+select.is-error,
+textarea.is-error {
+    border-color: #e53935 !important;
+    box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.12);
+}
+.form-agree.is-error label {
+    color: #e53935;
+}
