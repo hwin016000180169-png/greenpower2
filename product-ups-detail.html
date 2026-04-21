@@ -10,15 +10,15 @@
   <link rel="icon" type="image/png" href="images/fav_logo.png">
   <style>
     /* ═══════════════════════════════════════════
-       KEHUA-STYLE PRODUCT DETAIL PAGE
+       KEHUA-STYLE PRODUCT DETAIL PAGE — LIGHT
     ═══════════════════════════════════════════ */
 
-    /* 전체 배경 다크 */
-    html, body { background: #060b08; }
+    /* 전체 배경 흰색 */
+    html, body { background: #ffffff; }
 
     /* ── 헤더 투명 처리 ── */
     .site-header { background: transparent; border-bottom: none; }
-    .site-header.scrolled { background: rgba(6,11,8,0.96); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .site-header.scrolled { background: rgba(255,255,255,0.97); border-bottom: 1px solid rgba(0,0,0,0.08); }
 
     /* ──────────────────────────────────────────
        HERO : 100vh 풀스크린
@@ -27,7 +27,7 @@
       position: relative;
       height: 100vh;
       min-height: 640px;
-      background: #060b08;
+      background: #f5f7f5;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -39,8 +39,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 80% at 70% 50%, rgba(30,70,35,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 50%, rgba(10,40,15,0.3) 0%, transparent 70%);
+        radial-gradient(ellipse 70% 80% at 70% 50%, rgba(46,125,50,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 50%, rgba(46,125,50,0.05) 0%, transparent 70%);
       z-index: 0;
     }
 
@@ -58,7 +58,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(0,0,0,0.4);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -67,7 +67,7 @@
       margin-bottom: 48px;
       transition: color 0.25s;
     }
-    .kp-back:hover { color: rgba(255,255,255,0.9); }
+    .kp-back:hover { color: rgba(0,0,0,0.85); }
     .kp-back__line {
       width: 28px;
       height: 1px;
@@ -90,7 +90,7 @@
     .kp-title {
       font-size: clamp(2.4rem, 4.5vw, 3.8rem);
       font-weight: 900;
-      color: #fff;
+      color: #0d1a0e;
       line-height: 1.1;
       margin-bottom: 16px;
       letter-spacing: -0.02em;
@@ -99,7 +99,7 @@
     /* 서브타이틀 */
     .kp-subtitle {
       font-size: 15px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(0,0,0,0.5);
       margin-bottom: 40px;
       font-weight: 400;
       line-height: 1.5;
@@ -114,11 +114,11 @@
     }
     .kp-spec-pill {
       padding: 8px 16px;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(0,0,0,0.15);
       border-radius: 999px;
       font-size: 12px;
       font-weight: 600;
-      color: rgba(255,255,255,0.7);
+      color: rgba(0,0,0,0.6);
       letter-spacing: 0.04em;
     }
 
@@ -149,10 +149,10 @@
     .kp-btn--primary:hover { background: #43a047; }
     .kp-btn--ghost {
       background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.85);
+      border: 1.5px solid rgba(0,0,0,0.25);
+      color: rgba(0,0,0,0.75);
     }
-    .kp-btn--ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.05); }
+    .kp-btn--ghost:hover { border-color: #1b5e20; color: #1b5e20; background: rgba(46,125,50,0.05); }
     .kp-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
 
     /* 우측 제품 이미지 */
@@ -174,7 +174,7 @@
       top: 0;
       width: 120px;
       height: 100%;
-      background: linear-gradient(90deg, #060b08 0%, transparent 100%);
+      background: linear-gradient(90deg, #f5f7f5 0%, transparent 100%);
       z-index: 2;
     }
     .kp-hero__img-area img {
@@ -183,7 +183,7 @@
       object-fit: contain;
       position: relative;
       z-index: 1;
-      filter: drop-shadow(0 24px 64px rgba(0,0,0,0.6));
+      filter: drop-shadow(0 24px 64px rgba(0,0,0,0.18));
       animation: imgFloat 4s ease-in-out infinite;
     }
     @keyframes imgFloat {
@@ -208,12 +208,12 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0,0,0,0.3);
     }
     .kp-scroll__line {
       width: 1px;
       height: 48px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.15);
       position: relative;
       overflow: hidden;
     }
@@ -239,7 +239,7 @@
       bottom: 48px;
       font-size: 100px;
       font-weight: 900;
-      color: rgba(255,255,255,0.04);
+      color: rgba(0,0,0,0.05);
       line-height: 1;
       letter-spacing: -0.05em;
       z-index: 1;
@@ -248,12 +248,12 @@
     }
 
     /* ──────────────────────────────────────────
-       스펙 스트립 (어두운 배경, 가로 나열)
+       스펙 스트립 (밝은 배경, 가로 나열)
     ────────────────────────────────────────── */
     .kp-spec-strip {
-      background: #0d1a10;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: #1b5e20;
+      border-top: none;
+      border-bottom: none;
       padding: 0;
       overflow-x: auto;
     }
@@ -266,7 +266,7 @@
       flex: 1;
       min-width: 140px;
       padding: 32px 28px;
-      border-right: 1px solid rgba(255,255,255,0.06);
+      border-right: 1px solid rgba(255,255,255,0.15);
     }
     .kp-spec-item:last-child { border-right: none; }
     .kp-spec-item__label {
@@ -274,7 +274,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.6);
       margin-bottom: 8px;
     }
     .kp-spec-item__value {
@@ -289,8 +289,8 @@
     .kp-section {
       padding: 100px 80px;
     }
-    .kp-section--dark { background: #060b08; }
-    .kp-section--mid  { background: #0d1a10; }
+    .kp-section--dark { background: #ffffff; }
+    .kp-section--mid  { background: #f4f7f4; }
 
     .kp-section__inner {
       max-width: 1240px;
@@ -308,7 +308,7 @@
     .kp-section__title {
       font-size: clamp(1.6rem, 3vw, 2.4rem);
       font-weight: 800;
-      color: #fff;
+      color: #0d1a0e;
       margin-bottom: 48px;
       line-height: 1.2;
     }
@@ -326,19 +326,19 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.08);
     }
     .kp-feature {
-      background: #060b08;
+      background: #ffffff;
       padding: 40px 36px;
       transition: background 0.25s;
     }
-    .kp-feature:hover { background: #0d1a10; }
+    .kp-feature:hover { background: #f4f7f4; }
     .kp-feature__num {
       font-size: 32px;
       font-weight: 900;
-      color: rgba(46,125,50,0.25);
+      color: rgba(46,125,50,0.2);
       line-height: 1;
       margin-bottom: 20px;
       font-variant-numeric: tabular-nums;
@@ -346,12 +346,12 @@
     .kp-feature__title {
       font-size: 16px;
       font-weight: 800;
-      color: #fff;
+      color: #0d1a0e;
       margin-bottom: 12px;
     }
     .kp-feature__desc {
       font-size: 13px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(0,0,0,0.5);
       line-height: 1.7;
     }
 
@@ -363,21 +363,21 @@
       border-collapse: collapse;
     }
     .kp-spec-table tr {
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
     }
-    .kp-spec-table tr:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+    .kp-spec-table tr:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
     .kp-spec-table td {
       padding: 18px 0;
       font-size: 14px;
     }
     .kp-spec-table td:first-child {
       width: 40%;
-      color: rgba(255,255,255,0.4);
+      color: rgba(0,0,0,0.45);
       font-weight: 600;
       letter-spacing: 0.02em;
     }
     .kp-spec-table td:last-child {
-      color: #fff;
+      color: #0d1a0e;
       font-weight: 500;
     }
 
@@ -391,17 +391,17 @@
     }
     .kp-app-tag {
       padding: 12px 22px;
-      border: 1px solid rgba(76,175,80,0.3);
-      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(46,125,50,0.3);
+      color: #1b5e20;
       font-size: 13px;
       font-weight: 600;
       border-radius: 3px;
       transition: all 0.2s;
     }
     .kp-app-tag:hover {
-      border-color: #4caf50;
+      border-color: #1b5e20;
       color: #fff;
-      background: rgba(76,175,80,0.08);
+      background: #1b5e20;
     }
 
     /* ──────────────────────────────────────────
@@ -428,7 +428,7 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.5);
       font-size: 13px;
     }
     .kp-video-ph svg { width: 48px; height: 48px; stroke: currentColor; fill: none; stroke-width: 1.5; }
@@ -437,8 +437,8 @@
        CTA 배너
     ────────────────────────────────────────── */
     .kp-cta {
-      background: #0d1a10;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      background: #1b5e20;
+      border-top: none;
       padding: 80px;
       display: flex;
       align-items: center;
@@ -454,17 +454,20 @@
     }
     .kp-cta__sub {
       font-size: 14px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.65);
     }
     .kp-cta__actions { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
 
     /* ──────────────────────────────────────────
        관련 제품
     ────────────────────────────────────────── */
+    .kp-cta .kp-btn--ghost { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .kp-cta .kp-btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
     .kp-related {
       padding: 80px 80px 100px;
-      background: #060b08;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      background: #f4f7f4;
+      border-top: 1px solid rgba(0,0,0,0.06);
     }
     .kp-related__inner { max-width: 1240px; margin: 0 auto; }
     .kp-related__label {
@@ -472,24 +475,24 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0,0,0,0.35);
       margin-bottom: 32px;
     }
     .kp-related-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.08);
     }
     .kp-related-card {
-      background: #060b08;
+      background: #ffffff;
       display: block;
       text-decoration: none;
       padding: 32px;
       transition: background 0.25s;
       border: none;
     }
-    .kp-related-card:hover { background: #0d1a10; }
+    .kp-related-card:hover { background: #edf4ed; }
     .kp-related-card__img {
       height: 140px;
       display: flex;
@@ -501,7 +504,7 @@
       max-height: 120px;
       max-width: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.12));
       transition: transform 0.3s;
     }
     .kp-related-card:hover .kp-related-card__img img { transform: translateY(-4px); }
@@ -509,39 +512,21 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.25);
+      color: rgba(0,0,0,0.3);
       margin-bottom: 6px;
     }
     .kp-related-card__name {
       font-size: 14px;
       font-weight: 700;
-      color: #fff;
+      color: #0d1a0e;
       margin-bottom: 4px;
       line-height: 1.3;
     }
     .kp-related-card__cat {
       font-size: 11px;
-      color: rgba(255,255,255,0.35);
+      color: rgba(0,0,0,0.45);
       line-height: 1.5;
     }
-
-    /* ──────────────────────────────────────────
-       푸터 다크 버전
-    ────────────────────────────────────────── */
-    .site-footer {
-      background: #02050302;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .site-footer,
-    .site-footer p,
-    .site-footer a,
-    .site-footer .footer-copy,
-    .site-footer .footer-info p,
-    .site-footer .footer-copyright {
-      color: rgba(255,255,255,0.35) !important;
-    }
-    .site-footer .footer-links a { color: rgba(255,255,255,0.45) !important; }
-    .site-footer .footer-links a:hover { color: #fff !important; }
 
     /* ──────────────────────────────────────────
        반응형
