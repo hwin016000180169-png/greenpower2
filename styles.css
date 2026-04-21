@@ -1534,7 +1534,7 @@ ol {
 }
 
 .news {
-    background: #ffffff;
+    background: var(--bg);
 }
 
 .news-carousel {

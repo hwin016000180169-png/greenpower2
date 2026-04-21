@@ -16,9 +16,9 @@
     /* 전체 배경 흰색 */
     html, body { background: #ffffff; }
 
-    /* ── 헤더 투명 처리 ── */
-    .site-header { background: transparent; border-bottom: none; }
-    .site-header.scrolled { background: rgba(255,255,255,0.97); border-bottom: 1px solid rgba(0,0,0,0.08); }
+    /* ── 헤더: 라이트 배경 처리 ── */
+    .site-header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.07); }
+    .site-header.scrolled { background: rgba(255,255,255,0.97); border-bottom: 1px solid rgba(0,0,0,0.1); }
 
     /* ──────────────────────────────────────────
        HERO : 100vh 풀스크린
@@ -601,7 +601,7 @@
 <body>
 
 <!-- ── 헤더 ── -->
-<header class="site-header" id="header" data-tone="dark">
+<header class="site-header" id="header">
   <div class="header-shell">
     <h1 class="brand"><a href="index.html"><img src="images/main_logo.png" alt="GREEN POWER"></a></h1>
     <nav class="main-nav" aria-label="주요 메뉴">

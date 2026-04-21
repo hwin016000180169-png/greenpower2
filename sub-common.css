@@ -2321,3 +2321,29 @@ textarea.is-error {
 .form-agree.is-error label {
     color: #e53935;
 }
+/* ── 공용 CTA 배너 ── */
+.page-cta {
+  background: linear-gradient(135deg, #0a2e14, #1b5e20);
+  border-radius: 24px;
+  padding: 60px 48px;
+  text-align: center;
+  margin: 48px 0 0;
+}
+@media (max-width: 640px) { .page-cta { padding: 40px 24px; } }
+.page-cta h3 { font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+.page-cta p { color: rgba(255,255,255,0.65); font-size: 15px; margin-bottom: 36px; }
+.page-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.page-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.page-cta__btn--white { background: #fff; color: #1b5e20; }
+.page-cta__btn--white:hover { background: #e8f5e9; }
+.page-cta__btn--ghost { border: 1.5px solid rgba(255,255,255,0.45); color: #fff; }
+.page-cta__btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
