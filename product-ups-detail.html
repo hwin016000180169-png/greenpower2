@@ -27,10 +27,12 @@
       position: relative;
       height: 100vh;
       min-height: 640px;
-      background: #f5f7f5;
+      background:
+        linear-gradient(115deg, #eef4ef 0%, #f8faf8 45%, #e4eee7 100%);
       overflow: hidden;
       display: flex;
       align-items: center;
+      isolation: isolate;
     }
 
     /* 배경 대각 그라디언트 레이어 */
@@ -39,17 +41,36 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 80% at 70% 50%, rgba(46,125,50,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 50%, rgba(46,125,50,0.05) 0%, transparent 70%);
+        linear-gradient(90deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.38) 42%, rgba(255,255,255,0) 70%),
+        radial-gradient(ellipse 42% 62% at 72% 48%, rgba(46,125,50,0.12) 0%, rgba(46,125,50,0.03) 48%, transparent 76%),
+        radial-gradient(ellipse 36% 52% at 18% 54%, rgba(46,125,50,0.08) 0%, transparent 72%),
+        repeating-linear-gradient(90deg, rgba(13,26,14,0.035) 0, rgba(13,26,14,0.035) 1px, transparent 1px, transparent 120px);
       z-index: 0;
+    }
+
+    /* 상단 어두운 오버레이 (헤더 메뉴 가독성용) */
+    .kp-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 220px;
+      background: linear-gradient(
+        180deg,
+        rgba(13, 26, 14, 0.55) 0%,
+        rgba(13, 26, 14, 0.30) 45%,
+        rgba(13, 26, 14, 0) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
     }
 
     /* 좌측 컨텐츠 */
     .kp-hero__content {
       position: relative;
       z-index: 2;
-      padding: 120px 0 80px 80px;
-      max-width: 520px;
+      width: min(42vw, 560px);
+      padding: 130px 0 80px clamp(64px, 6vw, 112px);
+      max-width: 560px;
       flex-shrink: 0;
     }
 
@@ -64,7 +85,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
-      margin-bottom: 48px;
+      margin-bottom: 44px;
       transition: color 0.25s;
     }
     .kp-back:hover { color: rgba(0,0,0,0.85); }
@@ -78,31 +99,80 @@
 
     /* 카테고리 킥커 */
     .kp-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #4caf50;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      padding: 6px 12px;
+      border: 1px solid rgba(46,125,50,0.22);
+      background: rgba(255,255,255,0.62);
+      border-radius: 999px;
+    }
+    .kp-kicker::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #4caf50;
+      box-shadow: 0 0 0 5px rgba(76,175,80,0.12);
     }
 
     /* 제품명 */
     .kp-title {
-      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-size: clamp(2.8rem, 5vw, 5.1rem);
       font-weight: 900;
       color: #0d1a0e;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+      line-height: 0.98;
+      margin-bottom: 22px;
+      letter-spacing: -0.045em;
+      text-wrap: balance;
     }
 
     /* 서브타이틀 */
     .kp-subtitle {
-      font-size: 15px;
-      color: rgba(0,0,0,0.5);
-      margin-bottom: 40px;
-      font-weight: 400;
-      line-height: 1.5;
+      max-width: 440px;
+      font-size: 16px;
+      color: rgba(13,26,14,0.58);
+      margin-bottom: 28px;
+      font-weight: 500;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    .kp-hero__summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+    .kp-hero__summary-item {
+      min-height: 74px;
+      padding: 14px 14px 13px;
+      border: 1px solid rgba(13,26,14,0.1);
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 16px 40px rgba(13,26,14,0.05);
+    }
+    .kp-hero__summary-item span {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(13,26,14,0.38);
+    }
+    .kp-hero__summary-item strong {
+      display: block;
+      color: #0d1a0e;
+      font-size: 13px;
+      line-height: 1.35;
+      word-break: keep-all;
     }
 
     /* 핵심 스펙 요약 (2~3개) */
@@ -110,15 +180,16 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
     .kp-spec-pill {
       padding: 8px 16px;
-      border: 1px solid rgba(0,0,0,0.15);
+      border: 1px solid rgba(46,125,50,0.2);
+      background: rgba(255,255,255,0.5);
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 600;
-      color: rgba(0,0,0,0.6);
+      font-weight: 700;
+      color: rgba(13,26,14,0.68);
       letter-spacing: 0.04em;
     }
 
@@ -141,6 +212,7 @@
       transition: all 0.25s;
       cursor: pointer;
       border: none;
+      box-shadow: 0 16px 34px rgba(13,26,14,0.08);
     }
     .kp-btn--primary {
       background: #2e7d32;
@@ -148,9 +220,10 @@
     }
     .kp-btn--primary:hover { background: #43a047; }
     .kp-btn--ghost {
-      background: transparent;
+      background: rgba(255,255,255,0.42);
       border: 1.5px solid rgba(0,0,0,0.25);
       color: rgba(0,0,0,0.75);
+      box-shadow: none;
     }
     .kp-btn--ghost:hover { border-color: #1b5e20; color: #1b5e20; background: rgba(46,125,50,0.05); }
     .kp-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
@@ -158,10 +231,10 @@
     /* 우측 제품 이미지 */
     .kp-hero__img-area {
       position: absolute;
-      right: 0;
-      top: 0;
-      width: 55%;
-      height: 100%;
+      right: clamp(24px, 5vw, 92px);
+      top: 96px;
+      width: min(54vw, 860px);
+      height: calc(100% - 96px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -170,21 +243,61 @@
     .kp-hero__img-area::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 120px;
-      height: 100%;
-      background: linear-gradient(90deg, #f5f7f5 0%, transparent 100%);
-      z-index: 2;
+      inset: 13% 5% 13% 15%;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.72), rgba(255,255,255,0.28)),
+        radial-gradient(ellipse at 50% 34%, rgba(76,175,80,0.11) 0%, transparent 65%);
+      border: 1px solid rgba(13,26,14,0.08);
+      border-radius: 32px;
+      box-shadow: 0 42px 90px rgba(13,26,14,0.11);
+      z-index: 0;
+    }
+    .kp-hero__img-area::after {
+      content: '';
+      position: absolute;
+      left: 30%;
+      right: 16%;
+      bottom: 16%;
+      height: 38px;
+      background: radial-gradient(ellipse at center, rgba(13,26,14,0.26) 0%, rgba(13,26,14,0.08) 45%, transparent 72%);
+      filter: blur(6px);
+      z-index: 0;
     }
     .kp-hero__img-area img {
-      max-width: 80%;
-      max-height: 75vh;
+      max-width: min(70%, 620px);
+      max-height: 72vh;
       object-fit: contain;
       position: relative;
       z-index: 1;
-      filter: drop-shadow(0 24px 64px rgba(0,0,0,0.18));
+      filter: drop-shadow(0 30px 58px rgba(13,26,14,0.24));
       animation: imgFloat 4s ease-in-out infinite;
+    }
+    .kp-hero__visual-label {
+      position: absolute;
+      right: clamp(20px, 4vw, 64px);
+      bottom: 14%;
+      z-index: 2;
+      min-width: 180px;
+      padding: 14px 16px;
+      border-left: 2px solid #4caf50;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 48px rgba(13,26,14,0.08);
+    }
+    .kp-hero__visual-label span {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(13,26,14,0.42);
+    }
+    .kp-hero__visual-label strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #0d1a0e;
     }
     @keyframes imgFloat {
       0%, 100% { transform: translateY(0); }
@@ -559,7 +672,11 @@
        반응형
     ────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .kp-hero__content { padding-left: 48px; max-width: 460px; }
+      .kp-hero__content { padding-left: 48px; width: min(46vw, 500px); max-width: 500px; }
+      .kp-hero__summary { grid-template-columns: 1fr; max-width: 340px; }
+      .kp-hero__summary-item { min-height: auto; padding: 12px 14px; }
+      .kp-hero__img-area { right: 24px; width: 52vw; }
+      .kp-hero__visual-label { display: none; }
       .kp-spec-strip__inner { flex-wrap: wrap; }
       .kp-section { padding: 72px 48px; }
       .kp-cta { padding: 60px 48px; }
@@ -575,14 +692,24 @@
         position: relative;
         z-index: 3;
       }
+      .kp-title { font-size: clamp(2.35rem, 14vw, 4rem); }
+      .kp-subtitle { max-width: 100%; }
+      .kp-hero__summary {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin-bottom: 22px;
+      }
       .kp-hero__img-area {
         position: absolute;
+        right: 0;
         width: 100%;
         top: 0;
         height: 55%;
-        opacity: 0.35;
+        opacity: 0.26;
       }
-      .kp-hero__img-area::before { display: none; }
+      .kp-hero__img-area::before { inset: 18% 8% 12%; border-radius: 24px; }
+      .kp-hero__img-area::after { display: none; }
+      .kp-hero__img-area img { max-width: 72%; max-height: 48vh; }
       .kp-scroll { display: none; }
       .kp-product-num { display: none; }
       .kp-section { padding: 60px 32px; }
@@ -708,6 +835,20 @@
       <p class="kp-kicker" id="kpKicker">GREEN UPS</p>
       <h1 class="kp-title" id="kpTitle">-</h1>
       <p class="kp-subtitle" id="kpSubtitle">-</p>
+      <div class="kp-hero__summary" aria-label="제품 핵심 정보">
+        <div class="kp-hero__summary-item">
+          <span>Capacity</span>
+          <strong id="kpHeroCapacity">-</strong>
+        </div>
+        <div class="kp-hero__summary-item">
+          <span>Power</span>
+          <strong id="kpHeroPower">-</strong>
+        </div>
+        <div class="kp-hero__summary-item">
+          <span>Topology</span>
+          <strong id="kpHeroTopology">-</strong>
+        </div>
+      </div>
       <div class="kp-specs-pill" id="kpPills"></div>
       <div class="kp-actions">
         <a href="inquiry-quote.html" class="kp-btn kp-btn--primary">
@@ -724,6 +865,10 @@
     <!-- 우측 제품 이미지 -->
     <div class="kp-hero__img-area">
       <img id="kpImg" src="" alt="">
+      <div class="kp-hero__visual-label">
+        <span>Selected Line</span>
+        <strong id="kpHeroVisualLabel">-</strong>
+      </div>
     </div>
 
     <!-- 좌측 세로 스크롤 힌트 -->
@@ -1128,6 +1273,10 @@ const PRODUCTS = {
   document.getElementById('kpTitle').textContent = p.name;
   document.getElementById('kpSubtitle').textContent = p.category;
   document.getElementById('kpProductNum').textContent = id;
+  document.getElementById('kpHeroCapacity').textContent = p.pillSpecs[0] || '-';
+  document.getElementById('kpHeroPower').textContent = p.pillSpecs[1] || '-';
+  document.getElementById('kpHeroTopology').textContent = p.pillSpecs[2] || p.category;
+  document.getElementById('kpHeroVisualLabel').textContent = p.category.split('·')[0].trim();
 
   /* 이미지 */
   const img = document.getElementById('kpImg');
