@@ -16,9 +16,16 @@
     /* 전체 배경 흰색 */
     html, body { background: #ffffff; }
 
-    /* ── 헤더: 라이트 배경 처리 ── */
-    .site-header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.07); }
-    .site-header.scrolled { background: rgba(255,255,255,0.97); border-bottom: 1px solid rgba(0,0,0,0.1); }
+    /* ── 헤더: 히어로 위에서는 어두운 반투명, 스크롤 후엔 흰색 ── */
+    .site-header {
+      background: #0d1a0e !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .site-header.scrolled,
+    .site-header.is-scrolled {
+      background: rgba(255,255,255,0.97) !important;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
 
     /* ──────────────────────────────────────────
        HERO : 100vh 풀스크린
@@ -253,15 +260,7 @@
       z-index: 0;
     }
     .kp-hero__img-area::after {
-      content: '';
-      position: absolute;
-      left: 30%;
-      right: 16%;
-      bottom: 16%;
-      height: 38px;
-      background: radial-gradient(ellipse at center, rgba(13,26,14,0.26) 0%, rgba(13,26,14,0.08) 45%, transparent 72%);
-      filter: blur(6px);
-      z-index: 0;
+      display: none;
     }
     .kp-hero__img-area img {
       max-width: min(70%, 620px);
@@ -723,6 +722,125 @@
       .kp-spec-strip__inner { flex-direction: column; }
       .kp-spec-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
     }
+
+    /* ──────────────────────────────────────────
+       모델 선택 스펙 레이아웃 (KEHUA-style)
+    ────────────────────────────────────────── */
+    .kp-section--spec-dark {
+      position: relative;
+      background: #0d1a0e;
+      color: #fff;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    /* 제품 이미지 배경 (큰 사이즈 + 우측 정렬, 약간 아래로) */
+    .kp-section--spec-dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--spec-bg, none);
+      background-position: 88% 78%;
+      background-repeat: no-repeat;
+      background-size: clamp(460px, 52vw, 820px) auto;
+      opacity: 0.84;
+      filter: drop-shadow(0 0 80px rgba(46,125,50,0.36));
+      z-index: -2;
+    }
+    /* 어두운 그라디언트 (좌측 가독성 확보) */
+    .kp-section--spec-dark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(13,26,14,0.92) 0%, rgba(13,26,14,0.42) 45%, rgba(13,26,14,0.08) 100%),
+        radial-gradient(ellipse 60% 80% at 0% 50%, rgba(46,125,50,0.12) 0%, rgba(46,125,50,0) 70%);
+      z-index: -1;
+    }
+    .kp-section--spec-dark .kp-section__title { color: #fff; }
+    .kp-section--spec-dark .kp-section__eyebrow { color: #81c784; }
+    .kp-section--spec-dark .kp-spec-table tr { border-color: rgba(255,255,255,0.12); }
+    .kp-section--spec-dark .kp-spec-table tr:first-child { border-top-color: rgba(255,255,255,0.12); }
+    .kp-section--spec-dark .kp-spec-table td:first-child { color: rgba(255,255,255,0.6); }
+    .kp-section--spec-dark .kp-spec-table td:last-child { color: #fff; }
+    .kp-section--spec-dark .kp-spec-table td { padding: 14px 0; font-size: 13.5px; }
+    .kp-section--spec-dark .kp-app-tag {
+      border-color: rgba(129,199,132,0.45);
+      color: #a5d6a7;
+      background: rgba(13,26,14,0.4);
+      backdrop-filter: blur(4px);
+    }
+    .kp-section--spec-dark .kp-app-tag:hover {
+      border-color: #81c784;
+      background: rgba(46,125,50,0.3);
+      color: #fff;
+    }
+
+    /* 기술 사양 + 적용 분야 가로 2단 (한눈에) */
+    .kp-spec-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+      align-items: start;
+      position: relative;
+    }
+    .kp-spec-grid__apps {
+      padding-left: 40px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .kp-model-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .kp-model-tab {
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(13,26,14,0.4);
+      backdrop-filter: blur(4px);
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .kp-model-tab:hover:not(.is-active) {
+      border-color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+    }
+    .kp-model-tab.is-active {
+      background: #4caf50;
+      border-color: #4caf50;
+      color: #fff;
+    }
+
+    .kp-model-id {
+      font-size: 20px;
+      font-weight: 800;
+      color: #81c784;
+      letter-spacing: 0.04em;
+      margin: 6px 0 18px;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .kp-model-id.is-fading { opacity: 0; }
+
+    .kp-apps__lede {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1100px) {
+      .kp-section--spec-dark::before { background-size: clamp(360px, 70vw, 600px) auto; opacity: 0.22; }
+      .kp-spec-grid { grid-template-columns: 1fr; gap: 48px; }
+      .kp-spec-grid__apps { padding-left: 0; border-left: none; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+    }
   </style>
 </head>
 <body>
@@ -756,12 +874,9 @@
             <a href="inquiry-service.html">서비스 요청</a>
           </div>
         </li>
-        <li class="nav-item"><a href="support-notice.html">홍보센터</a>
-          <div class="nav-dropdown">
-            <a href="support-notice.html">공지사항</a>
-            <a href="support-catalog.html">카탈로그</a>
-          </div>
-        </li>
+        <li class="nav-item"><a href="support-notice.html">공지사항</a></li>
+                        <li class="nav-item"><a href="support-catalog.html">자료실</a></li>
+                        <li class="nav-item nav-item--search"><button type="button" class="nav-search-btn" data-search-open aria-label="검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
       </ul>
     </nav>
     <div class="header-actions">
@@ -808,13 +923,8 @@
           <a href="inquiry-service.html">서비스 요청</a>
         </div>
       </div>
-      <div class="mobile-item">
-        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
-        <div class="mobile-item__panel">
-          <a href="support-notice.html">공지사항</a>
-          <a href="support-catalog.html">카탈로그</a>
-        </div>
-      </div>
+      <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-notice.html">공지사항</a></div>
+                    <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-catalog.html">자료실</a></div>
     </div>
   </div>
 </div>
@@ -883,13 +993,6 @@
   </section>
 
   <!-- ════════════════════════════════════════
-       스펙 스트립 (가로 요약)
-  ════════════════════════════════════════ -->
-  <div class="kp-spec-strip">
-    <div class="kp-spec-strip__inner" id="kpSpecStrip"></div>
-  </div>
-
-  <!-- ════════════════════════════════════════
        주요 특징
   ════════════════════════════════════════ -->
   <section class="kp-section kp-section--dark">
@@ -902,31 +1005,10 @@
   </section>
 
   <!-- ════════════════════════════════════════
-       상세 스펙 + 적용 분야 (2컬럼)
+       기술 사양 (모델 탭 + 이미지 좌측 + 적용 분야 하단)
   ════════════════════════════════════════ -->
-  <section class="kp-section kp-section--mid">
-    <div class="kp-section__inner" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
-      <div>
-        <p class="kp-section__eyebrow">Specifications</p>
-        <h2 class="kp-section__title">상세 사양</h2>
-        <div class="kp-section__divider"></div>
-        <table class="kp-spec-table" id="kpSpecTable"></table>
-      </div>
-      <div>
-        <p class="kp-section__eyebrow">Applications</p>
-        <h2 class="kp-section__title">적용 분야</h2>
-        <div class="kp-section__divider"></div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:24px;line-height:1.7;">
-          다양한 산업 현장에 최적화된 전원 보호 솔루션을 제공합니다.
-        </p>
-        <div class="kp-apps" id="kpApps"></div>
-      </div>
-    </div>
-    <style>
-      @media (max-width: 860px) {
-        .kp-section__inner[style] { grid-template-columns: 1fr !important; gap: 48px !important; }
-      }
-    </style>
+  <section class="kp-section kp-section--spec-dark">
+    <div class="kp-section__inner" id="kpSpecInner"></div>
   </section>
 
   <!-- ════════════════════════════════════════
@@ -977,20 +1059,20 @@
   <div class="container footer-top">
     <div>
       <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
-      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
+      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로<br>2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
     </div>
     <div class="footer-links">
       <a href="company-greeting.html">기업소개</a>
       <a href="products-green.html">사업영역</a>
-      <a href="support-notice.html">홍보센터</a>
+      <a href="support-notice.html">공지사항</a>
       <a href="inquiry-consulting.html">문의</a>
     </div>
   </div>
   <div class="container footer-bottom">
     <div class="footer-info">
-      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-      <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
-      <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2</p>
+                    <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
     </div>
     <p class="footer-copyright">COPYRIGHT © 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
   </div>
@@ -1003,258 +1085,587 @@
 // ════════════════════════════════════════
 const PRODUCTS = {
   '01': {
-    name: 'Myria (60-200kVA)',
-    category: '대용량 삼상 온라인 이중변환 UPS',
-    image: 'images/product/Myria (60-200kVA).png',
-    video: 'dQw4w9WgXcQ',
-    pillSpecs: ['60 ~ 200kVA', '삼상 (3상)', '효율 95%'],
-    stripSpecs: [
-      { label: '용량', value: '60 ~ 200kVA' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '삼상 (3상)' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '종합효율', value: '95%' },
+    name: 'GRU11-Tower Series',
+    category: '단상 Tower형 온라인 이중변환 UPS · 1~10kVA',
+    image: 'images/product/green11_01.png',
+    images: [
+      'images/product/green11_01.png',
+      'images/product/green11_02.png',
+      'images/product/green11_03.png'
     ],
-    specs: [
-      { label: '용량', value: '60 ~ 200kVA' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '삼상 (3상)' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '종합효율', value: '95%' },
-      { label: '디스플레이', value: 'Touch Screen' },
-      { label: '부가기능', value: 'EPO' },
-    ],
+    video: 'kJQP7kiw5Fk',
+    pillSpecs: ['1 ~ 10 kVA', '단상 (1상)', '온라인 이중변환'],
     features: [
-      { num: '01', title: '고효율 95%', desc: '온라인 이중변환 방식으로 최고 수준의 전력 변환 효율을 달성합니다.' },
-      { num: '02', title: 'Touch Screen', desc: '직관적인 터치 스크린 디스플레이로 실시간 상태를 한눈에 확인합니다.' },
-      { num: '03', title: 'EPO 비상차단', desc: '비상 전원 차단 기능으로 긴급 상황 시 즉각 대응이 가능합니다.' },
-      { num: '04', title: '대용량 지원', desc: '60~200kVA 광범위한 용량으로 대형 데이터센터에 최적화되어 있습니다.' },
+      { num: '01', title: '고역률 · 저고조파', desc: '입력역률 최대 0.996, 낮은 THDi(< 5%)로 전력망 오염을 최소화하고 설비 이용 효율을 극대화합니다.' },
+      { num: '02', title: '고효율 · 저탄소', desc: 'AC/AC 효율 최대 95%의 높은 변환 효율로 에너지를 절약하고 탄소 배출을 줄입니다.' },
+      { num: '03', title: '충전전류 소프트웨어 설정', desc: '소프트웨어를 통해 1~8A의 충전전류를 자유롭게 설정하여 다양한 배터리 구성에 유연하게 대응합니다.' },
+      { num: '04', title: '유연한 배터리 구성', desc: '배터리 단일 유닛 구성이 가능하고 표준형·장거리 백업용 등 현장 요구에 맞게 설치할 수 있습니다.' },
     ],
-    applications: ['대형 데이터센터', '방송국', '금융 전산실', '통신 기지국', '대형 산업 설비'],
+    applications: ['사무용 서버', '소규모 IT 설비', '의료기기', '정밀 계측기', '방송 장비'],
+    models: [
+      {
+        id: 'GRU-T001', kva: '1kVA',
+        specs: [
+          { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
+          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+          { label: '입력역률', value: '0.996' },
+          { label: '입력 THDi', value: '< 5%' },
+          { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+          { label: '최대 AC/AC 효율', value: '92%' },
+          { label: '치수 표준 W×D×H (mm)', value: '145 × 360 × 225' },
+          { label: '치수 장거리 백업 W×D×H (mm)', value: '145 × 360 × 225' },
+          { label: '무게 (표준)', value: '9.2 kg' },
+          { label: '무게 (장거리 백업용)', value: '4.5 kg' },
+        ]
+      },
+      {
+        id: 'GRU-T002', kva: '2kVA',
+        specs: [
+          { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
+          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+          { label: '입력역률', value: '0.996' },
+          { label: '입력 THDi', value: '< 5%' },
+          { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+          { label: '최대 AC/AC 효율', value: '93%' },
+          { label: '치수 표준 W×D×H (mm)', value: '190 × 400 × 330' },
+          { label: '치수 장거리 백업 W×D×H (mm)', value: '190 × 400 × 330' },
+          { label: '무게 (표준)', value: '17.7 kg' },
+          { label: '무게 (장거리 백업용)', value: '8.5 kg' },
+        ]
+      },
+      {
+        id: 'GRU-T003', kva: '3kVA',
+        specs: [
+          { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
+          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+          { label: '입력역률', value: '0.996' },
+          { label: '입력 THDi', value: '< 5%' },
+          { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+          { label: '최대 AC/AC 효율', value: '94%' },
+          { label: '치수 표준 W×D×H (mm)', value: '190 × 400 × 330' },
+          { label: '치수 장거리 백업 W×D×H (mm)', value: '190 × 400 × 330' },
+          { label: '무게 (표준)', value: '22.9 kg' },
+          { label: '무게 (장거리 백업용)', value: '9.2 kg' },
+        ]
+      },
+      {
+        id: 'GRU-T006', kva: '6kVA',
+        specs: [
+          { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
+          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+          { label: '입력역률', value: '0.996' },
+          { label: '입력 THDi', value: '< 5%' },
+          { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+          { label: '최대 AC/AC 효율', value: '95%' },
+          { label: '치수 표준 W×D×H (mm)', value: '230 × 502 × 553' },
+          { label: '치수 장거리 백업 W×D×H (mm)', value: '190 × 422 × 337' },
+          { label: '무게 (표준)', value: '54.5 kg' },
+          { label: '무게 (장거리 백업용)', value: '10.9 kg' },
+        ]
+      },
+      {
+        id: 'GRU-T010', kva: '10kVA',
+        specs: [
+          { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
+          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+          { label: '입력역률', value: '0.996' },
+          { label: '입력 THDi', value: '< 5%' },
+          { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+          { label: '최대 AC/AC 효율', value: '95%' },
+          { label: '치수 표준 W×D×H (mm)', value: '230 × 502 × 553' },
+          { label: '치수 장거리 백업 W×D×H (mm)', value: '190 × 422 × 337' },
+          { label: '무게 (표준)', value: '56.2 kg' },
+          { label: '무게 (장거리 백업용)', value: '12.5 kg' },
+        ]
+      },
+    ],
   },
   '02': {
-    name: 'Green-UK33',
-    category: '삼상 온라인 이중변환 UPS',
-    image: 'images/product/Green-UK33.png',
+    name: 'GRU11-Rack Series',
+    category: '단상 Rack형 온라인 이중변환 UPS · 1~10kVA',
+    image: 'images/product/RM (1_10kVA)_01.png',
+    images: [
+      'images/product/RM (1_10kVA)_01.png',
+      'images/product/RM (1_10kVA)_02.png',
+      'images/product/RM (1_10kVA)_03.png'
+    ],
     video: 'jNQXAC9IVRw',
-    pillSpecs: ['10 ~ 40kVA', '삼상 (3상)', '효율 95%'],
-    stripSpecs: [
-      { label: '용량', value: '10 ~ 40kVA' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '삼상 (3상)' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '절체시간', value: '0 ~ 4ms' },
-    ],
-    specs: [
-      { label: '용량', value: '10 ~ 40kVA' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '삼상 (3상)' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '종합효율', value: '95%' },
-      { label: '통신포트', value: 'RS-232 / USB' },
-      { label: '절체시간', value: '무순단 (0~4ms)' },
-      { label: '부가기능', value: 'ECO · EPO' },
-    ],
+    pillSpecs: ['1 ~ 10 kVA', '단상 Rack형', '온라인 이중변환'],
     features: [
-      { num: '01', title: '고역률 0.99이상', desc: '업계 최고 수준의 입력역률로 전력 손실을 최소화합니다.' },
-      { num: '02', title: '원격 통신', desc: 'RS-232/USB 포트로 PC 및 관제 시스템과 연동하여 원격 모니터링이 가능합니다.' },
-      { num: '03', title: 'ECO 모드', desc: '부하 상태에 따라 자동으로 ECO 모드로 전환하여 에너지를 절약합니다.' },
-      { num: '04', title: '무순단 절체', desc: '0~4ms 이내의 무순단 절체로 부하기기의 연속 운전을 보장합니다.' },
+      { num: '01', title: '19인치 Rack 표준', desc: '표준 19인치 랙에 설치 가능하여 데이터센터·서버룸 환경에 최적화되어 있습니다.' },
+      { num: '02', title: '고역률 · 저고조파', desc: '입력역률 최대 0.996, 낮은 THDi(<5%)로 전력망 품질을 보호합니다.' },
+      { num: '03', title: 'Hot-Swap 배터리', desc: '운전 중 배터리 교체가 가능하여 시스템 다운타임 없이 유지보수할 수 있습니다.' },
+      { num: '04', title: '원격 통신 지원', desc: 'RS-232/USB 포트로 관제 시스템과 연동하여 통합 모니터링이 가능합니다.' },
     ],
-    applications: ['중형 데이터센터', '서버룸', '산업 제어 설비', '통신 장비', '병원·의료기기'],
+    applications: ['IT 서버룸', '소형 데이터센터', '랙 마운트 환경', '통신 설비', '제조 현장'],
+    models: [
+      { id: 'GRU-R001', kva: '1kVA', specs: [
+        { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.996' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '92%' },
+        { label: '설치 형태', value: '19인치 2U Rack / Tower 겸용' },
+        { label: '치수 W×D×H (mm)', value: '440 × 410 × 86' },
+        { label: '무게', value: '11 kg' },
+      ]},
+      { id: 'GRU-R002', kva: '2kVA', specs: [
+        { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.996' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '93%' },
+        { label: '설치 형태', value: '19인치 2U Rack / Tower 겸용' },
+        { label: '치수 W×D×H (mm)', value: '440 × 555 × 86' },
+        { label: '무게', value: '21 kg' },
+      ]},
+      { id: 'GRU-R003', kva: '3kVA', specs: [
+        { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.996' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '94%' },
+        { label: '설치 형태', value: '19인치 2U Rack / Tower 겸용' },
+        { label: '치수 W×D×H (mm)', value: '440 × 600 × 86' },
+        { label: '무게', value: '25 kg' },
+      ]},
+      { id: 'GRU-R006', kva: '6kVA', specs: [
+        { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.996' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '설치 형태', value: '19인치 3U Rack / Tower 겸용' },
+        { label: '치수 W×D×H (mm)', value: '440 × 660 × 130' },
+        { label: '무게', value: '17.5 kg (배터리 별도)' },
+      ]},
+      { id: 'GRU-R010', kva: '10kVA', specs: [
+        { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.996' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '설치 형태', value: '19인치 3U Rack / Tower 겸용' },
+        { label: '치수 W×D×H (mm)', value: '440 × 660 × 130' },
+        { label: '무게', value: '18 kg (배터리 별도)' },
+      ]},
+    ],
   },
   '03': {
-    name: 'RM (10-40kVA)',
-    category: '19인치 Rack/Tower 겸용 삼상 온라인 UPS',
-    image: 'images/product/RM (10-40kVA).png',
-    video: '9bZkp7q19f0',
-    pillSpecs: ['10 ~ 40kVA', 'Rack/Tower 겸용', 'Hot-Swap 지원'],
-    stripSpecs: [
-      { label: '용량', value: '10 ~ 40kVA' },
-      { label: '설치 형태', value: 'Rack / Tower' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '종합효율', value: '92% 이상' },
-      { label: '배터리', value: 'Hot-Swap' },
+    name: 'GRU11-Trans Series',
+    category: '단상 Tower형 변압기 내장 UPS · 6~10kVA',
+    image: 'images/product/GRU11-Trans Series_01.png',
+    images: [
+      'images/product/GRU11-Trans Series_01.png',
+      'images/product/GRU11-Trans Series_02.png',
+      'images/product/GRU11-Trans Series_01.png'
     ],
-    specs: [
-      { label: '용량', value: '10 ~ 40kVA' },
-      { label: '설치 형태', value: 'Rack / Tower 겸용' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '삼상 (3상)' },
-      { label: '고역률', value: '0.99 이상' },
-      { label: '종합효율', value: '92% 이상' },
-      { label: '통신포트', value: 'RS232 / RS485' },
-      { label: '절체시간', value: '무순단 (0~4ms)' },
-      { label: '배터리', value: 'Hot-Swap 지원' },
-    ],
+    video: 'L_jWHffIx5E',
+    pillSpecs: ['6 ~ 10 kVA', '단상 Tower형', '변압기 내장'],
     features: [
-      { num: '01', title: 'Rack/Tower 겸용', desc: '19인치 랙과 타워형 모두 설치 가능하여 공간 활용도가 뛰어납니다.' },
-      { num: '02', title: 'Battery Hot-Swap', desc: '무정전 상태에서 배터리 교체가 가능하여 시스템 다운타임 없이 유지보수합니다.' },
-      { num: '03', title: 'RS485 통신', desc: 'RS232/RS485 통신으로 중앙 관제 시스템과 연계한 통합 모니터링이 가능합니다.' },
-      { num: '04', title: '고효율 운전', desc: '92% 이상의 종합효율로 운용 비용을 절감합니다.' },
+      { num: '01', title: '출력 절연 변압기 내장', desc: '출력측 절연 변압기 내장으로 부하기기를 전기적으로 분리·보호하여 정밀 장비에 최적입니다.' },
+      { num: '02', title: '고역률 · 저고조파', desc: '입력역률 0.99 이상, 낮은 입력 THDi로 전력망 오염을 최소화합니다.' },
+      { num: '03', title: '광범위 입력전압', desc: '폭넓은 입력전압 범위를 지원하여 불안정한 전원 환경에서도 안정 동작합니다.' },
+      { num: '04', title: '병렬 확장 가능', desc: '동일 모델 병렬 구성으로 용량 증설 및 이중화 운용이 가능합니다.' },
     ],
-    applications: ['IT 서버룸', '랙 마운트 환경', '통신 설비', '소형 데이터센터', '제조 현장'],
+    applications: ['의료기기', '정밀 계측기', '연구실 장비', '방송 장비', '특수 산업 설비'],
+    models: [
+      { id: 'GRU-TR006', kva: '6kVA', specs: [
+        { label: '입력전압 (Vac)', value: 'LN: 110 ~ 300 (최대부하: 176 ~ 300)' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '90%' },
+        { label: '변압기', value: '출력측 절연 변압기 내장' },
+        { label: '치수 W×D×H (mm)', value: '250 × 580 × 730' },
+        { label: '무게', value: '약 95 kg' },
+      ]},
+      { id: 'GRU-TR010', kva: '10kVA', specs: [
+        { label: '입력전압 (Vac)', value: 'LN: 110 ~ 300 (최대부하: 176 ~ 300)' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '91%' },
+        { label: '변압기', value: '출력측 절연 변압기 내장' },
+        { label: '치수 W×D×H (mm)', value: '250 × 580 × 730' },
+        { label: '무게', value: '약 110 kg' },
+      ]},
+    ],
   },
   '04': {
-    name: 'Green-11 T',
-    category: 'Tower형 단상 온라인 이중변환 UPS',
-    image: 'images/product/Green-11 T.png',
-    video: 'L_jWHffIx5E',
-    pillSpecs: ['단상 (1상)', 'Tower형', 'KS · KC 인증'],
-    stripSpecs: [
-      { label: '형태', value: 'Tower형' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상 (1상)' },
-      { label: '종합효율', value: '90 ~ 95%' },
-      { label: '인증', value: 'KS · KC' },
+    name: 'GRU-Rack Series',
+    category: 'Rack형 삼상 온라인 이중변환 UPS · 10~40kVA',
+    image: 'images/product/RM (10_40kVA)_01.png',
+    images: [
+      'images/product/RM (10_40kVA)_01.png',
+      'images/product/RM (10_40kVA)_02.png',
+      'images/product/RM (10_40kVA)_03.png'
     ],
-    specs: [
-      { label: '형태', value: 'Tower형' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상 (1상)' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '종합효율', value: '90 ~ 95%' },
-      { label: '디스플레이', value: 'LCD' },
-      { label: '통신포트', value: 'RS-232 / USB' },
-      { label: '절체시간', value: '무순단 (0~4ms)' },
-      { label: '인증', value: 'KS · KC' },
-      { label: '부가기능', value: 'ECO · EPO' },
-    ],
+    video: '9bZkp7q19f0',
+    pillSpecs: ['10 ~ 40 kVA', '삼상 Rack형', '온라인 이중변환'],
     features: [
-      { num: '01', title: 'KS·KC 인증', desc: '한국표준(KS) 및 안전인증(KC)을 모두 취득한 검증된 국산 제품입니다.' },
-      { num: '02', title: 'LCD 디스플레이', desc: 'LCD 화면으로 입출력 전압, 부하율, 배터리 상태를 직관적으로 확인합니다.' },
-      { num: '03', title: '완벽한 전원 보호', desc: '정전, 순간정전, 과전압, 저전압 등 모든 전원이상에서 부하기기를 보호합니다.' },
-      { num: '04', title: 'ECO 절전 모드', desc: '정상 입력 조건에서 자동으로 ECO 모드로 운전하여 전력 소비를 절감합니다.' },
+      { num: '01', title: '19인치 Rack 표준', desc: '표준 19인치 랙에 설치 가능하여 공간 활용도가 뛰어납니다.' },
+      { num: '02', title: '고역률 · 저고조파', desc: '입력역률 0.99 이상, 입력 THDi <5%로 전력 품질을 보장합니다.' },
+      { num: '03', title: '병렬 확장', desc: '병렬 구성을 통해 용량 증설 및 N+X 이중화 운용이 가능합니다.' },
+      { num: '04', title: '고효율 95%', desc: '온라인 이중변환 방식으로 최대 95%의 종합효율을 달성합니다.' },
     ],
-    applications: ['사무용 PC·서버', '의료기기', '정밀 계측기', '소규모 통신장비', '방송 장비'],
+    applications: ['중형 데이터센터', '서버룸', '랙 마운트 환경', '통신 설비', '제조 현장'],
+    models: [
+      { id: 'GRU33-R010', kva: '10kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '94%' },
+        { label: '설치 형태', value: '19인치 4U Rack' },
+        { label: '치수 W×D×H (mm)', value: '440 × 750 × 175' },
+        { label: '무게', value: '약 33 kg' },
+      ]},
+      { id: 'GRU33-R020', kva: '20kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '94.5%' },
+        { label: '설치 형태', value: '19인치 4U Rack' },
+        { label: '치수 W×D×H (mm)', value: '440 × 750 × 175' },
+        { label: '무게', value: '약 35 kg' },
+      ]},
+      { id: 'GRU33-R030', kva: '30kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '설치 형태', value: '19인치 6U Rack' },
+        { label: '치수 W×D×H (mm)', value: '440 × 800 × 265' },
+        { label: '무게', value: '약 50 kg' },
+      ]},
+      { id: 'GRU33-R040', kva: '40kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 5%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '설치 형태', value: '19인치 6U Rack' },
+        { label: '치수 W×D×H (mm)', value: '440 × 800 × 265' },
+        { label: '무게', value: '약 52 kg' },
+      ]},
+    ],
   },
   '05': {
-    name: 'Green-11',
-    category: '단상 온라인 이중변환 UPS',
-    image: 'images/product/Green-11.png',
-    video: 'kJQP7kiw5Fk',
-    pillSpecs: ['단상 (1상)', '효율 90~95%', 'KS · KC 인증'],
-    stripSpecs: [
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상 (1상)' },
-      { label: '종합효율', value: '90 ~ 95%' },
-      { label: '절체시간', value: '0 ~ 4ms' },
-      { label: '인증', value: 'KS · KC' },
+    name: 'GRU33-T010~040 (Myria Series)',
+    category: '삼상 Tower형 온라인 이중변환 UPS · 10~40kVA',
+    image: 'images/product/myria40_01.png',
+    images: [
+      'images/product/myria40_01.png',
+      'images/product/myria40_02.png',
+      'images/product/myria40_03.png'
     ],
-    specs: [
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상 (1상)' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '종합효율', value: '90 ~ 95% (AC/AC)' },
-      { label: '디스플레이', value: 'LCD' },
-      { label: '통신포트', value: 'RS-232 / USB' },
-      { label: '절체시간', value: '무순단 (0~4ms)' },
-      { label: '인증', value: 'KS · KC' },
-      { label: '부가기능', value: 'ECO · EPO' },
-    ],
-    features: [
-      { num: '01', title: 'KS·KC 인증', desc: '국내 표준 및 안전 기준을 모두 충족하는 검증된 국산 UPS입니다.' },
-      { num: '02', title: '고효율 변환', desc: '90~95%의 높은 AC/AC 변환효율로 에너지 낭비를 최소화합니다.' },
-      { num: '03', title: '무순단 절체', desc: '0~4ms 이내의 빠른 절체로 부하 장비의 무중단 운전을 보장합니다.' },
-      { num: '04', title: '원격 통신 지원', desc: 'RS-232/USB 포트로 UPS 관리 소프트웨어와 연동하여 원격 감시합니다.' },
-    ],
-    applications: ['사무용 서버', '의료 진단 장비', '정밀기기', '방송 장비', '소형 통신 설비'],
-  },
-  '06': {
-    name: 'Myria (10-40kVA)',
-    category: '단상/삼상 겸용 온라인 UPS',
-    image: 'images/product/Myria (10-40kVA).png',
     video: 'RgKAFK5djSk',
-    pillSpecs: ['10 ~ 40kVA', '단/삼상 겸용', '효율 95%'],
-    stripSpecs: [
-      { label: '용량', value: '10 ~ 40kVA' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상/삼상 선택' },
-      { label: '종합효율', value: '95%' },
-      { label: '입력 THDi', value: '< 3%' },
-    ],
-    specs: [
-      { label: '용량', value: '10 ~ 40kVA' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상/삼상 선택 가능' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '종합효율', value: '95%' },
-      { label: '디스플레이', value: 'Touch Screen' },
-      { label: '입력 THDi', value: '< 3%' },
-      { label: '부가기능', value: 'EPO' },
-    ],
+    pillSpecs: ['10 ~ 40 kVA', '삼상 (3상)', 'Touch Screen'],
     features: [
-      { num: '01', title: '단/삼상 겸용', desc: '입출력 상수를 현장 조건에 맞게 선택할 수 있어 설치 유연성이 높습니다.' },
+      { num: '01', title: '저고조파 (THDi<3%)', desc: '입력 고조파를 3% 미만으로 억제하여 전원 품질을 보장합니다.' },
       { num: '02', title: 'Touch Screen', desc: '터치 스크린 방식의 직관적인 운용 인터페이스를 제공합니다.' },
-      { num: '03', title: '저고조파 (THDi<3%)', desc: '입력 고조파를 3% 미만으로 억제하여 전원 품질을 보장합니다.' },
-      { num: '04', title: '고효율 95%', desc: '최신 전력 변환 기술로 95%의 높은 효율을 달성합니다.' },
+      { num: '03', title: '고효율 95%', desc: '최신 전력 변환 기술로 95%의 높은 효율을 달성합니다.' },
+      { num: '04', title: '병렬 확장 가능', desc: '병렬 구성으로 용량 증설 및 N+X 이중화 운용이 가능합니다.' },
     ],
     applications: ['데이터센터', '산업 공장', '병원', '방송국', '철도 인프라'],
+    models: [
+      { id: 'GRU33-T010', kva: '10kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '250 × 720 × 950' },
+        { label: '무게', value: '약 90 kg' },
+      ]},
+      { id: 'GRU33-T020', kva: '20kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '250 × 720 × 950' },
+        { label: '무게', value: '약 95 kg' },
+      ]},
+      { id: 'GRU33-T030', kva: '30kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '250 × 720 × 1100' },
+        { label: '무게', value: '약 110 kg' },
+      ]},
+      { id: 'GRU33-T040', kva: '40kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '250 × 720 × 1100' },
+        { label: '무게', value: '약 115 kg' },
+      ]},
+    ],
+  },
+  '06': {
+    name: 'GRU33-T060~T200 (Myria Series)',
+    category: '삼상 대용량 온라인 이중변환 UPS · 60~200kVA',
+    image: 'images/product/myria60_01.png',
+    images: [
+      'images/product/myria60_01.png',
+      'images/product/myria60_02.png',
+      'images/product/myria60_03.png'
+    ],
+    video: 'dQw4w9WgXcQ',
+    pillSpecs: ['60 ~ 200 kVA', '삼상 (3상)', '효율 95%'],
+    features: [
+      { num: '01', title: '대용량 지원', desc: '60~200kVA 광범위한 용량으로 대형 데이터센터에 최적화되어 있습니다.' },
+      { num: '02', title: '고효율 95%', desc: '온라인 이중변환 방식으로 최고 수준의 전력 변환 효율을 달성합니다.' },
+      { num: '03', title: 'Touch Screen', desc: '직관적인 터치 스크린 디스플레이로 실시간 상태를 확인합니다.' },
+      { num: '04', title: 'EPO 비상차단', desc: '비상 전원 차단 기능으로 긴급 상황 시 즉각 대응이 가능합니다.' },
+    ],
+    applications: ['대형 데이터센터', '방송국', '금융 전산실', '통신 기지국', '대형 산업 설비'],
+    models: [
+      { id: 'GRU33-T060', kva: '60kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '600 × 850 × 1600' },
+        { label: '무게', value: '약 280 kg' },
+      ]},
+      { id: 'GRU33-T080', kva: '80kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '600 × 850 × 1600' },
+        { label: '무게', value: '약 310 kg' },
+      ]},
+      { id: 'GRU33-T100', kva: '100kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '600 × 850 × 1600' },
+        { label: '무게', value: '약 340 kg' },
+      ]},
+      { id: 'GRU33-T160', kva: '160kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '750 × 900 × 1800' },
+        { label: '무게', value: '약 480 kg' },
+      ]},
+      { id: 'GRU33-T200', kva: '200kVA', specs: [
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
+        { label: '최대 AC/AC 효율', value: '95%' },
+        { label: '디스플레이', value: 'Touch Screen' },
+        { label: '치수 W×D×H (mm)', value: '750 × 900 × 1800' },
+        { label: '무게', value: '약 540 kg' },
+      ]},
+    ],
   },
   '07': {
-    name: 'RM (1-10kVA)',
-    category: '19인치 Rack/Tower 겸용 단상 온라인 UPS',
-    image: 'images/product/RM (1-10kVA).png',
-    video: 'ScMzIvxBSi4',
-    pillSpecs: ['1 ~ 10kVA', 'Rack/Tower 겸용', 'Hot-Swap 지원'],
-    stripSpecs: [
-      { label: '용량', value: '1 ~ 10kVA' },
-      { label: '설치 형태', value: 'Rack / Tower' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '종합효율', value: '92% 이상' },
-      { label: '배터리', value: 'Hot-Swap' },
+    name: 'MR33 Series',
+    category: '모듈형 삼상 온라인 이중변환 UPS · 200~600kVA (50kVA 모듈)',
+    image: 'images/product/Green-UK33_02.png',
+    images: [
+      'images/product/Green-UK33_02.png',
+      'images/product/Green-UK33_02.png',
+      'images/product/Green-UK33_02.png'
     ],
-    specs: [
-      { label: '용량', value: '1 ~ 10kVA' },
-      { label: '설치 형태', value: 'Rack / Tower 겸용' },
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상 (1상)' },
-      { label: '고역률', value: '0.99 이상' },
-      { label: '종합효율', value: '92% 이상' },
-      { label: '통신포트', value: 'RS232' },
-      { label: '절체시간', value: '무순단 (0~4ms)' },
-      { label: '배터리', value: 'Hot-Swap 지원' },
-      { label: '부가기능', value: 'ECO · EPO' },
-    ],
+    video: 'jNQXAC9IVRw',
+    pillSpecs: ['200 ~ 600 kVA', '50kVA 모듈식', 'Hot-Swap'],
     features: [
-      { num: '01', title: 'Rack/Tower 겸용', desc: '1U~4U 표준 19인치 랙 또는 타워형 모두 설치 가능합니다.' },
-      { num: '02', title: 'Hot-Swap 배터리', desc: '운전 중 배터리 교체가 가능하여 유지보수가 간편합니다.' },
-      { num: '03', title: 'ECO·EPO', desc: 'ECO 절전 모드와 EPO 비상차단 기능으로 효율적이고 안전한 운전을 지원합니다.' },
-      { num: '04', title: '소용량 최적화', desc: '1~10kVA 범위에서 소규모 IT 인프라에 최적화된 전원 보호를 제공합니다.' },
+      { num: '01', title: '모듈형 확장 구조', desc: '50kVA 단위 파워 모듈을 Hot-Swap 방식으로 추가·교체하여 유연하게 용량을 증설합니다.' },
+      { num: '02', title: 'N+X 이중화', desc: '하나의 캐비닛 내에서 N+X 이중화 운용이 가능해 고가용성을 확보합니다.' },
+      { num: '03', title: '고효율 96%', desc: '온라인 이중변환 효율 96%, ECO 모드 99% 달성으로 운영비를 절감합니다.' },
+      { num: '04', title: '터치 디스플레이', desc: '7인치 LCD 터치 스크린으로 모듈별 상태와 부하 정보를 직관적으로 모니터링합니다.' },
     ],
-    applications: ['소규모 서버룸', 'PC·워크스테이션', '소형 통신 장비', '사무용 네트워크 장비'],
+    applications: ['대형 데이터센터', '통신 인프라', '금융 전산실', '산업 제어 설비', '공공 시설'],
+    models: [
+      { id: 'MR33-200', kva: '200kVA', specs: [
+        { label: '구성', value: '50kVA × 4 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '600 × 1000 × 2000' },
+        { label: '무게', value: '약 350 kg (모듈 별도)' },
+      ]},
+      { id: 'MR33-300', kva: '300kVA', specs: [
+        { label: '구성', value: '50kVA × 6 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '600 × 1000 × 2000' },
+        { label: '무게', value: '약 420 kg' },
+      ]},
+      { id: 'MR33-400', kva: '400kVA', specs: [
+        { label: '구성', value: '50kVA × 8 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '600 × 1000 × 2000' },
+        { label: '무게', value: '약 490 kg' },
+      ]},
+      { id: 'MR33-500', kva: '500kVA', specs: [
+        { label: '구성', value: '50kVA × 10 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '600 × 1100 × 2000' },
+        { label: '무게', value: '약 560 kg' },
+      ]},
+      { id: 'MR33-600', kva: '600kVA', specs: [
+        { label: '구성', value: '50kVA × 12 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '600 × 1100 × 2000' },
+        { label: '무게', value: '약 630 kg' },
+      ]},
+    ],
   },
   '08': {
-    name: 'Green-31',
-    category: '단상 온라인 고효율 이중변환 UPS',
-    image: 'images/product/green31.png',
+    name: 'MR33-H Series',
+    category: '대용량 모듈형 삼상 온라인 이중변환 UPS · 400~1200kVA (100kVA 모듈)',
+    image: 'images/product/GEL_Series_01.png',
+    images: [
+      'images/product/GEL_Series_01.png',
+      'images/product/GEL_Series_02.png',
+      'images/product/GEL_Series_03.png'
+    ],
     video: 'hxvpqO3e3lc',
-    pillSpecs: ['단상 (1상)', '효율 95%', 'THDi < 5%'],
-    stripSpecs: [
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상 (1상)' },
-      { label: '종합효율', value: '95%' },
-      { label: '절체시간', value: '0 ~ 4ms' },
-      { label: '입력 THDi', value: '< 5%' },
-    ],
-    specs: [
-      { label: '방식', value: '온라인 이중변환' },
-      { label: '입출력', value: '단상 (1상)' },
-      { label: '입력역률', value: '0.99 이상' },
-      { label: '종합효율', value: '95% (AC/AC)' },
-      { label: '통신포트', value: 'RS232 / USB' },
-      { label: '입력 THDi', value: '< 5%' },
-      { label: '절체시간', value: '무순단 (0~4ms)' },
-      { label: '입력전압범위', value: '광범위 지원' },
-      { label: '부가기능', value: 'ECO · EPO' },
-    ],
+    pillSpecs: ['400 ~ 1200 kVA', '100kVA 모듈식', 'Hot-Swap'],
     features: [
-      { num: '01', title: '최고 효율 95%', desc: '최첨단 전력 변환 기술로 95%의 AC/AC 변환효율을 실현합니다.' },
-      { num: '02', title: '광범위 입력전압', desc: '폭넓은 입력전압 범위를 지원하여 불안정한 전원 환경에서도 안정적으로 동작합니다.' },
-      { num: '03', title: '저고조파 (THDi<5%)', desc: '입력 고조파를 5% 미만으로 억제하여 전원 품질에 민감한 장비에 적합합니다.' },
-      { num: '04', title: '무순단 절체', desc: '0~4ms의 무순단 절체로 민감한 부하기기도 안전하게 보호합니다.' },
+      { num: '01', title: '대용량 모듈형', desc: '100kVA 단위 파워 모듈을 Hot-Swap 방식으로 운용하여 1.2MVA까지 확장 가능합니다.' },
+      { num: '02', title: '병렬 시스템', desc: '캐비닛 병렬 구성으로 더 큰 용량과 N+X 이중화를 동시에 달성합니다.' },
+      { num: '03', title: '고효율 96.5%', desc: '대용량 환경에 최적화된 전력 변환으로 96.5%의 종합효율을 구현합니다.' },
+      { num: '04', title: '지능형 관제', desc: '터치 LCD 및 SNMP·Modbus 통신으로 중앙 관제 시스템과 실시간 연계됩니다.' },
     ],
-    applications: ['정밀 의료기기', '방송 장비', '금융 단말기', '산업용 PC', '계측 장비'],
+    applications: ['대형 데이터센터', '클라우드 IDC', '발전소·변전소', '대형 공장', '국가 인프라'],
+    models: [
+      { id: 'MR33H-400', kva: '400kVA', specs: [
+        { label: '구성', value: '100kVA × 4 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96.5%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '800 × 1100 × 2000' },
+        { label: '무게', value: '약 580 kg (모듈 별도)' },
+      ]},
+      { id: 'MR33H-600', kva: '600kVA', specs: [
+        { label: '구성', value: '100kVA × 6 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96.5%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '800 × 1100 × 2000' },
+        { label: '무게', value: '약 720 kg' },
+      ]},
+      { id: 'MR33H-800', kva: '800kVA', specs: [
+        { label: '구성', value: '100kVA × 8 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96.5%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '900 × 1100 × 2000' },
+        { label: '무게', value: '약 860 kg' },
+      ]},
+      { id: 'MR33H-1000', kva: '1000kVA', specs: [
+        { label: '구성', value: '100kVA × 10 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96.5%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '1000 × 1200 × 2000' },
+        { label: '무게', value: '약 1000 kg' },
+      ]},
+      { id: 'MR33H-1200', kva: '1200kVA', specs: [
+        { label: '구성', value: '100kVA × 12 모듈' },
+        { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
+        { label: '입력 주파수', value: '40 ~ 70 Hz' },
+        { label: '입력역률', value: '0.99' },
+        { label: '입력 THDi', value: '< 3%' },
+        { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
+        { label: '최대 AC/AC 효율', value: '96.5%' },
+        { label: 'ECO 효율', value: '99%' },
+        { label: '치수 W×D×H (mm)', value: '1000 × 1200 × 2000' },
+        { label: '무게', value: '약 1140 kg' },
+      ]},
+    ],
   },
 };
 
@@ -1288,14 +1699,6 @@ const PRODUCTS = {
     `<span class="kp-spec-pill">${s}</span>`
   ).join('');
 
-  /* 스펙 스트립 */
-  document.getElementById('kpSpecStrip').innerHTML = p.stripSpecs.map(s =>
-    `<div class="kp-spec-item">
-      <p class="kp-spec-item__label">${s.label}</p>
-      <p class="kp-spec-item__value">${s.value}</p>
-    </div>`
-  ).join('');
-
   /* 특징 그리드 */
   document.getElementById('kpFeatures').innerHTML = p.features.map(f =>
     `<div class="kp-feature">
@@ -1305,12 +1708,78 @@ const PRODUCTS = {
     </div>`
   ).join('');
 
-  /* 상세 스펙 테이블 */
-  document.getElementById('kpSpecTable').innerHTML = p.specs.map(s =>
-    `<tr><td>${s.label}</td><td>${s.value}</td></tr>`
-  ).join('');
+  /* ── 스펙 섹션 렌더 : 이미지 배경 + 기술사양 | 적용분야 2단 ── */
+  const specSection = document.querySelector('.kp-section--spec-dark');
+  const specInner = document.getElementById('kpSpecInner');
+  const heroImg = (p.images && (p.images[1] || p.images[0])) || p.image || '';
+  if (specSection && heroImg) {
+    specSection.style.setProperty('--spec-bg', `url('${heroImg}')`);
+  }
 
-  /* 적용 분야 */
+  if (p.models && p.models.length) {
+    const tabsHTML = p.models.map((m, i) =>
+      `<button class="kp-model-tab${i === 0 ? ' is-active' : ''}" data-idx="${i}">${m.kva}</button>`
+    ).join('');
+
+    specInner.innerHTML = `
+      <div class="kp-spec-grid">
+        <div>
+          <p class="kp-section__eyebrow">Specifications</p>
+          <h2 class="kp-section__title">기술 사양</h2>
+          <div class="kp-section__divider"></div>
+          <div class="kp-model-tabs" id="kpModelTabs">${tabsHTML}</div>
+          <p class="kp-model-id" id="kpModelId">${p.models[0].id}</p>
+          <table class="kp-spec-table" id="kpSpecTable"></table>
+        </div>
+        <div class="kp-spec-grid__apps">
+          <p class="kp-section__eyebrow">Applications</p>
+          <h2 class="kp-section__title">적용 분야</h2>
+          <div class="kp-section__divider"></div>
+          <p class="kp-apps__lede">다양한 산업 현장에 최적화된 전원 보호 솔루션을 제공합니다.</p>
+          <div class="kp-apps" id="kpApps"></div>
+        </div>
+      </div>`;
+
+    function renderModelSpecs(idx) {
+      const m = p.models[idx];
+      document.getElementById('kpModelId').textContent = m.id;
+      document.getElementById('kpSpecTable').innerHTML = m.specs.map(s =>
+        `<tr><td>${s.label}</td><td>${s.value}</td></tr>`
+      ).join('');
+    }
+    renderModelSpecs(0);
+
+    document.getElementById('kpModelTabs').addEventListener('click', function (e) {
+      const btn = e.target.closest('.kp-model-tab');
+      if (!btn) return;
+      document.querySelectorAll('#kpModelTabs .kp-model-tab').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      renderModelSpecs(parseInt(btn.dataset.idx));
+    });
+
+  } else {
+    specInner.innerHTML = `
+      <div class="kp-spec-grid">
+        <div>
+          <p class="kp-section__eyebrow">Specifications</p>
+          <h2 class="kp-section__title">상세 사양</h2>
+          <div class="kp-section__divider"></div>
+          <table class="kp-spec-table" id="kpSpecTable"></table>
+        </div>
+        <div class="kp-spec-grid__apps">
+          <p class="kp-section__eyebrow">Applications</p>
+          <h2 class="kp-section__title">적용 분야</h2>
+          <div class="kp-section__divider"></div>
+          <p class="kp-apps__lede">다양한 산업 현장에 최적화된 전원 보호 솔루션을 제공합니다.</p>
+          <div class="kp-apps" id="kpApps"></div>
+        </div>
+      </div>`;
+    document.getElementById('kpSpecTable').innerHTML = (p.specs || []).map(s =>
+      `<tr><td>${s.label}</td><td>${s.value}</td></tr>`
+    ).join('');
+  }
+
+  /* 적용 분야 (공통) */
   document.getElementById('kpApps').innerHTML = p.applications.map(a =>
     `<span class="kp-app-tag">${a}</span>`
   ).join('');
@@ -1342,5 +1811,7 @@ const PRODUCTS = {
   }, { passive: true });
 })();
 </script>
+<script src="resources-data.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
