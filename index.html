@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -47,13 +47,9 @@
                                 <a href="inquiry-service.html">서비스 요청</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a href="support-notice.html">홍보센터</a>
-                            <div class="nav-dropdown">
-                                <a href="support-notice.html">공지사항</a>
-                                <a href="support-catalog.html">카탈로그</a>
-                            </div>
-                        </li>
+                        <li class="nav-item"><a href="support-notice.html">공지사항</a></li>
+                        <li class="nav-item"><a href="support-catalog.html">자료실</a></li>
+                        <li class="nav-item nav-item--search"><button type="button" class="nav-search-btn" data-search-open aria-label="검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -102,13 +98,8 @@
                             <a href="inquiry-service.html">서비스 요청</a>
                         </div>
                     </div>
-                    <div class="mobile-item">
-                        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
-                        <div class="mobile-item__panel">
-                            <a href="support-notice.html">공지사항</a>
-                            <a href="support-catalog.html">카탈로그</a>
-                        </div>
-                    </div>
+                    <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-notice.html">공지사항</a></div>
+                    <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-catalog.html">자료실</a></div>
                 </div>
             </div>
         </div>
@@ -117,10 +108,8 @@
             <section class="hero" id="hero">
                 <div class="hero-slider" data-autoplay="8000">
                     <article class="hero-slide is-active" data-slide data-header="light">
-                        <div class="hero-media hero-media--video">
-                            <video autoplay muted loop playsinline poster="hero-enterprise.png">
-                                <source src="video/video_web.webm" type="video/webm">
-                            </video>
+                        <div class="hero-media">
+                            <img src="images/hero_1.png" alt="">
                         </div>
                         <div class="hero-overlay"></div>
                         <div class="hero-inner container">
@@ -409,7 +398,7 @@
 
                 <div class="business-panels" id="businessPanels">
                     <a href="products-green.html" class="business-panel is-active" data-panel>
-                        <div class="business-panel__bg" style="background-image: url('images/left_box_img.png');"></div>
+                        <div class="business-panel__bg" style="background-image: url('images/left_box_img1.png');"></div>
                         <div class="business-panel__shade"></div>
                         <div class="business-panel__inner">
                             <span class="panel-index">01</span>
@@ -421,7 +410,7 @@
                         </div>
                     </a>
                     <a href="products-battery.html" class="business-panel" data-panel>
-                        <div class="business-panel__bg" style="background-image: url('images/left_box_img.png');"></div>
+                        <div class="business-panel__bg" style="background-image: url('images/left_box_img2.png');"></div>
                         <div class="business-panel__shade"></div>
                         <div class="business-panel__inner">
                             <span class="panel-index">02</span>
@@ -433,7 +422,7 @@
                         </div>
                     </a>
                     <a href="products-eaton.html" class="business-panel" data-panel>
-                        <div class="business-panel__bg" style="background-image: url('images/left_box_img.png');"></div>
+                        <div class="business-panel__bg" style="background-image: url('images/left_box_img3.png');"></div>
                         <div class="business-panel__shade"></div>
                         <div class="business-panel__inner">
                             <span class="panel-index">03</span>
@@ -447,38 +436,139 @@
                 </div>
             </section>
 
-            <section class="global-network section-pad">
-                <div class="container">
-                    <div class="global-network__frame reveal">
-                        <div class="global-network__map" aria-hidden="true">
-                            <img src="images/mid_box_img.png" alt="" class="global-network__map-image">
-                        </div>
-
-                        <div class="global-network__content">
-                            <p class="section-label">GLOBAL NETWORKS</p>
-                            <h2 class="highlight-text">미국 · 중국 글로벌 파트너와 함께하는 전력 기술 네트워크</h2>
-                            <p>
-                                EATON(POWERWARE, 미국), VYCON(미국), KEHUA(중국)와의 공식 파트너십을 통해
-                                세계 최고 수준의 전원 기술을 국내 현장에 직접 적용합니다.
-                            </p>
-                            <div class="global-network__actions">
-                                <a href="company-partners.html" class="global-network__button">파트너 현황 보기</a>
-                                <a href="inquiry-consulting.html" class="global-network__link">도입 상담</a>
-                            </div>
-                        </div>
-
-                        <div class="global-network__rail" aria-label="빠른 링크">
-                            <a href="support-notice.html">NEWS</a>
-                            <a href="company-partners.html">NETWORK</a>
-                        </div>
-                    </div>
+            <section class="partner-slider-section section-pad">
+                <div class="container partner-slider__head reveal">
+                    <p class="section-label">PARTNERS &amp; APPLICATIONS</p>
+                    <h2 class="highlight-text">현장에 검증된 글로벌 파트너와 적용 분야</h2>
+                    <p class="partner-slider__lede">데이터센터, 공공·산업 인프라까지 — 그린파워테크놀로지가 함께한 주요 파트너와 적용 영역입니다.</p>
                 </div>
+
+                <div class="partner-slider">
+                    <button type="button" class="partner-slider__arrow partner-slider__arrow--prev" aria-label="이전" data-partner-prev>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button type="button" class="partner-slider__arrow partner-slider__arrow--next" aria-label="다음" data-partner-next>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+
+                    <div class="partner-slider__viewport">
+                        <ul class="partner-slider__track" id="partnerTrack">
+                            <li class="partner-slide" data-partner-slide>
+                                <img src="images/left_box_img1.png" alt="EATON" class="partner-slide__img">
+                                <div class="partner-slide__overlay">
+                                    <p class="partner-slide__brand">GLOBAL PARTNER</p>
+                                    <h3 class="partner-slide__title">EATON · POWERWARE</h3>
+                                    <p class="partner-slide__desc">세계 1위 전력 브랜드 EATON 공식 파트너십을 통해 데이터센터급 UPS 솔루션을 공급합니다.</p>
+                                </div>
+                            </li>
+                            <li class="partner-slide" data-partner-slide>
+                                <img src="images/bot_box_img1.png" alt="DATA CENTER" class="partner-slide__img">
+                                <div class="partner-slide__overlay">
+                                    <p class="partner-slide__brand">APPLICATION</p>
+                                    <h3 class="partner-slide__title">DATA CENTER</h3>
+                                    <p class="partner-slide__desc">국내 주요 데이터센터에 안정적인 무정전 전원 인프라를 공급해왔습니다.</p>
+                                </div>
+                            </li>
+                            <li class="partner-slide" data-partner-slide>
+                                <img src="images/bot_box_img2.png" alt="INDUSTRIAL" class="partner-slide__img">
+                                <div class="partner-slide__overlay">
+                                    <p class="partner-slide__brand">APPLICATION</p>
+                                    <h3 class="partner-slide__title">INDUSTRIAL</h3>
+                                    <p class="partner-slide__desc">철도, 선박, 산업 플랜트 등 가혹한 현장 조건에서 검증된 전원 솔루션입니다.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="partner-slider__dots" id="partnerDots" aria-label="슬라이드 인디케이터"></div>
+                </div>
+
+                <script>
+                (function(){
+                    var track = document.getElementById('partnerTrack');
+                    if (!track) return;
+                    var originals = Array.prototype.slice.call(track.querySelectorAll('[data-partner-slide]'));
+                    var N = originals.length;
+                    if (!N) return;
+
+                    // 무한 루프용: 앞뒤로 클론 추가
+                    var cloneBefore = originals.map(function(s){ return s.cloneNode(true); });
+                    var cloneAfter  = originals.map(function(s){ return s.cloneNode(true); });
+                    cloneBefore.reverse().forEach(function(c){ track.insertBefore(c, track.firstChild); });
+                    cloneAfter.forEach(function(c){ track.appendChild(c); });
+
+                    var slideWidth = function(){
+                        var first = track.querySelector('.partner-slide');
+                        if (!first) return 448;
+                        var rect = first.getBoundingClientRect();
+                        var style = window.getComputedStyle(first);
+                        return rect.width + parseFloat(style.marginRight || 0);
+                    };
+
+                    var pos = N; // 첫 원본부터 시작
+                    var paused = false;
+                    var timer = null;
+
+                    function render(animate){
+                        track.style.transition = animate ? 'transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)' : 'none';
+                        track.style.transform = 'translateX(' + (-pos * slideWidth()) + 'px)';
+                        updateDots();
+                    }
+
+                    track.addEventListener('transitionend', function(){
+                        if (pos >= 2 * N) { pos -= N; render(false); }
+                        else if (pos < N) { pos += N; render(false); }
+                    });
+
+                    function next(){ pos++; render(true); }
+                    function prev(){ pos--; render(true); }
+
+                    // 도트
+                    var dotsEl = document.getElementById('partnerDots');
+                    if (dotsEl) {
+                        for (var i=0; i<N; i++) {
+                            var b = document.createElement('button');
+                            b.type = 'button';
+                            b.className = 'partner-slider__dot';
+                            b.setAttribute('aria-label', (i+1)+'번 슬라이드');
+                            b.dataset.dot = i;
+                            dotsEl.appendChild(b);
+                        }
+                        dotsEl.addEventListener('click', function(e){
+                            var d = e.target.closest('[data-dot]');
+                            if (!d) return;
+                            pos = N + parseInt(d.dataset.dot, 10);
+                            render(true);
+                        });
+                    }
+                    function updateDots(){
+                        if (!dotsEl) return;
+                        var logical = ((pos - N) % N + N) % N;
+                        dotsEl.querySelectorAll('.partner-slider__dot').forEach(function(d, i){
+                            d.classList.toggle('is-active', i === logical);
+                        });
+                    }
+
+                    document.querySelector('[data-partner-prev]').addEventListener('click', prev);
+                    document.querySelector('[data-partner-next]').addEventListener('click', next);
+
+                    // 자동 슬라이드
+                    function start(){ stop(); timer = setInterval(function(){ if(!paused) next(); }, 3500); }
+                    function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+                    track.addEventListener('mouseenter', function(){ paused = true; });
+                    track.addEventListener('mouseleave', function(){ paused = false; });
+
+                    window.addEventListener('resize', function(){ render(false); });
+                    render(false);
+                    start();
+                })();
+                </script>
             </section>
 
             <section class="news section-pad">
                 <div class="container">
                     <div class="section-head reveal">
-                        <p class="section-label">홍보센터</p>
+                        <p class="section-label">공지사항 · 자료실</p>
                         <div class="section-head__row">
                             <h2>그린파워테크놀로지 주요 소식과 자료를 확인하세요</h2>
                             <p>
@@ -528,7 +618,7 @@
             <section class="cta-stack" id="ctaStack">
                 <div class="cta-stage">
                     <article class="cta-card cta-card--primary">
-                        <div class="cta-card__media" style="background-image: url('vision_bg.png');"></div>
+                        <div class="cta-card__media" style="background-image: url('images/bot_box_img1.png');"></div>
                         <div class="cta-card__overlay"></div>
                         <div class="cta-card__content container">
                             <p class="section-label section-label--light">품질 인증</p>
@@ -545,7 +635,7 @@
                     </article>
 
                     <article class="cta-card cta-card--secondary">
-                        <div class="cta-card__media" style="background-image: url('hero-enterprise.png');"></div>
+                        <div class="cta-card__media" style="background-image: url('images/bot_box_img2.png');"></div>
                         <div class="cta-card__overlay"></div>
                         <div class="cta-card__content container">
                             <p class="section-label section-label--light">사업 문의</p>
@@ -569,22 +659,21 @@
                 <div>
                     <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
                     <p class="footer-copy">
-                        UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로
-                        2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.
+                        UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로<br>2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.
                     </p>
                 </div>
                 <div class="footer-links">
                     <a href="company-greeting.html">기업소개</a>
                     <a href="products-green.html">사업영역</a>
-                    <a href="support-notice.html">홍보센터</a>
+                    <a href="support-notice.html">공지사항</a>
                     <a href="inquiry-consulting.html">문의</a>
                 </div>
             </div>
             <div class="container footer-bottom">
                 <div class="footer-info">
-                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
+                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2</p>
                     <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
                 </div>
                 <p class="footer-copyright">COPYRIGHT © 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
             </div>
@@ -592,6 +681,8 @@
     </div>
 
     <script src="script.js"></script>
+<script src="resources-data.js"></script>
+<script src="search.js"></script>
 </body>
 
 </html>
