@@ -2058,6 +2058,28 @@ ol {
         padding-bottom: 260px;
     }
 
+    .hero-ui {
+        left: clamp(40px, 6vw, 84px);
+        width: min(420px, calc(100% - 80px));
+        transform: none;
+        grid-template-columns: auto minmax(140px, 1fr);
+        gap: 14px;
+    }
+
+    .hero-progress {
+        width: auto;
+    }
+
+    .hero-arrow {
+        min-width: 68px;
+        min-height: 40px;
+        font-size: 12px;
+    }
+
+    .hero-arrows {
+        display: none;
+    }
+
     .hero-scroll {
         display: none;
     }
