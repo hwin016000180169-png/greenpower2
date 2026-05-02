@@ -1,11 +1,69 @@
 // sub-common.js
 document.addEventListener('DOMContentLoaded', () => {
+    const sectionTabHoverKey = 'greenpower:suppress-section-tab-hover';
+    const sectionTabs = Array.from(document.querySelectorAll('.section-tabs__item[href]'));
+
+    function enableSectionTabHoverSuppression() {
+        if (document.body.classList.contains('suppress-section-tab-hover')) {
+            return;
+        }
+
+        document.body.classList.add('suppress-section-tab-hover');
+
+        const clearSuppression = () => {
+            document.body.classList.remove('suppress-section-tab-hover');
+            window.removeEventListener('pointermove', clearSuppression);
+            window.removeEventListener('keydown', clearSuppression);
+            window.removeEventListener('touchstart', clearSuppression);
+        };
+
+        window.addEventListener('pointermove', clearSuppression, { passive: true });
+        window.addEventListener('keydown', clearSuppression);
+        window.addEventListener('touchstart', clearSuppression, { passive: true });
+    }
+
+    try {
+        if (sessionStorage.getItem(sectionTabHoverKey) === '1') {
+            sessionStorage.removeItem(sectionTabHoverKey);
+            enableSectionTabHoverSuppression();
+        }
+    } catch (error) {
+        // Ignore storage access failures and keep navigation working normally.
+    }
+
+    if (sectionTabs.length) {
+        enableSectionTabHoverSuppression();
+    }
+
+    sectionTabs.forEach((tab) => {
+        tab.addEventListener('click', (event) => {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return;
+            }
+
+            tab.blur();
+            document.body.classList.add('suppress-section-tab-hover');
+
+            try {
+                sessionStorage.setItem(sectionTabHoverKey, '1');
+            } catch (error) {
+                // The visual reset is progressive enhancement.
+            }
+        });
+    });
 
     // Force header to opaque state on sub-pages (no hero slider present)
     const header = document.getElementById('header');
     if (header && !document.querySelector('.hero-slider')) {
         header.classList.add('is-scrolled');
         header.dataset.tone = 'dark';
+
+        // script.js의 scroll 핸들러가 상단에서 is-scrolled를 제거하는 것을 방지
+        // sub-common.js는 script.js 이후 로드되므로 이 listener가 나중에 실행됨
+        window.addEventListener('scroll', () => {
+            header.classList.add('is-scrolled');
+            if (header.dataset.tone !== 'dark') header.dataset.tone = 'dark';
+        }, { passive: true });
     }
 
     // Reveal animation initial trigger

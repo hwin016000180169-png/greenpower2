@@ -1,0 +1,8 @@
+node_modules/
+_upload/
+output/
+.playwright-cli/
+.claude/
+*.log
+Thumbs.db
+.DS_Store

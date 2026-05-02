@@ -172,6 +172,19 @@
     color: var(--text);
 }
 
+body.suppress-section-tab-hover .section-tabs__item,
+body.suppress-section-tab-hover .section-tabs__item:hover {
+    transition: none;
+}
+
+body.suppress-section-tab-hover .section-tabs__item:hover:not(.is-active) {
+    color: var(--text-soft);
+}
+
+body.suppress-section-tab-hover .section-tabs__item.is-active:hover {
+    color: var(--accent-dark);
+}
+
 .section-tabs__item.is-active {
     color: var(--accent-dark);
     border-bottom-color: var(--accent);
@@ -1533,6 +1546,61 @@
 }
 
 /* --------------------------------------------------------------------------
+   24-B. Laptop breakpoint (1101px ~ 1340px) — subpage layout tightening
+   -------------------------------------------------------------------------- */
+@media (min-width: 1101px) and (max-width: 1340px) {
+    /* page-hero inner padding 축소 */
+    .page-hero__inner,
+    .page-body__inner,
+    .breadcrumb-bar__inner,
+    .cta-bar__inner,
+    .partner-band__inner,
+    .service-urgent-bar__inner {
+        width: calc(100% - 48px);
+    }
+
+    /* product cards 3열 유지하되 gap 줄이기 */
+    .product-cards {
+        gap: 14px;
+    }
+
+    /* product-grid 3열 → 컴팩트 */
+    .product-grid {
+        gap: 16px;
+    }
+
+    /* catalog-grid gap */
+    .catalog-grid {
+        gap: 16px;
+    }
+
+    /* inquiry form padding 축소 */
+    .inquiry-form {
+        padding: 32px;
+    }
+
+    /* quote form wrap padding 축소 */
+    .quote-form-wrap {
+        padding: 36px;
+    }
+
+    /* feature grid gap */
+    .feature-grid {
+        gap: 16px;
+    }
+
+    /* page-layout sidebar gap 축소 */
+    .page-layout {
+        gap: 40px;
+    }
+
+    /* 사이드바 너비 축소 */
+    .page-layout {
+        grid-template-columns: 190px 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
    25. Subpage header — always opaque (no hero to key tone off of)
    -------------------------------------------------------------------------- */
 .site-header.subpage-header {
@@ -2022,10 +2090,24 @@ a.product-card-v2,
     word-break: keep-all;
 }
 
+.product-card-v2__cap {
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 3px 10px;
+    background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    line-height: 1.4;
+}
+
 .product-card-v2__spec {
     font-size: 12px;
     color: var(--text-soft);
     line-height: 1.6;
+    margin: 0;
 }
 
 /* ── Detail Panel (expands below grid on click) ── */

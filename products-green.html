@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -39,12 +39,9 @@
             <a href="inquiry-service.html">서비스 요청</a>
           </div>
         </li>
-        <li class="nav-item"><a href="support-notice.html">홍보센터</a>
-          <div class="nav-dropdown">
-            <a href="support-notice.html">공지사항</a>
-            <a href="support-catalog.html">카탈로그</a>
-          </div>
-        </li>
+        <li class="nav-item"><a href="support-notice.html">공지사항</a></li>
+                        <li class="nav-item"><a href="support-catalog.html">자료실</a></li>
+                        <li class="nav-item nav-item--search"><button type="button" class="nav-search-btn" data-search-open aria-label="검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
       </ul>
     </nav>
     <div class="header-actions">
@@ -90,20 +87,15 @@
           <a href="inquiry-service.html">서비스 요청</a>
         </div>
       </div>
-      <div class="mobile-item">
-        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
-        <div class="mobile-item__panel">
-          <a href="support-notice.html">공지사항</a>
-          <a href="support-catalog.html">카탈로그</a>
-        </div>
-      </div>
+      <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-notice.html">공지사항</a></div>
+                    <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-catalog.html">자료실</a></div>
     </div>
   </div>
 </div>
 
 <main id="main">
 
-  <section class="page-hero">
+  <section class="page-hero page-hero--deeper">
     <div class="page-hero__inner">
       <p class="page-hero__kicker">사업영역</p>
       <h2 class="page-hero__title">GREEN UPS</h2>
@@ -126,13 +118,13 @@
 
       <nav class="section-tabs" aria-label="사업영역">
         <a href="products-green.html" class="section-tabs__item is-active">GREEN UPS</a>
-        <a href="products-eaton.html" class="section-tabs__item">EATON 솔루션</a>
+        <a href="products-eaton.html" class="section-tabs__item">유지보수 솔루션</a>
         <a href="products-battery.html" class="section-tabs__item">배터리 솔루션</a>
       </nav>
 
       <div class="product-intro">
         <div class="product-intro__img">
-          <img src="about_1.png" alt="GREEN UPS 제품">
+          <img src="images/Domestic_Manufacturing.png" alt="GREEN UPS 제품">
         </div>
         <div>
           <p class="product-intro__kicker">Domestic Manufacturing</p>
@@ -151,126 +143,134 @@
 
       <h3 class="body-section-title">제품 라인업</h3>
 
-      <!-- 제품 카드 그리드 -->
+      <!-- 제품 카드 그리드 (시리즈 단위, 용량 낮은 순) -->
       <div class="product-cards">
 
-        <!-- 01 Myria (60-200kVA) -->
+        <!-- 01 GRU11-Tower Series — 단상 Tower 1~10kVA -->
         <a href="product-ups-detail.html?id=01" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/Myria (60-200kVA).png" alt="Myria (60-200kVA)">
+            <img src="images/product/green11_01.png" alt="GRU11-Tower Series">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">01</p>
-            <p class="product-card-v2__name">Myria (60-200kVA)</p>
-            <p class="product-card-v2__spec">삼상 온라인 UPS · 60 ~ 200kVA</p>
+            <p class="product-card-v2__name">GRU11-Tower Series</p>
+            <p class="product-card-v2__cap">T001 ~ T010 kVA</p>
+            <p class="product-card-v2__spec">단상 Tower형 · 온라인 이중변환</p>
           </div>
         </a>
 
-        <!-- 02 Green-UK33 -->
+        <!-- 02 GRU11-Rack Series — 단상 Rack 1~10kVA -->
         <a href="product-ups-detail.html?id=02" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/Green-UK33.png" alt="Green-UK33">
+            <img src="images/product/RM (1_10kVA)_01.png" alt="GRU11-Rack Series">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">02</p>
-            <p class="product-card-v2__name">Green-UK33</p>
-            <p class="product-card-v2__spec">삼상 온라인 UPS · 10 ~ 40kVA</p>
+            <p class="product-card-v2__name">GRU11-Rack Series</p>
+            <p class="product-card-v2__cap">1 ~ 10 kVA</p>
+            <p class="product-card-v2__spec">단상 Rack형 · 온라인 이중변환</p>
           </div>
         </a>
 
-        <!-- 03 RM (10-40kVA) -->
+        <!-- 03 GRU11-Trans Series — 단상 변압기 내장 -->
         <a href="product-ups-detail.html?id=03" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/RM (10-40kVA).png" alt="RM (10-40kVA)">
+            <img src="images/product/GRU11-Trans Series_01.png" alt="GRU11-Trans Series">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">03</p>
-            <p class="product-card-v2__name">RM (10-40kVA)</p>
-            <p class="product-card-v2__spec">Rack/Tower형 · 10 ~ 40kVA</p>
+            <p class="product-card-v2__name">GRU11-Trans Series</p>
+            <p class="product-card-v2__cap">10 kVA</p>
+            <p class="product-card-v2__spec">단상 Tower형 · 변압기 내장</p>
           </div>
         </a>
 
-        <!-- 04 Green-11 T -->
+        <!-- 04 GRU-Rack Series — Rack 10~40kVA -->
         <a href="product-ups-detail.html?id=04" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/Green-11 T.png" alt="Green-11 T">
+            <img src="images/product/RM (10_40kVA)_01.png" alt="GRU-Rack Series">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">04</p>
-            <p class="product-card-v2__name">Green-11 T</p>
-            <p class="product-card-v2__spec">Tower형 단상 UPS · KS·KC 인증</p>
+            <p class="product-card-v2__name">GRU-Rack Series</p>
+            <p class="product-card-v2__cap">10 ~ 40 kVA</p>
+            <p class="product-card-v2__spec">Rack형 · 온라인 이중변환</p>
           </div>
         </a>
 
-        <!-- 05 Green-11 -->
+        <!-- 05 GRU33-T010~040 (Myria Series) — 삼상 10~40kVA -->
         <a href="product-ups-detail.html?id=05" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/Green-11.png" alt="Green-11">
+            <img src="images/product/myria40_01.png" alt="GRU33-T010~040 (Myria Series)">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">05</p>
-            <p class="product-card-v2__name">Green-11</p>
-            <p class="product-card-v2__spec">단상 온라인 UPS · KS·KC 인증</p>
+            <p class="product-card-v2__name">GRU33-T010~040 <span style="font-weight:500;color:#777;">(Myria Series)</span></p>
+            <p class="product-card-v2__cap">10 ~ 40 kVA</p>
+            <p class="product-card-v2__spec">삼상 Tower형 · 온라인 이중변환</p>
           </div>
         </a>
 
-        <!-- 06 Myria (10-40kVA) -->
+        <!-- 06 GRU33-T060~T200 (Myria Series) — 삼상 대용량 60~200kVA -->
         <a href="product-ups-detail.html?id=06" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/Myria (10-40kVA).png" alt="Myria (10-40kVA)">
+            <img src="images/product/myria60_01.png" alt="GRU33-T060~T200 (Myria Series)">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">06</p>
-            <p class="product-card-v2__name">Myria (10-40kVA)</p>
-            <p class="product-card-v2__spec">단상/삼상 겸용 · 10 ~ 40kVA</p>
+            <p class="product-card-v2__name">GRU33-T060~T200 <span style="font-weight:500;color:#777;">(Myria Series)</span></p>
+            <p class="product-card-v2__cap">60 ~ 200 kVA</p>
+            <p class="product-card-v2__spec">삼상 대용량 · 온라인 이중변환</p>
           </div>
         </a>
 
-        <!-- 07 RM (1-10kVA) -->
+        <!-- 07 MR33 Series — 모듈형 삼상 200~600kVA (50kVA 모듈) -->
         <a href="product-ups-detail.html?id=07" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/RM (1-10kVA).png" alt="RM (1-10kVA)">
+            <img src="images/product/Green-UK33_02.png" alt="MR33 Series">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">07</p>
-            <p class="product-card-v2__name">RM (1-10kVA)</p>
-            <p class="product-card-v2__spec">Rack/Tower형 · 1 ~ 10kVA · Hot-Swap</p>
+            <p class="product-card-v2__name">MR33 Series</p>
+            <p class="product-card-v2__cap">200 ~ 600 kVA</p>
+            <p class="product-card-v2__spec">모듈형 삼상 UPS · 50kVA 모듈</p>
           </div>
         </a>
 
-        <!-- 08 Green-31 -->
+        <!-- 08 MR33-H Series — 모듈형 삼상 400~1200kVA (100kVA 모듈) -->
         <a href="product-ups-detail.html?id=08" class="product-card-v2 product-card-v2--link">
           <div class="product-card-v2__img">
-            <img src="images/product/green31.png" alt="Green-31">
+            <img src="images/product/GEL_Series_01.png" alt="MR33-H Series">
             <div class="product-card-v2__badge">
               <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>상세 보기
             </div>
           </div>
           <div class="product-card-v2__body">
             <p class="product-card-v2__num">08</p>
-            <p class="product-card-v2__name">Green-31</p>
-            <p class="product-card-v2__spec">단상 온라인 UPS · 종합효율 95%</p>
+            <p class="product-card-v2__name">MR33-H Series</p>
+            <p class="product-card-v2__cap">400 ~ 1200 kVA</p>
+            <p class="product-card-v2__spec">대용량 모듈형 삼상 UPS · 100kVA 모듈</p>
           </div>
         </a>
 
@@ -330,20 +330,20 @@
   <div class="container footer-top">
     <div>
       <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
-      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 안정된 전원을 공급합니다.</p>
+      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로<br>2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
     </div>
     <div class="footer-links">
       <a href="company-greeting.html">기업소개</a>
       <a href="products-green.html">사업영역</a>
-      <a href="support-notice.html">홍보센터</a>
+      <a href="support-notice.html">공지사항</a>
       <a href="inquiry-consulting.html">문의</a>
     </div>
   </div>
   <div class="container footer-bottom">
     <div class="footer-info">
-      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-      <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
-      <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2</p>
+                    <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
     </div>
     <p class="footer-copyright">COPYRIGHT &copy; 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
   </div>
@@ -402,5 +402,7 @@
   if (closeBtn) closeBtn.addEventListener('click', closePanel);
 }());
 </script>
+<script src="resources-data.js"></script>
+<script src="search.js"></script>
 </body>
 </html>

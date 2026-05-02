@@ -1,100 +1,311 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판 상세 | 그린파워테크놀로지</title>
+    <title>게시글 상세 | 그린파워테크놀로지</title>
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="sub-common.css">
     <link rel="icon" type="image/png" href="images/fav_logo.png">
+    <style>
+      .post-detail { max-width: 960px; margin: 0 auto; }
+      .post-detail__head {
+        padding: 32px 0 28px;
+        border-bottom: 2px solid #1b5e20;
+        margin-bottom: 36px;
+      }
+      .post-detail__title {
+        font-size: clamp(1.5rem, 2.4vw, 2rem);
+        font-weight: 800;
+        color: #0d1a0e;
+        line-height: 1.35;
+        margin: 0 0 16px;
+      }
+      .post-detail__meta {
+        font-size: 13px;
+        color: rgba(0,0,0,0.5);
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .post-detail__meta span { display: inline-flex; align-items: center; gap: 6px; }
+      .post-detail__meta strong { color: rgba(0,0,0,0.7); font-weight: 600; }
+      .post-detail__body {
+        padding: 16px 0 56px;
+        font-size: 15.5px;
+        line-height: 1.85;
+        color: rgba(0,0,0,0.78);
+        min-height: 180px;
+      }
+      .post-detail__body p { margin: 0 0 14px; }
+      .post-detail__file {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 24px;
+        padding: 14px 22px;
+        border: 1px solid rgba(46,125,50,0.3);
+        border-radius: 6px;
+        color: #1b5e20;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        background: #fff;
+        transition: all 0.2s;
+        text-decoration: none;
+      }
+      .post-detail__file:hover { background: #1b5e20; color: #fff; border-color: #1b5e20; }
+      .post-detail__file svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+      .post-detail__nav {
+        display: flex;
+        justify-content: center;
+        padding: 32px 0 80px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+      }
+      .post-detail__back {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 48px;
+        padding: 0 28px;
+        background: #1b5e20;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s;
+        font-family: inherit;
+        white-space: nowrap;
+        line-height: 1;
+        width: auto;
+        max-width: max-content;
+      }
+      .post-detail__back svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        display: block;
+      }
+      .post-detail__back:hover { background: #2e7d32; }
+      .post-detail__empty {
+        text-align: center;
+        padding: 80px 20px;
+        color: rgba(0,0,0,0.45);
+        font-size: 15px;
+      }
+    </style>
 </head>
 <body>
-    <header class="header sub-header" id="header">
-        <div class="h-inner">
-            <h1 class="logo"><a href="index.html"><img src="images/main_logo.png" alt="GREEN POWER"></a></h1>
-            <ul class="gnb">
-                <li><a href="company-greeting.html">Company</a>
-                    <div class="depth2">
-                        <a href="company-greeting.html">인사말</a>
-                        <a href="company-history.html">회사연혁</a>
-                        <a href="company-certifications.html">인증 및 특허 현황</a>
-                        <a href="company-partners.html">주요 협력사</a>
-                        <a href="company-location.html">오시는 길</a>
-                    </div>
-                </li>
-                <li><a href="products-green.html">Products</a>
-                    <div class="depth2">
-                        <a href="products-green.html">GREEN UPS</a>
-                        <a href="products-eaton.html">EATON SOLUTIONS</a>
-                        <a href="products-battery.html">INDUSTRIAL BATTERY</a>
-                    </div>
-                </li>
-                <li><a href="inquiry-quote.html">Inquiry</a>
-                    <div class="depth2">
-                        <a href="inquiry-quote.html">견적문의</a>
-                        <a href="inquiry-consulting.html">제품상담</a>
-                        <a href="inquiry-service.html">A/S 신청</a>
-                    </div>
-                </li>
-                <li><a href="support-notice.html">Support</a>
-                    <div class="depth2">
-                        <a href="support-notice.html">공지사항</a>
-                        <a href="support-catalog.html">카다로그</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="h-util">
-                <a href="#" class="lang-toggle">KOR</a>
-                <button class="hamburger" aria-label="메뉴 열기"><span></span><span></span></button>
-            </div>
-        </div>
-    </header>
 
-    <main id="main">
-        <div class="sub-visual">
-            <div class="sv-bg"></div>
-            <div class="inner"><h2 class="sv-title text-center">SUPPORT</h2></div>
-        </div>
-        <div class="sub-util">
-            <div class="inner"><div class="breadcrumb"><a href="index.html">Home</a> <span class="bc-arr">&gt;</span> Support <span class="bc-arr">&gt;</span> 상세설명</div></div>
-        </div>
+<header class="site-header" id="header" data-tone="dark">
+  <div class="header-shell">
+    <h1 class="brand"><a href="index.html"><img src="images/main_logo.png" alt="GREEN POWER"></a></h1>
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <ul>
+        <li class="nav-item"><a href="company-greeting.html">기업소개</a>
+          <div class="nav-dropdown">
+            <a href="company-greeting.html">CEO 인사말</a>
+            <a href="company-history.html">회사 연혁</a>
+            <a href="company-certifications.html">인증 현황</a>
+            <a href="company-partners.html">주요 파트너</a>
+            <a href="company-location.html">오시는 길</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="products-green.html">사업영역</a>
+          <div class="nav-dropdown">
+            <a href="products-green.html">GREEN UPS</a>
+            <a href="products-eaton.html">유지보수 솔루션</a>
+            <a href="products-battery.html">배터리 솔루션</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="inquiry-consulting.html">문의</a>
+          <div class="nav-dropdown">
+            <a href="inquiry-consulting.html">도입 상담</a>
+            <a href="inquiry-quote.html">견적 문의</a>
+            <a href="inquiry-service.html">서비스 요청</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="support-notice.html">공지사항</a></li>
+        <li class="nav-item"><a href="support-catalog.html">자료실</a></li>
+        <li class="nav-item nav-item--search"><button type="button" class="nav-search-btn" data-search-open aria-label="검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="index.html" class="lang-toggle" aria-label="Current language">KOR</a>
+      <button class="menu-toggle" type="button" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-backdrop" aria-hidden="true"></div>
+</header>
 
-        <section class="sub-container inner">
-            <aside class="lnb-wrap">
-                <h3 class="lnb-tit">SUPPORT</h3>
-                <ul class="lnb-list">
-                    <li><a href="support-notice.html">공지사항</a></li>
-                    <li><a href="support-catalog.html">카다로그</a></li>
-                </ul>
-            </aside>
-            <div class="sub-content anim-ele">
-                <div class="detail-view" id="dynamic-detail-body" data-kind="board">
-                    <!-- Javascript will render detail content here -->
-                </div>
-                <div class="detail-nav">
-                    <button class="btn-list" onclick="history.back()">목록으로 돌아가기</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="ft-inner">
-            <div class="ft-top">
-                <strong class="ft-logo"><img src="images/main_logo.png" alt="GREEN POWER"></strong>
-            </div>
-            <div class="ft-mid">
-                <div class="ft-info">
-                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-                    <p>TEL : 031-768-4500 &nbsp;<span class="div">|</span>&nbsp; FAX : 031-768-4517</p>
-                </div>
-            </div>
-            <div class="ft-bot"><p class="copy">COPYRIGHT© 2026 GREEN POWER TECHNOLOGY ALL RIGHTS RESERVED.</p></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__inner">
+    <div class="mobile-menu__top">
+      <strong class="mobile-brand"><img src="images/main_logo.png" alt="GREEN POWER"></strong>
+      <button class="mobile-close" type="button" id="mobileClose" aria-label="메뉴 닫기">닫기</button>
+    </div>
+    <div class="mobile-menu__body">
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">기업소개</button>
+        <div class="mobile-item__panel">
+          <a href="company-greeting.html">CEO 인사말</a>
+          <a href="company-history.html">회사 연혁</a>
+          <a href="company-certifications.html">인증 현황</a>
+          <a href="company-partners.html">주요 파트너</a>
+          <a href="company-location.html">오시는 길</a>
         </div>
-    </footer>
-    <script src="script.js"></script>
-    <script src="subpages-data.js"></script>
-    <script src="sub-common.js"></script>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">사업영역</button>
+        <div class="mobile-item__panel">
+          <a href="products-green.html">GREEN UPS</a>
+          <a href="products-eaton.html">유지보수 솔루션</a>
+          <a href="products-battery.html">배터리 솔루션</a>
+        </div>
+      </div>
+      <div class="mobile-item">
+        <button class="mobile-item__toggle" type="button" aria-expanded="false">문의</button>
+        <div class="mobile-item__panel">
+          <a href="inquiry-consulting.html">도입 상담</a>
+          <a href="inquiry-quote.html">견적 문의</a>
+          <a href="inquiry-service.html">서비스 요청</a>
+        </div>
+      </div>
+      <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-notice.html">공지사항</a></div>
+      <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-catalog.html">자료실</a></div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="page-hero page-hero--deeper">
+    <div class="page-hero__inner">
+      <p class="page-hero__kicker" id="boardKicker">공지사항</p>
+      <h2 class="page-hero__title" id="boardTitle">공지사항</h2>
+      <p class="page-hero__sub" id="boardSub">그린파워테크놀로지의 소식과 안내사항을 전달합니다.</p>
+    </div>
+  </section>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-bar__inner">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-bar__sep">›</span>
+      <a href="support-notice.html" id="boardListLink">공지사항</a>
+      <span class="breadcrumb-bar__sep">›</span>
+      <span class="breadcrumb-bar__current">상세보기</span>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="page-body__inner">
+
+      <article class="post-detail" id="postDetail">
+        <div class="post-detail__empty">게시글을 불러오는 중입니다…</div>
+      </article>
+
+      <div class="post-detail__nav">
+        <a href="support-notice.html" class="post-detail__back" id="postBackBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          목록으로 돌아가기
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
+      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로<br>2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
+    </div>
+    <div class="footer-links">
+      <a href="company-greeting.html">기업소개</a>
+      <a href="products-green.html">사업영역</a>
+      <a href="support-notice.html">공지사항</a>
+      <a href="inquiry-consulting.html">문의</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="footer-info">
+      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2</p>
+      <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+      <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
+    </div>
+    <p class="footer-copyright">COPYRIGHT &copy; 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="subpages-data.js"></script>
+<script src="sub-common.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var boardName = params.get('board') || 'notice';
+  var id = params.get('id');
+  var detail = document.getElementById('postDetail');
+
+  /* 게시판별 메타 */
+  var boardMeta = {
+    notice:  { title: '공지사항', sub: '그린파워테크놀로지의 소식과 안내사항을 전달합니다.', listUrl: 'support-notice.html' },
+    catalog: { title: '자료실',   sub: '제품 카탈로그·매뉴얼을 다운로드 받으실 수 있습니다.', listUrl: 'support-catalog.html' }
+  };
+  var meta = boardMeta[boardName] || boardMeta.notice;
+
+  document.getElementById('boardKicker').textContent = meta.title;
+  document.getElementById('boardTitle').textContent = meta.title;
+  document.getElementById('boardSub').textContent = meta.sub;
+  document.getElementById('boardListLink').textContent = meta.title;
+  document.getElementById('boardListLink').href = meta.listUrl;
+  document.getElementById('postBackBtn').href = meta.listUrl;
+  document.title = meta.title + ' 상세 | 그린파워테크놀로지';
+
+  if (!id || !window.GREEN_DATA) {
+    detail.innerHTML = '<div class="post-detail__empty">게시글 정보를 찾을 수 없습니다.</div>';
+    return;
+  }
+
+  var arr = boardName === 'catalog' ? window.GREEN_DATA.catalogs : window.GREEN_DATA.notices;
+  var post = (arr || []).find(function (p) { return p.id === id; });
+
+  if (!post) {
+    detail.innerHTML = '<div class="post-detail__empty">게시글을 찾을 수 없습니다.</div>';
+    return;
+  }
+
+  var fileBtn = boardName === 'catalog'
+    ? '<button type="button" class="post-detail__file" onclick="alert(\'자료 다운로드 준비중입니다.\')">' +
+      '<svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+      '자료 다운로드</button>'
+    : '';
+
+  var bodyHtml = post.content
+    ? '<p>' + String(post.content).replace(/\n/g, '</p><p>') + '</p>'
+    : '<p style="color:rgba(0,0,0,0.4);">본문 내용이 없습니다.</p>';
+
+  detail.innerHTML =
+    '<header class="post-detail__head">' +
+      '<h3 class="post-detail__title">' + post.title + '</h3>' +
+      '<div class="post-detail__meta">' +
+        '<span>작성일 <strong>' + (post.date || '-') + '</strong></span>' +
+        (post.views != null ? '<span>조회수 <strong>' + post.views + '</strong></span>' : '') +
+      '</div>' +
+    '</header>' +
+    '<div class="post-detail__body">' + bodyHtml + fileBtn + '</div>';
+})();
+</script>
+<script src="resources-data.js"></script>
+<script src="search.js"></script>
 </body>
 </html>

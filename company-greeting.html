@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -42,12 +42,9 @@
                                 <a href="inquiry-service.html">서비스 요청</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a href="support-notice.html">홍보센터</a>
-                            <div class="nav-dropdown">
-                                <a href="support-notice.html">공지사항</a>
-                                <a href="support-catalog.html">카탈로그</a>
-                            </div>
-                        </li>
+                        <li class="nav-item"><a href="support-notice.html">공지사항</a></li>
+                        <li class="nav-item"><a href="support-catalog.html">자료실</a></li>
+                        <li class="nav-item nav-item--search"><button type="button" class="nav-search-btn" data-search-open aria-label="검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -93,20 +90,15 @@
                             <a href="inquiry-service.html">서비스 요청</a>
                         </div>
                     </div>
-                    <div class="mobile-item">
-                        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
-                        <div class="mobile-item__panel">
-                            <a href="support-notice.html">공지사항</a>
-                            <a href="support-catalog.html">카탈로그</a>
-                        </div>
-                    </div>
+                    <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-notice.html">공지사항</a></div>
+                    <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-catalog.html">자료실</a></div>
                 </div>
             </div>
         </div>
 
         <main>
             <!-- 페이지 히어로 -->
-            <div class="page-hero">
+            <div class="page-hero page-hero--deeper">
                 <div class="container">
                     <div>
                         <p class="page-hero__kicker">Company</p>
@@ -168,20 +160,20 @@
             <div class="container footer-top">
                 <div>
                     <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
-                    <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 안정된 전원을 공급합니다.</p>
+                    <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로<br>2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
                 </div>
                 <div class="footer-links">
                     <a href="company-greeting.html">기업소개</a>
                     <a href="products-green.html">사업영역</a>
-                    <a href="support-notice.html">홍보센터</a>
+                    <a href="support-notice.html">공지사항</a>
                     <a href="inquiry-consulting.html">문의</a>
                 </div>
             </div>
             <div class="container footer-bottom">
                 <div class="footer-info">
-                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
+                    <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2</p>
                     <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
                 </div>
                 <p class="footer-copyright">COPYRIGHT &copy; 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
             </div>
@@ -190,5 +182,7 @@
 
     <script src="script.js"></script>
     <script src="sub-common.js"></script>
+<script src="resources-data.js"></script>
+<script src="search.js"></script>
 </body>
 </html>

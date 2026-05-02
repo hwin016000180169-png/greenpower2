@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카탈로그 | 그린파워테크놀로지</title>
+    <title>자료실 | 그린파워테크놀로지</title>
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="sub-common.css">
@@ -39,12 +39,9 @@
             <a href="inquiry-service.html">서비스 요청</a>
           </div>
         </li>
-        <li class="nav-item is-active"><a href="support-notice.html">홍보센터</a>
-          <div class="nav-dropdown">
-            <a href="support-notice.html">공지사항</a>
-            <a href="support-catalog.html">카탈로그</a>
-          </div>
-        </li>
+        <li class="nav-item"><a href="support-notice.html">공지사항</a></li>
+        <li class="nav-item"><a href="support-catalog.html">자료실</a></li>
+        <li class="nav-item nav-item--search"><button type="button" class="nav-search-btn" data-search-open aria-label="검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
       </ul>
     </nav>
     <div class="header-actions">
@@ -64,6 +61,7 @@
       <button class="mobile-close" type="button" id="mobileClose" aria-label="메뉴 닫기">닫기</button>
     </div>
     <div class="mobile-menu__body">
+      <div class="mobile-search"><button type="button" class="mobile-search__btn" data-search-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><span>검색</span></button></div>
       <div class="mobile-item">
         <button class="mobile-item__toggle" type="button" aria-expanded="false">기업소개</button>
         <div class="mobile-item__panel">
@@ -90,13 +88,8 @@
           <a href="inquiry-service.html">서비스 요청</a>
         </div>
       </div>
-      <div class="mobile-item">
-        <button class="mobile-item__toggle" type="button" aria-expanded="false">홍보센터</button>
-        <div class="mobile-item__panel">
-          <a href="support-notice.html">공지사항</a>
-          <a href="support-catalog.html">카탈로그</a>
-        </div>
-      </div>
+      <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-notice.html">공지사항</a></div>
+      <div class="mobile-item mobile-item--single"><a class="mobile-item__link" href="support-catalog.html">자료실</a></div>
     </div>
   </div>
 </div>
@@ -105,9 +98,9 @@
 
   <section class="page-hero page-hero--deeper">
     <div class="page-hero__inner">
-      <p class="page-hero__kicker">홍보센터</p>
-      <h2 class="page-hero__title">카탈로그</h2>
-      <p class="page-hero__sub">GREEN POWER 제품 및 솔루션 카탈로그를 다운로드하실 수 있습니다.</p>
+      <p class="page-hero__kicker">자료실</p>
+      <h2 class="page-hero__title">자료실</h2>
+      <p class="page-hero__sub">GREEN POWER 제품 카탈로그 및 기술 자료를 한 곳에서 다운로드하실 수 있습니다.</p>
     </div>
   </section>
 
@@ -115,74 +108,43 @@
     <div class="breadcrumb-bar__inner">
       <a href="index.html">Home</a>
       <span class="breadcrumb-bar__sep">›</span>
-      <a href="support-notice.html">홍보센터</a>
-      <span class="breadcrumb-bar__sep">›</span>
-      <span class="breadcrumb-bar__current">카탈로그</span>
+      <span class="breadcrumb-bar__current">자료실</span>
     </div>
   </div>
 
   <div class="page-body">
     <div class="page-body__inner">
 
-      <nav class="section-tabs" aria-label="홍보센터">
-        <a href="support-notice.html" class="section-tabs__item">공지사항</a>
-        <a href="support-catalog.html" class="section-tabs__item is-active">카탈로그</a>
-      </nav>
-
-      <div class="catalog-grid" id="catalog-list">
-
-        <!-- Static fallback cards — replaced by JS if GREEN_DATA exists -->
-        <div class="catalog-card">
-          <div class="catalog-card__img">
-            <div class="catalog-card__img-placeholder">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-              <span>PDF</span>
-            </div>
-          </div>
-          <div class="catalog-card__body">
-            <p class="catalog-card__tag">GREEN UPS</p>
-            <p class="catalog-card__title">단상·삼상 UPS 종합 카탈로그</p>
-            <a href="#" class="catalog-card__dl">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              다운로드
-            </a>
-          </div>
+      <!-- 검색 + 필터 영역 -->
+      <div class="res-controls">
+        <div class="res-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" id="resQuery" placeholder="용량(1kVA), 모델명(GRU-T010), 시리즈로 검색" autocomplete="off" spellcheck="false">
         </div>
 
-        <div class="catalog-card">
-          <div class="catalog-card__img">
-            <div class="catalog-card__img-placeholder">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-              <span>PDF</span>
-            </div>
+        <div class="res-filters">
+          <div class="res-filter-group" aria-label="상수 필터">
+            <button class="res-chip is-active" data-filter="phase" data-value="all">전체</button>
+            <button class="res-chip" data-filter="phase" data-value="단상">단상</button>
+            <button class="res-chip" data-filter="phase" data-value="삼상">삼상</button>
           </div>
-          <div class="catalog-card__body">
-            <p class="catalog-card__tag">EATON 솔루션</p>
-            <p class="catalog-card__title">EATON POWERWARE 제품 가이드</p>
-            <a href="#" class="catalog-card__dl">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              다운로드
-            </a>
+          <div class="res-filter-group" aria-label="용량 필터">
+            <button class="res-chip is-active" data-filter="kva" data-value="all">모든 용량</button>
+            <button class="res-chip" data-filter="kva" data-value="1~10">1~10 kVA</button>
+            <button class="res-chip" data-filter="kva" data-value="10~40">10~40 kVA</button>
+            <button class="res-chip" data-filter="kva" data-value="60+">60 kVA 이상</button>
           </div>
         </div>
+      </div>
 
-        <div class="catalog-card">
-          <div class="catalog-card__img">
-            <div class="catalog-card__img-placeholder">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-              <span>PDF</span>
-            </div>
-          </div>
-          <div class="catalog-card__body">
-            <p class="catalog-card__tag">배터리 유지보수</p>
-            <p class="catalog-card__title">UPS 배터리 유지보수 서비스 안내</p>
-            <a href="#" class="catalog-card__dl">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              다운로드
-            </a>
-          </div>
-        </div>
+      <div class="res-meta">
+        <span id="resCount">0</span>개의 모델 · 클릭하면 규격서·카탈로그·도면·매뉴얼을 한번에 받을 수 있습니다.
+      </div>
 
+      <div class="res-list" id="resList"></div>
+
+      <div class="res-empty" id="resEmpty" hidden>
+        <p>검색 조건에 맞는 자료가 없습니다.</p>
       </div>
 
     </div>
@@ -194,20 +156,20 @@
   <div class="container footer-top">
     <div>
       <strong class="footer-brand"><img src="images/main_logo.png" alt="GREEN POWER TECHNOLOGY"></strong>
-      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로 2005년부터 안정된 전원을 공급합니다.</p>
+      <p class="footer-copy">UPS, AVR, 충전기, 주파수변환기 전문 제조·공급 기업으로<br>2005년부터 산업 현장과 공공기관에 안정된 전원을 공급합니다.</p>
     </div>
     <div class="footer-links">
       <a href="company-greeting.html">기업소개</a>
       <a href="products-green.html">사업영역</a>
-      <a href="support-notice.html">홍보센터</a>
+      <a href="support-notice.html">공지사항</a>
       <a href="inquiry-consulting.html">문의</a>
     </div>
   </div>
   <div class="container footer-bottom">
     <div class="footer-info">
-      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2 (매산리)</p>
-      <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
-      <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+      <p>경기도 용인시 처인구 모현읍 곡현로 717번길 46-2</p>
+                    <p>E-MAIL greenups@hanmail.net &nbsp;|&nbsp; 사업자등록번호 126-86-30417</p>
+                    <p>TEL 031-768-4500 &nbsp;|&nbsp; FAX 031-768-4517</p>
     </div>
     <p class="footer-copyright">COPYRIGHT &copy; 2026 (주)그린파워테크놀로지 ALL RIGHTS RESERVED.</p>
   </div>
@@ -215,27 +177,150 @@
 
 <script src="script.js"></script>
 <script src="subpages-data.js"></script>
+<script src="resources-data.js"></script>
+<script src="search.js"></script>
 <script src="sub-common.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    var container = document.getElementById('catalog-list');
-    if (window.GREEN_DATA && window.GREEN_DATA.catalogs && window.GREEN_DATA.catalogs.length) {
-        var html = '';
-        window.GREEN_DATA.catalogs.forEach(function (post) {
-            html += '<div class="catalog-card">';
-            html += '<div class="catalog-card__img"><div class="catalog-card__img-placeholder">';
-            html += '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
-            html += '<span>PDF</span></div></div>';
-            html += '<div class="catalog-card__body">';
-            html += '<p class="catalog-card__tag">카탈로그</p>';
-            html += '<p class="catalog-card__title">' + post.title + '</p>';
-            html += '<a href="board-detail.html?board=catalog&id=' + post.id + '" class="catalog-card__dl">';
-            html += '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
-            html += '다운로드</a></div></div>';
+/* ────────── 자료실 렌더 + 검색/필터/일괄 다운로드 ────────── */
+(function(){
+  var state = { q: '', phase: 'all', kva: 'all' };
+  var listEl = document.getElementById('resList');
+  var emptyEl = document.getElementById('resEmpty');
+  var countEl = document.getElementById('resCount');
+  var queryEl = document.getElementById('resQuery');
+
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]});}
+
+  function matchKva(cap, rule){
+    if (rule==='all') return true;
+    if (rule==='1~10') return cap >= 1 && cap <= 10;
+    if (rule==='10~40') return cap > 10 && cap <= 40;
+    if (rule==='60+') return cap >= 60;
+    return true;
+  }
+
+  function matchQuery(series, model, q){
+    if (!q) return true;
+    q = q.toLowerCase().replace(/\s+/g,'');
+    var hay = (series.series + ' ' + series.category + ' ' + series.phase + ' ' + series.form + ' ' + series.type + ' ' + model.id + ' ' + model.kva).toLowerCase().replace(/\s+/g,'');
+    return hay.indexOf(q) !== -1;
+  }
+
+  function docIcon(type){
+    var map = {
+      '규격서':  'M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z|14 2 14 8 20 8|16 13 8 13|16 17 8 17',
+      '카탈로그': 'M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z|M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z',
+      '도면':    'M3 3h18v18H3z|M9 3v18|M3 9h18',
+      '매뉴얼':   'M12 19l7-7 3 3-7 7-3-3z|M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z|M2 2l7.586 7.586|M11 11a2 2 0 100-4 2 2 0 000 4z'
+    };
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+map[type]+'"/></svg>';
+  }
+
+  function render(){
+    var data = window.RESOURCES || [];
+    var html = '';
+    var totalModels = 0;
+
+    data.forEach(function(series){
+      if (state.phase!=='all' && series.phase!==state.phase) return;
+
+      var models = series.models.filter(function(m){
+        return matchKva(m.capacityKva, state.kva) && matchQuery(series, m, state.q);
+      });
+      if (!models.length) return;
+
+      html += '<section class="res-series">';
+      html += '  <header class="res-series__head">';
+      html += '    <div>';
+      html += '      <p class="res-series__kicker">'+escapeHtml(series.category)+' · '+escapeHtml(series.phase)+' · '+escapeHtml(series.form)+'</p>';
+      html += '      <h3 class="res-series__title">'+escapeHtml(series.series)+'</h3>';
+      html += '      <p class="res-series__type">'+escapeHtml(series.type)+'</p>';
+      html += '    </div>';
+      html += '    <a class="res-series__link" href="'+escapeHtml(series.productUrl)+'">제품 상세 ›</a>';
+      html += '  </header>';
+      html += '  <div class="res-models">';
+
+      models.forEach(function(m){
+        totalModels++;
+        html += '<article class="res-model" data-model="'+escapeHtml(m.id)+'">';
+        html += '  <div class="res-model__head">';
+        html += '    <div class="res-model__idwrap">';
+        html += '      <span class="res-model__kva">'+escapeHtml(m.kva)+'</span>';
+        html += '      <span class="res-model__id">'+escapeHtml(m.id)+'</span>';
+        html += '    </div>';
+        html += '    <button type="button" class="res-model__all" data-bulk="'+escapeHtml(m.id)+'">';
+        html += '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+        html += '      전체 다운로드 ('+m.docs.length+')';
+        html += '    </button>';
+        html += '  </div>';
+        html += '  <ul class="res-doclist">';
+        m.docs.forEach(function(d){
+          html += '<li class="res-doc">';
+          html += '  <span class="res-doc__type res-doc__type--'+({'규격서':'spec','카탈로그':'cat','도면':'draw','매뉴얼':'man'}[d.type]||'other')+'">'+escapeHtml(d.type)+'</span>';
+          html += '  <div class="res-doc__body">';
+          html += '    <p class="res-doc__title">'+escapeHtml(d.title)+'</p>';
+          html += '    <p class="res-doc__meta">'+escapeHtml(d.file)+' · '+escapeHtml(d.size)+'</p>';
+          html += '  </div>';
+          html += '  <a class="res-doc__dl" href="'+escapeHtml(d.url)+'" download aria-label="'+escapeHtml(d.type)+' 다운로드">';
+          html += '    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+          html += '  </a>';
+          html += '</li>';
         });
-        container.innerHTML = html;
-    }
-});
+        html += '  </ul>';
+        html += '</article>';
+      });
+
+      html += '  </div>';
+      html += '</section>';
+    });
+
+    listEl.innerHTML = html;
+    countEl.textContent = totalModels;
+    emptyEl.hidden = totalModels > 0;
+  }
+
+  // 이벤트
+  queryEl.addEventListener('input', function(e){ state.q = e.target.value; render(); });
+  document.querySelectorAll('.res-chip').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.dataset.filter, v = btn.dataset.value;
+      state[f] = v;
+      btn.parentNode.querySelectorAll('.res-chip').forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      render();
+    });
+  });
+
+  // 전체 다운로드: 각 문서를 순차적으로 다운로드 트리거
+  listEl.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-bulk]');
+    if (!btn) return;
+    var modelId = btn.dataset.bulk;
+    var model = null;
+    (window.RESOURCES||[]).forEach(function(s){
+      s.models.forEach(function(m){ if (m.id===modelId) model = m; });
+    });
+    if (!model) return;
+    model.docs.forEach(function(d, i){
+      setTimeout(function(){
+        var a = document.createElement('a');
+        a.href = d.url; a.download = d.file; a.rel='noopener';
+        document.body.appendChild(a); a.click();
+        setTimeout(function(){ a.remove(); }, 100);
+      }, i*250);
+    });
+    btn.classList.add('is-done');
+    setTimeout(function(){ btn.classList.remove('is-done'); }, 1500);
+  });
+
+  // URL 쿼리 파라미터 지원: ?q=1kVA
+  var params = new URLSearchParams(window.location.search);
+  var initQ = params.get('q');
+  if (initQ) { queryEl.value = initQ; state.q = initQ; }
+
+  document.addEventListener('DOMContentLoaded', render);
+  if (document.readyState !== 'loading') render();
+})();
 </script>
 </body>
 </html>

@@ -104,6 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function resetNavigationHoverState() {
+        header?.classList.remove("is-nav-open");
+        navItems.forEach((item) => item.classList.remove("is-active"));
+        document.activeElement?.blur?.();
+    }
+
     function animateCounter(counter) {
         if (counter.dataset.counted === "true") {
             return;
@@ -206,9 +212,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (mainNav) {
+        resetNavigationHoverState();
+
         navItems.forEach((item) => {
             item.addEventListener("mouseenter", () => setDesktopNavState(true, item));
             item.addEventListener("focusin", () => setDesktopNavState(true, item));
+        });
+
+        mainNav.addEventListener("click", (event) => {
+            const link = event.target.closest("a[href]");
+            if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return;
+            }
+
+            resetNavigationHoverState();
         });
 
         header.addEventListener("mouseleave", () => setDesktopNavState(false));
