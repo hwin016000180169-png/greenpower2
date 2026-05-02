@@ -1934,7 +1934,7 @@ ol {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: min(7.2vh, 64px);
+    padding-bottom: min(16vh, 140px);
 }
 
 .cta-card__content .section-label {
@@ -1975,7 +1975,7 @@ ol {
     right: 3.5vw;
     bottom: 5vh;
     height: calc(42vh + (var(--stack-progress) * 48vh));
-    transform: translateY(calc((1 - var(--stack-progress)) * 28vh));
+    transform: translateY(calc((1 - var(--stack-progress)) * 46vh));
     transform-origin: center bottom;
 }
 
