@@ -87,23 +87,33 @@ ol {
 .section-label {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
+    gap: 8px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent-dark);
+    background: rgba(46, 125, 50, 0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
 }
 
 .section-label::before {
     content: "";
-    width: 34px;
-    height: 1px;
-    background: currentColor;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
 }
 
 .section-label--light {
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.section-label--light::before {
+    background: var(--accent);
 }
 
 .section-head {
@@ -194,6 +204,16 @@ ol {
 .button--ghost:focus-visible {
     border-color: rgba(255, 255, 255, 0.9);
     background: rgba(255, 255, 255, 0.1);
+}
+
+.button--accent {
+    background: var(--accent);
+    color: #fff;
+}
+
+.button--accent:hover,
+.button--accent:focus-visible {
+    background: var(--accent-dark);
 }
 
 .text-link {
@@ -1005,7 +1025,7 @@ ol {
 }
 
 .overview {
-    background: #ffffff;
+    background: #f3f6f3;
 }
 
 .overview-grid {
@@ -1042,14 +1062,16 @@ ol {
     border-radius: 30px;
     background: #ffffff;
     border: 1px solid rgba(17, 23, 20, 0.06);
+    border-top: 3px solid var(--accent);
     box-shadow: var(--shadow-soft);
-    transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+    transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), background-color 0.45s var(--ease);
 }
 
 .stat-card:hover,
 .stat-card:focus-within {
     transform: translateY(-10px);
     box-shadow: var(--shadow);
+    background: #f6fff2;
 }
 
 .stat-value {
@@ -1061,6 +1083,10 @@ ol {
     line-height: 0.95;
     letter-spacing: -0.07em;
     font-weight: 700;
+}
+
+.stat-value {
+    color: var(--accent-dark);
 }
 
 .stat-value em {
@@ -1101,16 +1127,23 @@ ol {
 .capability-card:hover,
 .capability-card:focus-within {
     transform: translateY(-6px);
-    background: #fff;
-    border-color: rgba(118, 196, 66, 0.28);
+    background: #f8fff4;
+    border-color: rgba(118, 196, 66, 0.55);
+    box-shadow: 0 8px 28px rgba(118, 196, 66, 0.1);
 }
 
 .capability-index {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--accent-dark);
+    background: rgba(118, 196, 66, 0.12);
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
 }
 
 .capability-card strong {
@@ -1549,7 +1582,7 @@ ol {
    Partner Slider Section
 ────────────────────────────────────────── */
 .partner-slider-section {
-    background: transparent;
+    background: #f3f6f3;
 }
 .partner-slider__head {
     max-width: 820px;
@@ -1861,7 +1894,8 @@ ol {
 .news-card:hover,
 .news-card:focus-within {
     transform: translateY(-8px);
-    box-shadow: none;
+    box-shadow: var(--shadow-soft);
+    border-color: rgba(118, 196, 66, 0.22);
 }
 
 .news-category {
