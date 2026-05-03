@@ -1107,6 +1107,7 @@ ol {
     margin-top: 10px;
     font-size: 14px;
     line-height: 1.65;
+    word-break: keep-all;
 }
 
 .capability-strip {
