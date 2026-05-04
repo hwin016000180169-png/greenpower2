@@ -1092,7 +1092,7 @@ const PRODUCTS = {
     video: 'kJQP7kiw5Fk',
     pillSpecs: ['1 ~ 10 kVA', '단상 (1상)', '온라인 이중변환'],
     features: [
-      { num: '01', title: '고역률 · 저고조파', desc: '입력역률 최대 0.996, 낮은 THDi(< 5%)로 전력망 오염을 최소화하고 설비 이용 효율을 극대화합니다.' },
+      { num: '01', title: '고역률 · 저고조파', desc: '높은 입력역률과 낮은 고조파 왜율로 전력망 오염을 최소화하고 설비 이용 효율을 극대화합니다.' },
       { num: '02', title: '고효율 · 저탄소', desc: 'AC/AC 효율 최대 95%의 높은 변환 효율로 에너지를 절약하고 탄소 배출을 줄입니다.' },
       { num: '03', title: '충전전류 소프트웨어 설정', desc: '소프트웨어를 통해 1~8A의 충전전류를 자유롭게 설정하여 다양한 배터리 구성에 유연하게 대응합니다.' },
       { num: '04', title: '유연한 배터리 구성', desc: '배터리 단일 유닛 구성이 가능하고 표준형·장거리 백업용 등 현장 요구에 맞게 설치할 수 있습니다.' },
@@ -1103,9 +1103,9 @@ const PRODUCTS = {
         id: 'GRU-T001', kva: '1kVA',
         specs: [
           { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
-          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-          { label: '입력역률', value: '0.996' },
-          { label: '입력 THDi', value: '< 5%' },
+
+
+
           { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
           { label: '최대 AC/AC 효율', value: '92%' },
           { label: '치수 표준 W×D×H (mm)', value: '145 × 360 × 225' },
@@ -1118,9 +1118,9 @@ const PRODUCTS = {
         id: 'GRU-T002', kva: '2kVA',
         specs: [
           { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
-          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-          { label: '입력역률', value: '0.996' },
-          { label: '입력 THDi', value: '< 5%' },
+
+
+
           { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
           { label: '최대 AC/AC 효율', value: '93%' },
           { label: '치수 표준 W×D×H (mm)', value: '190 × 400 × 330' },
@@ -1133,9 +1133,9 @@ const PRODUCTS = {
         id: 'GRU-T003', kva: '3kVA',
         specs: [
           { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
-          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-          { label: '입력역률', value: '0.996' },
-          { label: '입력 THDi', value: '< 5%' },
+
+
+
           { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
           { label: '최대 AC/AC 효율', value: '94%' },
           { label: '치수 표준 W×D×H (mm)', value: '190 × 400 × 330' },
@@ -1148,9 +1148,9 @@ const PRODUCTS = {
         id: 'GRU-T006', kva: '6kVA',
         specs: [
           { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
-          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-          { label: '입력역률', value: '0.996' },
-          { label: '입력 THDi', value: '< 5%' },
+
+
+
           { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
           { label: '최대 AC/AC 효율', value: '95%' },
           { label: '치수 표준 W×D×H (mm)', value: '230 × 502 × 553' },
@@ -1163,9 +1163,9 @@ const PRODUCTS = {
         id: 'GRU-T010', kva: '10kVA',
         specs: [
           { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
-          { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-          { label: '입력역률', value: '0.996' },
-          { label: '입력 THDi', value: '< 5%' },
+
+
+
           { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
           { label: '최대 AC/AC 효율', value: '95%' },
           { label: '치수 표준 W×D×H (mm)', value: '230 × 502 × 553' },
@@ -1189,7 +1189,7 @@ const PRODUCTS = {
     pillSpecs: ['1 ~ 10 kVA', '단상 Rack형', '온라인 이중변환'],
     features: [
       { num: '01', title: '19인치 Rack 표준', desc: '표준 19인치 랙에 설치 가능하여 데이터센터·서버룸 환경에 최적화되어 있습니다.' },
-      { num: '02', title: '고역률 · 저고조파', desc: '입력역률 최대 0.996, 낮은 THDi(<5%)로 전력망 품질을 보호합니다.' },
+      { num: '02', title: '고역률 · 저고조파', desc: '높은 입력역률과 낮은 고조파 왜율로 전력망 품질을 보호합니다.' },
       { num: '03', title: 'Hot-Swap 배터리', desc: '운전 중 배터리 교체가 가능하여 시스템 다운타임 없이 유지보수할 수 있습니다.' },
       { num: '04', title: '원격 통신 지원', desc: 'RS-232/USB 포트로 관제 시스템과 연동하여 통합 모니터링이 가능합니다.' },
     ],
@@ -1197,9 +1197,9 @@ const PRODUCTS = {
     models: [
       { id: 'GRU-R001', kva: '1kVA', specs: [
         { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.996' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
         { label: '최대 AC/AC 효율', value: '92%' },
         { label: '설치 형태', value: '19인치 2U Rack / Tower 겸용' },
@@ -1208,9 +1208,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU-R002', kva: '2kVA', specs: [
         { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.996' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
         { label: '최대 AC/AC 효율', value: '93%' },
         { label: '설치 형태', value: '19인치 2U Rack / Tower 겸용' },
@@ -1219,9 +1219,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU-R003', kva: '3kVA', specs: [
         { label: '입력전압 (Vac)', value: 'LN: 120 ~ 295 (최대부하: 176 ~ 295)' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.996' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
         { label: '최대 AC/AC 효율', value: '94%' },
         { label: '설치 형태', value: '19인치 2U Rack / Tower 겸용' },
@@ -1230,9 +1230,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU-R006', kva: '6kVA', specs: [
         { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.996' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '설치 형태', value: '19인치 3U Rack / Tower 겸용' },
@@ -1241,9 +1241,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU-R010', kva: '10kVA', specs: [
         { label: '입력전압 (Vac)', value: 'LN: 80 ~ 275 (최대부하: 176 ~ 275)' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.996' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '설치 형태', value: '19인치 3U Rack / Tower 겸용' },
@@ -1265,7 +1265,7 @@ const PRODUCTS = {
     pillSpecs: ['6 ~ 10 kVA', '단상 Tower형', '변압기 내장'],
     features: [
       { num: '01', title: '출력 절연 변압기 내장', desc: '출력측 절연 변압기 내장으로 부하기기를 전기적으로 분리·보호하여 정밀 장비에 최적입니다.' },
-      { num: '02', title: '고역률 · 저고조파', desc: '입력역률 0.99 이상, 낮은 입력 THDi로 전력망 오염을 최소화합니다.' },
+      { num: '02', title: '고역률 · 저고조파', desc: '높은 입력역률과 낮은 고조파 왜율로 전력망 오염을 최소화합니다.' },
       { num: '03', title: '광범위 입력전압', desc: '폭넓은 입력전압 범위를 지원하여 불안정한 전원 환경에서도 안정 동작합니다.' },
       { num: '04', title: '병렬 확장 가능', desc: '동일 모델 병렬 구성으로 용량 증설 및 이중화 운용이 가능합니다.' },
     ],
@@ -1273,9 +1273,9 @@ const PRODUCTS = {
     models: [
       { id: 'GRU-TR006', kva: '6kVA', specs: [
         { label: '입력전압 (Vac)', value: 'LN: 110 ~ 300 (최대부하: 176 ~ 300)' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
         { label: '최대 AC/AC 효율', value: '90%' },
         { label: '변압기', value: '출력측 절연 변압기 내장' },
@@ -1284,9 +1284,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU-TR010', kva: '10kVA', specs: [
         { label: '입력전압 (Vac)', value: 'LN: 110 ~ 300 (최대부하: 176 ~ 300)' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '208 / 220 / 230 / 240 V (선택)' },
         { label: '최대 AC/AC 효율', value: '91%' },
         { label: '변압기', value: '출력측 절연 변압기 내장' },
@@ -1308,7 +1308,7 @@ const PRODUCTS = {
     pillSpecs: ['10 ~ 40 kVA', '삼상 Rack형', '온라인 이중변환'],
     features: [
       { num: '01', title: '19인치 Rack 표준', desc: '표준 19인치 랙에 설치 가능하여 공간 활용도가 뛰어납니다.' },
-      { num: '02', title: '고역률 · 저고조파', desc: '입력역률 0.99 이상, 입력 THDi <5%로 전력 품질을 보장합니다.' },
+      { num: '02', title: '고역률 · 저고조파', desc: '높은 입력역률과 낮은 고조파 왜율로 전력 품질을 보장합니다.' },
       { num: '03', title: '병렬 확장', desc: '병렬 구성을 통해 용량 증설 및 N+X 이중화 운용이 가능합니다.' },
       { num: '04', title: '고효율 95%', desc: '온라인 이중변환 방식으로 최대 95%의 종합효율을 달성합니다.' },
     ],
@@ -1316,9 +1316,9 @@ const PRODUCTS = {
     models: [
       { id: 'GRU33-R010', kva: '10kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '94%' },
         { label: '설치 형태', value: '19인치 4U Rack' },
@@ -1327,9 +1327,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-R020', kva: '20kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '94.5%' },
         { label: '설치 형태', value: '19인치 4U Rack' },
@@ -1338,9 +1338,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-R030', kva: '30kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '설치 형태', value: '19인치 6U Rack' },
@@ -1349,9 +1349,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-R040', kva: '40kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 5%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '설치 형태', value: '19인치 6U Rack' },
@@ -1372,7 +1372,7 @@ const PRODUCTS = {
     video: 'RgKAFK5djSk',
     pillSpecs: ['10 ~ 40 kVA', '삼상 (3상)', 'Touch Screen'],
     features: [
-      { num: '01', title: '저고조파 (THDi<3%)', desc: '입력 고조파를 3% 미만으로 억제하여 전원 품질을 보장합니다.' },
+      { num: '01', title: '저고조파 설계', desc: '낮은 고조파 왜율 설계로 전원 품질을 보장합니다.' },
       { num: '02', title: 'Touch Screen', desc: '터치 스크린 방식의 직관적인 운용 인터페이스를 제공합니다.' },
       { num: '03', title: '고효율 95%', desc: '최신 전력 변환 기술로 95%의 높은 효율을 달성합니다.' },
       { num: '04', title: '병렬 확장 가능', desc: '병렬 구성으로 용량 증설 및 N+X 이중화 운용이 가능합니다.' },
@@ -1381,9 +1381,9 @@ const PRODUCTS = {
     models: [
       { id: 'GRU33-T010', kva: '10kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1392,9 +1392,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-T020', kva: '20kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1403,9 +1403,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-T030', kva: '30kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1414,9 +1414,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-T040', kva: '40kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1446,9 +1446,9 @@ const PRODUCTS = {
     models: [
       { id: 'GRU33-T060', kva: '60kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1457,9 +1457,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-T080', kva: '80kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1468,9 +1468,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-T100', kva: '100kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1479,9 +1479,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-T160', kva: '160kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1490,9 +1490,9 @@ const PRODUCTS = {
       ]},
       { id: 'GRU33-T200', kva: '200kVA', specs: [
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz (자동 적응)' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V (선택)' },
         { label: '최대 AC/AC 효율', value: '95%' },
         { label: '디스플레이', value: 'Touch Screen' },
@@ -1523,9 +1523,9 @@ const PRODUCTS = {
       { id: 'MR33-200', kva: '200kVA', specs: [
         { label: '구성', value: '50kVA × 4 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1535,9 +1535,9 @@ const PRODUCTS = {
       { id: 'MR33-300', kva: '300kVA', specs: [
         { label: '구성', value: '50kVA × 6 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1547,9 +1547,9 @@ const PRODUCTS = {
       { id: 'MR33-400', kva: '400kVA', specs: [
         { label: '구성', value: '50kVA × 8 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1559,9 +1559,9 @@ const PRODUCTS = {
       { id: 'MR33-500', kva: '500kVA', specs: [
         { label: '구성', value: '50kVA × 10 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1571,9 +1571,9 @@ const PRODUCTS = {
       { id: 'MR33-600', kva: '600kVA', specs: [
         { label: '구성', value: '50kVA × 12 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1604,9 +1604,9 @@ const PRODUCTS = {
       { id: 'MR33H-400', kva: '400kVA', specs: [
         { label: '구성', value: '100kVA × 4 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96.5%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1616,9 +1616,9 @@ const PRODUCTS = {
       { id: 'MR33H-600', kva: '600kVA', specs: [
         { label: '구성', value: '100kVA × 6 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96.5%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1628,9 +1628,9 @@ const PRODUCTS = {
       { id: 'MR33H-800', kva: '800kVA', specs: [
         { label: '구성', value: '100kVA × 8 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96.5%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1640,9 +1640,9 @@ const PRODUCTS = {
       { id: 'MR33H-1000', kva: '1000kVA', specs: [
         { label: '구성', value: '100kVA × 10 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96.5%' },
         { label: 'ECO 효율', value: '99%' },
@@ -1652,9 +1652,9 @@ const PRODUCTS = {
       { id: 'MR33H-1200', kva: '1200kVA', specs: [
         { label: '구성', value: '100kVA × 12 모듈' },
         { label: '입력전압 (Vac)', value: '3P+N+PE: 304 ~ 478' },
-        { label: '입력 주파수', value: '40 ~ 70 Hz' },
-        { label: '입력역률', value: '0.99' },
-        { label: '입력 THDi', value: '< 3%' },
+
+
+
         { label: '출력전압 (Vac)', value: '380 / 400 / 415 V' },
         { label: '최대 AC/AC 효율', value: '96.5%' },
         { label: 'ECO 효율', value: '99%' },
