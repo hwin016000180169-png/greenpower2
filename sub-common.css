@@ -1505,8 +1505,14 @@ body.suppress-section-tab-hover .section-tabs__item.is-active:hover {
     overflow: hidden;
 }
 
+.location-map .root_daum_roughmap,
+.location-map .wrap_map,
+.location-map .wrap_controllers {
+    width: 100% !important;
+}
+
 .location-map iframe {
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     border: none;
     display: block;
