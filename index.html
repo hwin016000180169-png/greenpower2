@@ -443,7 +443,7 @@
             /* 배경 */
             .eco-scroll__bg{position:absolute;inset:-8%;background:center/cover no-repeat;will-change:transform;}
             .eco-bg-1{background-color:#0d2010;}
-            .eco-scroll__overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.82) 40%,rgba(0,0,0,.2));will-change:opacity;}
+            .eco-scroll__overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.52) 40%,rgba(0,0,0,.08));will-change:opacity;}
             /* 콘텐츠 레이아웃 */
             .eco-scroll__content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:80px 10% 60px;max-width:58%;will-change:opacity,transform;}
             .eco-scroll__eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:#76c442;text-transform:uppercase;margin-bottom:18px;will-change:opacity,transform;}
@@ -451,7 +451,7 @@
             .eco-scroll__title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:24px;max-width:620px;will-change:opacity,transform;}
             .eco-scroll__desc{font-size:clamp(.9rem,1.4vw,1.05rem);color:rgba(255,255,255,.72);line-height:1.85;max-width:500px;will-change:opacity,transform;}
             /* 우측 대형 숫자 */
-            .eco-scroll__big-num{position:absolute;right:8%;top:50%;transform:translateY(-50%) scale(.7);font-family:'Space Grotesk',sans-serif;font-size:clamp(7rem,18vw,16rem);font-weight:700;line-height:1;color:rgba(118,196,66,.12);letter-spacing:-.02em;pointer-events:none;will-change:opacity,transform;}
+            .eco-scroll__big-num{position:absolute;right:8%;top:50%;transform:translateY(-50%) scale(.7);font-family:'Space Grotesk',sans-serif;font-size:clamp(7rem,18vw,16rem);font-weight:700;line-height:1;color:rgba(118,196,66,.38);letter-spacing:-.02em;pointer-events:none;will-change:opacity,transform;}
             .eco-scroll__big-num sup{font-size:.45em;vertical-align:super;opacity:.7;}
             /* 하단 진행 바 */
             .eco-scroll__progress-bar{position:absolute;bottom:0;left:0;height:3px;background:#76c442;z-index:10;will-change:width;}
@@ -525,7 +525,7 @@
                         bg.style.transform = 'translateY(' + bgY + 'px) scale(' + bgScale + ')';
 
                         // ── 오버레이: 진입 전 밝게 → 어둡게 ──
-                        overlay.style.opacity = 0.4 + rng(p, 0, 0.3) * 0.45;
+                        overlay.style.opacity = 0.5 + rng(p, 0, 0.3) * 0.25;
 
                         // ── 우측 대형 숫자: 스케일 업 + 페이드 ──
                         var numP    = rng(p, 0.05, 0.45);
