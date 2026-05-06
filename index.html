@@ -438,41 +438,38 @@
 
             <!-- ══ ECO SCROLL SECTION ══ -->
             <style>
-            .eco-scroll-section{position:relative;height:280vh;}
-            .eco-scroll__sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#0a1a0e;}
-            /* 배경 */
-            .eco-scroll__bg{position:absolute;inset:-8%;background:center/cover no-repeat;will-change:transform;}
+            .eco-scroll-section{position:relative;height:320vh;}
+            .eco-scroll__sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#000;}
+            .eco-scroll__bg{position:absolute;inset:-8%;background:center/cover no-repeat;will-change:transform;opacity:0;}
             .eco-bg-1{background-color:#0d2010;}
-            .eco-scroll__overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.52) 40%,rgba(0,0,0,.08));will-change:opacity;}
-            /* 콘텐츠 레이아웃 */
-            .eco-scroll__content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:80px 10% 60px;max-width:58%;will-change:opacity,transform;}
+            /* 블랙 커튼 — 처음엔 완전히 검정, 스크롤하면 걷힘 */
+            .eco-scroll__curtain{position:absolute;inset:0;background:#000;z-index:2;will-change:opacity;}
+            /* 이미지 위 그라데이션 오버레이 (텍스트 가독성) */
+            .eco-scroll__overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.55) 35%,rgba(0,0,0,.1));z-index:3;will-change:opacity;opacity:0;}
+            .eco-scroll__content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:80px 10% 60px;max-width:60%;z-index:4;will-change:opacity,transform;}
             .eco-scroll__eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:#76c442;text-transform:uppercase;margin-bottom:18px;will-change:opacity,transform;}
             .eco-scroll__divider{width:0;height:1px;background:#76c442;margin-bottom:28px;will-change:width;}
             .eco-scroll__title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:24px;max-width:620px;will-change:opacity,transform;}
-            .eco-scroll__desc{font-size:clamp(.9rem,1.4vw,1.05rem);color:rgba(255,255,255,.72);line-height:1.85;max-width:500px;will-change:opacity,transform;}
-            /* 우측 대형 숫자 */
-            .eco-scroll__big-num{position:absolute;right:8%;top:50%;transform:translateY(-50%) scale(.7);font-family:'Space Grotesk',sans-serif;font-size:clamp(7rem,18vw,16rem);font-weight:700;line-height:1;color:rgba(118,196,66,.38);letter-spacing:-.02em;pointer-events:none;will-change:opacity,transform;}
-            .eco-scroll__big-num sup{font-size:.45em;vertical-align:super;opacity:.7;}
-            /* 하단 진행 바 */
+            .eco-scroll__desc{font-size:clamp(.9rem,1.4vw,1.05rem);color:rgba(255,255,255,.75);line-height:1.85;max-width:500px;will-change:opacity,transform;}
             .eco-scroll__progress-bar{position:absolute;bottom:0;left:0;height:3px;background:#76c442;z-index:10;will-change:width;}
-            /* 스크롤 힌트 */
             .eco-scroll__hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.12em;z-index:10;white-space:nowrap;will-change:opacity;}
             .eco-scroll__hint svg{width:18px;height:18px;animation:ecoHintBounce 1.6s ease-in-out infinite;}
             @keyframes ecoHintBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
             @media(max-width:768px){
                 .eco-scroll__content{max-width:100%;padding:80px 6% 60px;}
-                .eco-scroll__big-num{right:4%;font-size:clamp(5rem,22vw,9rem);opacity:.6;}
             }
             </style>
             <section class="eco-scroll-section" id="ecoScrollSection">
-                <div class="eco-scroll__sticky" id="ecoSticky">
+                <div class="eco-scroll__sticky">
 
-                    <!-- 배경 + 오버레이 -->
+                    <!-- 배경 이미지 -->
                     <div class="eco-scroll__bg eco-bg-1" id="ecoBg" style="background-image:url('images/eco_01.png')"></div>
-                    <div class="eco-scroll__overlay" id="ecoOverlay"></div>
 
-                    <!-- 우측 대형 숫자 -->
-                    <div class="eco-scroll__big-num" id="ecoBigNum">1<sup>%</sup></div>
+                    <!-- 블랙 커튼 (처음엔 완전 검정) -->
+                    <div class="eco-scroll__curtain" id="ecoCurtain"></div>
+
+                    <!-- 텍스트 가독성용 그라데이션 -->
+                    <div class="eco-scroll__overlay" id="ecoOverlay"></div>
 
                     <!-- 텍스트 콘텐츠 -->
                     <div class="eco-scroll__content" id="ecoContent">
@@ -494,69 +491,60 @@
 
                 <script>
                 (function () {
-                    var section  = document.getElementById('ecoScrollSection');
+                    var section = document.getElementById('ecoScrollSection');
                     if (!section) return;
-                    var bg       = document.getElementById('ecoBg');
-                    var overlay  = document.getElementById('ecoOverlay');
-                    var bigNum   = document.getElementById('ecoBigNum');
-                    var eyebrow  = document.getElementById('ecoEyebrow');
-                    var divider  = document.getElementById('ecoDivider');
-                    var title    = document.getElementById('ecoTitle');
-                    var desc     = document.getElementById('ecoDesc');
-                    var bar      = document.getElementById('ecoProgressBar');
-                    var hint     = document.getElementById('ecoScrollHint');
+                    var bg      = document.getElementById('ecoBg');
+                    var curtain = document.getElementById('ecoCurtain');
+                    var overlay = document.getElementById('ecoOverlay');
+                    var eyebrow = document.getElementById('ecoEyebrow');
+                    var divider = document.getElementById('ecoDivider');
+                    var title   = document.getElementById('ecoTitle');
+                    var desc    = document.getElementById('ecoDesc');
+                    var bar     = document.getElementById('ecoProgressBar');
+                    var hint    = document.getElementById('ecoScrollHint');
 
-                    // 0~1 범위로 클램프하는 보간 함수
                     function rng(p, from, to) {
                         return Math.max(0, Math.min(1, (p - from) / (to - from)));
                     }
 
                     function update() {
-                        var rect    = section.getBoundingClientRect();
+                        var rect     = section.getBoundingClientRect();
                         var scrolled = -rect.top;
-                        var total   = section.offsetHeight - window.innerHeight;
+                        var total    = section.offsetHeight - window.innerHeight;
                         if (total <= 0) return;
 
                         var p = Math.max(0, Math.min(1, scrolled / total));
 
-                        // ── 배경: 진입 시 줌 아웃 + 패럴렉스 ──
-                        var bgScale = 1.08 - rng(p, 0, 0.5) * 0.08;
-                        var bgY     = p * -30;
-                        bg.style.transform = 'translateY(' + bgY + 'px) scale(' + bgScale + ')';
+                        // ── PHASE 1 (p 0→0.35): 블랙 커튼이 걷히며 이미지 등장 ──
+                        var reveal = rng(p, 0, 0.35);
+                        curtain.style.opacity = 1 - reveal;          // 검정 → 투명
+                        bg.style.opacity      = reveal;               // 이미지 페이드 인
+                        overlay.style.opacity = reveal;               // 그라데이션도 함께
 
-                        // ── 오버레이: 진입 전 밝게 → 어둡게 ──
-                        overlay.style.opacity = 0.5 + rng(p, 0, 0.3) * 0.25;
+                        // 배경: 커튼 열리며 살짝 줌 아웃 (1.12 → 1.0)
+                        var bgScale = 1.12 - rng(p, 0, 0.5) * 0.12;
+                        bg.style.transform = 'translateY(' + (p * -25) + 'px) scale(' + bgScale + ')';
 
-                        // ── 우측 대형 숫자: 스케일 업 + 페이드 ──
-                        var numP    = rng(p, 0.05, 0.45);
-                        var numExit = rng(p, 0.8, 1.0);
-                        bigNum.style.opacity   = numP * (1 - numExit);
-                        bigNum.style.transform = 'translateY(-50%) scale(' + (0.65 + numP * 0.35) + ')';
+                        // ── PHASE 2 (p 0.3→0.7): 텍스트 순차 등장 ──
+                        var exit = rng(p, 0.82, 1.0);
 
-                        // ── 텍스트: 순차 등장 ──
-                        // eyebrow
-                        var e0 = rng(p, 0.1, 0.25);
-                        eyebrow.style.opacity   = e0 * (1 - rng(p, 0.82, 1.0));
+                        var e0 = rng(p, 0.32, 0.46);
+                        eyebrow.style.opacity   = e0 * (1 - exit);
                         eyebrow.style.transform = 'translateY(' + ((1 - e0) * 18) + 'px)';
 
-                        // 구분선 가로 확장
-                        divider.style.width = (rng(p, 0.18, 0.38) * 60) + 'px';
+                        divider.style.width = (rng(p, 0.38, 0.54) * 60) + 'px';
 
-                        // title
-                        var e1 = rng(p, 0.22, 0.42);
-                        title.style.opacity   = e1 * (1 - rng(p, 0.84, 1.0));
+                        var e1 = rng(p, 0.42, 0.58);
+                        title.style.opacity   = e1 * (1 - exit);
                         title.style.transform = 'translateY(' + ((1 - e1) * 28) + 'px)';
 
-                        // desc
-                        var e2 = rng(p, 0.38, 0.6);
-                        desc.style.opacity   = e2 * (1 - rng(p, 0.86, 1.0));
+                        var e2 = rng(p, 0.52, 0.68);
+                        desc.style.opacity   = e2 * (1 - exit);
                         desc.style.transform = 'translateY(' + ((1 - e2) * 20) + 'px)';
 
-                        // ── 하단 진행 바 ──
-                        bar.style.width = (p * 100) + '%';
-
-                        // ── 스크롤 힌트 ──
-                        hint.style.opacity = Math.max(0, 1 - p * 6);
+                        // ── 진행 바 & 힌트 ──
+                        bar.style.width    = (p * 100) + '%';
+                        hint.style.opacity = Math.max(0, 1 - p * 8);
                     }
 
                     window.addEventListener('scroll', update, { passive: true });
