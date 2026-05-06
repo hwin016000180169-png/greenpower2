@@ -438,54 +438,54 @@
 
             <!-- ══ ECO SCROLL SECTION ══ -->
             <style>
-            .eco-scroll-section{position:relative;height:200vh;}
+            .eco-scroll-section{position:relative;height:280vh;}
             .eco-scroll__sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#0a1a0e;}
-            .eco-scroll__slide{position:absolute;inset:0;opacity:0;pointer-events:none;will-change:opacity,transform;}
-            .eco-scroll__slide.is-active{pointer-events:auto;}
-            .eco-scroll__bg{position:absolute;inset:0;background:center/cover no-repeat;}
+            /* 배경 */
+            .eco-scroll__bg{position:absolute;inset:-8%;background:center/cover no-repeat;will-change:transform;}
             .eco-bg-1{background-color:#0d2010;}
-            .eco-scroll__overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.7) 35%,rgba(0,0,0,.15));}
-            .eco-scroll__content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:80px 10% 60px;}
-            .eco-scroll__eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:#76c442;text-transform:uppercase;margin-bottom:20px;}
-            .eco-scroll__title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:24px;max-width:620px;}
-            .eco-scroll__desc{font-size:clamp(.9rem,1.4vw,1.05rem);color:rgba(255,255,255,.72);line-height:1.85;max-width:520px;}
-            .eco-scroll__dots{position:absolute;right:44px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:10;}
-            .eco-scroll__dot{display:block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.28);transition:background .3s,transform .3s;}
-            .eco-scroll__dot.is-active{background:#76c442;transform:scale(1.6);}
-            .eco-scroll__progress-bar{position:absolute;bottom:0;left:0;height:3px;background:#76c442;z-index:10;}
-            .eco-scroll__hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.42);font-size:11px;letter-spacing:.12em;z-index:10;transition:opacity .4s;white-space:nowrap;}
+            .eco-scroll__overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.82) 40%,rgba(0,0,0,.2));will-change:opacity;}
+            /* 콘텐츠 레이아웃 */
+            .eco-scroll__content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:80px 10% 60px;max-width:58%;will-change:opacity,transform;}
+            .eco-scroll__eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:#76c442;text-transform:uppercase;margin-bottom:18px;will-change:opacity,transform;}
+            .eco-scroll__divider{width:0;height:1px;background:#76c442;margin-bottom:28px;will-change:width;}
+            .eco-scroll__title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:24px;max-width:620px;will-change:opacity,transform;}
+            .eco-scroll__desc{font-size:clamp(.9rem,1.4vw,1.05rem);color:rgba(255,255,255,.72);line-height:1.85;max-width:500px;will-change:opacity,transform;}
+            /* 우측 대형 숫자 */
+            .eco-scroll__big-num{position:absolute;right:8%;top:50%;transform:translateY(-50%) scale(.7);font-family:'Space Grotesk',sans-serif;font-size:clamp(7rem,18vw,16rem);font-weight:700;line-height:1;color:rgba(118,196,66,.12);letter-spacing:-.02em;pointer-events:none;will-change:opacity,transform;}
+            .eco-scroll__big-num sup{font-size:.45em;vertical-align:super;opacity:.7;}
+            /* 하단 진행 바 */
+            .eco-scroll__progress-bar{position:absolute;bottom:0;left:0;height:3px;background:#76c442;z-index:10;will-change:width;}
+            /* 스크롤 힌트 */
+            .eco-scroll__hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.12em;z-index:10;white-space:nowrap;will-change:opacity;}
             .eco-scroll__hint svg{width:18px;height:18px;animation:ecoHintBounce 1.6s ease-in-out infinite;}
             @keyframes ecoHintBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
             @media(max-width:768px){
-                .eco-scroll__dots{right:14px;}
-                .eco-scroll__content{padding:80px 6% 60px;}
-                .eco-scroll__title{font-size:clamp(1.6rem,7vw,2.4rem);}
-                .eco-scroll__desc{font-size:.9rem;}
+                .eco-scroll__content{max-width:100%;padding:80px 6% 60px;}
+                .eco-scroll__big-num{right:4%;font-size:clamp(5rem,22vw,9rem);opacity:.6;}
             }
             </style>
             <section class="eco-scroll-section" id="ecoScrollSection">
-                <div class="eco-scroll__sticky">
+                <div class="eco-scroll__sticky" id="ecoSticky">
 
-                    <!-- 슬라이드 01 -->
-                    <div class="eco-scroll__slide" data-eco-slide="0">
-                        <div class="eco-scroll__bg eco-bg-1"><!-- 배경 이미지 01 --></div>
-                        <div class="eco-scroll__overlay"></div>
-                        <div class="eco-scroll__content">
-                            <p class="eco-scroll__eyebrow">Green Commitment</p>
-                            <h2 class="eco-scroll__title">수익의 1%를<br>지구에 돌려드립니다</h2>
-                            <p class="eco-scroll__desc">그린파워테크놀로지는 매년 순수익의 1%를 국내 환경단체에 기부합니다.<br>전원을 안정적으로 공급하는 것을 넘어, 지속 가능한 미래를 위한 책임을 다합니다.</p>
-                        </div>
-                    </div>
+                    <!-- 배경 + 오버레이 -->
+                    <div class="eco-scroll__bg eco-bg-1" id="ecoBg"><!-- 배경 이미지 01 --></div>
+                    <div class="eco-scroll__overlay" id="ecoOverlay"></div>
 
-                    <!-- 우측 진행 도트 -->
-                    <div class="eco-scroll__dots" id="ecoScrollDots">
-                        <span class="eco-scroll__dot"></span>
+                    <!-- 우측 대형 숫자 -->
+                    <div class="eco-scroll__big-num" id="ecoBigNum">1<sup>%</sup></div>
+
+                    <!-- 텍스트 콘텐츠 -->
+                    <div class="eco-scroll__content" id="ecoContent">
+                        <p class="eco-scroll__eyebrow" id="ecoEyebrow">Green Commitment</p>
+                        <div class="eco-scroll__divider" id="ecoDivider"></div>
+                        <h2 class="eco-scroll__title" id="ecoTitle">수익의 1%를<br>지구에 돌려드립니다</h2>
+                        <p class="eco-scroll__desc" id="ecoDesc">그린파워테크놀로지는 매년 순수익의 1%를 국내 환경단체에 기부합니다.<br>전원을 안정적으로 공급하는 것을 넘어, 지속 가능한 미래를 위한 책임을 다합니다.</p>
                     </div>
 
                     <!-- 하단 진행 바 -->
                     <div class="eco-scroll__progress-bar" id="ecoProgressBar" style="width:0%"></div>
 
-                    <!-- 스크롤 힌트 (첫 슬라이드) -->
+                    <!-- 스크롤 힌트 -->
                     <div class="eco-scroll__hint" id="ecoScrollHint">
                         <span>SCROLL</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
@@ -494,43 +494,69 @@
 
                 <script>
                 (function () {
-                    var section = document.getElementById('ecoScrollSection');
+                    var section  = document.getElementById('ecoScrollSection');
                     if (!section) return;
-                    var slides = Array.prototype.slice.call(section.querySelectorAll('[data-eco-slide]'));
-                    var dots   = Array.prototype.slice.call(document.getElementById('ecoScrollDots').children);
-                    var hint   = document.getElementById('ecoScrollHint');
-                    var bar    = document.getElementById('ecoProgressBar');
-                    var N      = slides.length;
+                    var bg       = document.getElementById('ecoBg');
+                    var overlay  = document.getElementById('ecoOverlay');
+                    var bigNum   = document.getElementById('ecoBigNum');
+                    var eyebrow  = document.getElementById('ecoEyebrow');
+                    var divider  = document.getElementById('ecoDivider');
+                    var title    = document.getElementById('ecoTitle');
+                    var desc     = document.getElementById('ecoDesc');
+                    var bar      = document.getElementById('ecoProgressBar');
+                    var hint     = document.getElementById('ecoScrollHint');
+
+                    // 0~1 범위로 클램프하는 보간 함수
+                    function rng(p, from, to) {
+                        return Math.max(0, Math.min(1, (p - from) / (to - from)));
+                    }
 
                     function update() {
-                        var rect     = section.getBoundingClientRect();
+                        var rect    = section.getBoundingClientRect();
                         var scrolled = -rect.top;
-                        var total    = section.offsetHeight - window.innerHeight;
+                        var total   = section.offsetHeight - window.innerHeight;
                         if (total <= 0) return;
 
-                        var p   = Math.max(0, Math.min(1, scrolled / total));
-                        var raw = p * (N - 1); // 0 ~ N-1 연속값
+                        var p = Math.max(0, Math.min(1, scrolled / total));
 
-                        // 슬라이드 페이드 + 미세 수평 이동 (가로 전환 연출)
-                        slides.forEach(function (s, i) {
-                            var dist    = raw - i;
-                            var opacity = Math.max(0, 1 - Math.abs(dist));
-                            var tx      = dist * 60; // 수평 오프셋 px
-                            s.style.opacity   = opacity;
-                            s.style.transform = 'translateX(' + tx + 'px)';
-                        });
+                        // ── 배경: 진입 시 줌 아웃 + 패럴렉스 ──
+                        var bgScale = 1.08 - rng(p, 0, 0.5) * 0.08;
+                        var bgY     = p * -30;
+                        bg.style.transform = 'translateY(' + bgY + 'px) scale(' + bgScale + ')';
 
-                        // 도트 활성화
-                        var active = Math.round(raw);
-                        dots.forEach(function (d, i) {
-                            d.classList.toggle('is-active', i === active);
-                        });
+                        // ── 오버레이: 진입 전 밝게 → 어둡게 ──
+                        overlay.style.opacity = 0.4 + rng(p, 0, 0.3) * 0.45;
 
-                        // 하단 진행 바
-                        if (bar) bar.style.width = (p * 100) + '%';
+                        // ── 우측 대형 숫자: 스케일 업 + 페이드 ──
+                        var numP    = rng(p, 0.05, 0.45);
+                        var numExit = rng(p, 0.8, 1.0);
+                        bigNum.style.opacity   = numP * (1 - numExit);
+                        bigNum.style.transform = 'translateY(-50%) scale(' + (0.65 + numP * 0.35) + ')';
 
-                        // 스크롤 힌트 페이드
-                        if (hint) hint.style.opacity = Math.max(0, 1 - raw * 4);
+                        // ── 텍스트: 순차 등장 ──
+                        // eyebrow
+                        var e0 = rng(p, 0.1, 0.25);
+                        eyebrow.style.opacity   = e0 * (1 - rng(p, 0.82, 1.0));
+                        eyebrow.style.transform = 'translateY(' + ((1 - e0) * 18) + 'px)';
+
+                        // 구분선 가로 확장
+                        divider.style.width = (rng(p, 0.18, 0.38) * 60) + 'px';
+
+                        // title
+                        var e1 = rng(p, 0.22, 0.42);
+                        title.style.opacity   = e1 * (1 - rng(p, 0.84, 1.0));
+                        title.style.transform = 'translateY(' + ((1 - e1) * 28) + 'px)';
+
+                        // desc
+                        var e2 = rng(p, 0.38, 0.6);
+                        desc.style.opacity   = e2 * (1 - rng(p, 0.86, 1.0));
+                        desc.style.transform = 'translateY(' + ((1 - e2) * 20) + 'px)';
+
+                        // ── 하단 진행 바 ──
+                        bar.style.width = (p * 100) + '%';
+
+                        // ── 스크롤 힌트 ──
+                        hint.style.opacity = Math.max(0, 1 - p * 6);
                     }
 
                     window.addEventListener('scroll', update, { passive: true });
