@@ -526,20 +526,18 @@
                         bg.style.transform = 'translateY(' + (p * -25) + 'px) scale(' + bgScale + ')';
 
                         // ── PHASE 2 (p 0.3→0.7): 텍스트 순차 등장 ──
-                        var exit = rng(p, 0.82, 1.0);
-
                         var e0 = rng(p, 0.32, 0.46);
-                        eyebrow.style.opacity   = e0 * (1 - exit);
+                        eyebrow.style.opacity   = e0;
                         eyebrow.style.transform = 'translateY(' + ((1 - e0) * 18) + 'px)';
 
                         divider.style.width = (rng(p, 0.38, 0.54) * 60) + 'px';
 
                         var e1 = rng(p, 0.42, 0.58);
-                        title.style.opacity   = e1 * (1 - exit);
+                        title.style.opacity   = e1;
                         title.style.transform = 'translateY(' + ((1 - e1) * 28) + 'px)';
 
                         var e2 = rng(p, 0.52, 0.68);
-                        desc.style.opacity   = e2 * (1 - exit);
+                        desc.style.opacity   = e2;
                         desc.style.transform = 'translateY(' + ((1 - e2) * 20) + 'px)';
 
                         // ── 진행 바 & 힌트 ──
