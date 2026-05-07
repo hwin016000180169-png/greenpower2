@@ -39,8 +39,20 @@ body {
     line-height: 1.72;
     letter-spacing: -0.02em;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
     overflow-x: hidden;
 }
+
+/* 모바일 터치 시 hover 효과가 잔류하지 않도록 */
+@media (hover: none) and (pointer: coarse) {
+    a:hover, button:hover { background-color: inherit; }
+}
+
+/* iOS Safari momentum 스크롤 */
+html, body { -webkit-overflow-scrolling: touch; }
 
 body.menu-open {
     overflow: hidden;
@@ -265,6 +277,7 @@ ol {
 .site-header.is-scrolled,
 .site-header.is-menu-open {
     background: rgba(255, 255, 255, 0.88);
+    -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
     box-shadow: 0 6px 30px rgba(8, 17, 13, 0.08);
 }
@@ -508,6 +521,7 @@ ol {
     inset: 0;
     z-index: 1050;
     background: rgba(6, 10, 8, 0.82);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     opacity: 0;
     visibility: hidden;
@@ -838,6 +852,7 @@ ol {
     background: rgba(255, 255, 255, 0.12);
     border-top: 1px solid rgba(255, 255, 255, 0.24);
     border-right: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
     overflow: hidden;
     transition: color 0.4s var(--ease), transform 0.4s var(--ease);
@@ -1930,6 +1945,7 @@ ol {
     --stack-progress: 0;
     position: relative;
     height: 320vh;
+    height: 320svh;
     background: #ffffff;
 }
 
@@ -1937,6 +1953,7 @@ ol {
     position: sticky;
     top: 0;
     height: 100vh;
+    height: 100svh;
     overflow: clip;
 }
 
