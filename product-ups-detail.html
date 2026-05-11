@@ -729,18 +729,9 @@
       overflow: hidden;
       isolation: isolate;
     }
-    /* 제품 이미지 배경 (큰 사이즈 + 우측 정렬, 약간 아래로) */
+    /* 제품 이미지 배경 — 비활성화 (반응형 깨짐 방지) */
     .kp-section--spec-dark::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: var(--spec-bg, none);
-      background-position: 88% 78%;
-      background-repeat: no-repeat;
-      background-size: clamp(460px, 52vw, 820px) auto;
-      opacity: 0.84;
-      filter: drop-shadow(0 0 80px rgba(46,125,50,0.36));
-      z-index: -2;
+      display: none;
     }
     /* 어두운 그라디언트 (좌측 가독성 확보) */
     .kp-section--spec-dark::after {
@@ -833,7 +824,6 @@
     }
 
     @media (max-width: 1100px) {
-      .kp-section--spec-dark::before { background-size: clamp(360px, 70vw, 600px) auto; opacity: 0.22; }
       .kp-spec-grid { grid-template-columns: 1fr; gap: 48px; }
       .kp-spec-grid__apps { padding-left: 0; border-left: none; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
     }

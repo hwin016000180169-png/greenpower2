@@ -2102,6 +2102,15 @@ ol {
     line-height: 1.6;
 }
 
+/* ── 노트북 화면에서는 히어로 UI/스크롤 인디케이터 숨김 (1600px 이하) ── */
+@media (max-width: 1600px) {
+    .hero-ui,
+    .hero-scroll,
+    .hero-arrows {
+        display: none !important;
+    }
+}
+
 /* ── 노트북 최적화 (1280px ~ 1440px) ── */
 @media (max-width: 1440px) {
     .container {
@@ -2116,14 +2125,6 @@ ol {
         padding-bottom: 260px;
     }
 
-    .hero-ui {
-        left: clamp(40px, 6vw, 84px);
-        width: min(420px, calc(100% - 80px));
-        transform: none;
-        grid-template-columns: auto minmax(140px, 1fr);
-        gap: 14px;
-    }
-
     .hero-progress {
         width: auto;
     }
@@ -2132,14 +2133,6 @@ ol {
         min-width: 68px;
         min-height: 40px;
         font-size: 12px;
-    }
-
-    .hero-arrows {
-        display: none;
-    }
-
-    .hero-scroll {
-        display: none;
     }
 
     .overview-grid {
