@@ -2670,11 +2670,15 @@ ol {
 }
 
 /* 2. Standardize CTA width & Revert Effects to fix scrolling */
-.cta-stage .cta-card {
+.cta-stage .cta-card,
+.cta-card,
+.cta-card--primary,
+.cta-card--secondary {
     left: 0 !important;
     right: 0 !important;
     border-radius: 0 !important;
 }
+.cta-card__overlay { inset: 0 !important; }
 .cta-card__content {
     border: none !important;
     background: transparent !important;
@@ -3171,3 +3175,68 @@ body.is-search-open { overflow: hidden; }
     .site-search__dl { position: static; transform: none; margin: 10px 18px 14px; }
     .site-search__item .site-search__link { padding-right: 18px; }
 }
+
+/* ============================================================
+   Mobile Polish (사용자 피드백 반영)
+============================================================ */
+
+/* 1. Footer mobile line alignment */
+@media (max-width: 900px) {
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 18px;
+    }
+    .footer-top { border-bottom: 1px solid var(--line-light); padding-bottom: 24px; }
+    .footer-bottom { padding-top: 20px; }
+    .footer-copyright { text-align: left; }
+    .footer-links { gap: 12px 20px; }
+}
+
+/* 2. CTA card — 흰색 여백 제거 (PC + 모바일 공통) */
+.cta-card,
+.cta-card--primary,
+.cta-card--secondary,
+.cta-stage .cta-card {
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+}
+.cta-card__overlay { inset: 0 !important; }
+@media (max-width: 900px) {
+    .cta-stack { padding: 0 !important; }
+    .cta-stage { gap: 0 !important; }
+    .cta-card,
+    .cta-card--primary,
+    .cta-card--secondary {
+        height: 480px;
+        border-radius: 0 !important;
+    }
+}
+
+/* 3. highlight-text — 모바일 간격 보정 */
+@media (max-width: 900px) {
+    .highlight-text {
+        background-size: 0% 10px;
+        background-position: left 92%;
+    }
+    .is-visible .highlight-text,
+    .is-visible.highlight-text {
+        background-size: 100% 10px;
+    }
+}
+
+/* 4. section-tabs 모바일 가운데 정렬 */
+@media (max-width: 900px) {
+    .section-tabs {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .section-tabs__item {
+        flex: 0 0 auto;
+        text-align: center;
+    }
+}
+
