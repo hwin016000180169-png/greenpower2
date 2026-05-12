@@ -3180,19 +3180,60 @@ body.is-search-open { overflow: hidden; }
    Mobile Polish (사용자 피드백 반영)
 ============================================================ */
 
-/* 1. Footer mobile line alignment */
+/* 1. Footer mobile center alignment */
 @media (max-width: 900px) {
     .footer-top,
     .footer-bottom {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        text-align: center;
         width: 100%;
         gap: 18px;
     }
     .footer-top { border-bottom: 1px solid var(--line-light); padding-bottom: 24px; }
     .footer-bottom { padding-top: 20px; }
-    .footer-copyright { text-align: left; }
-    .footer-links { gap: 12px 20px; }
+    .footer-copy { margin-left: auto; margin-right: auto; }
+    .footer-info { align-items: center; }
+    .footer-info p { text-align: center; }
+    .footer-copyright { text-align: center; }
+    .footer-links { justify-content: center; gap: 12px 20px; }
+}
+
+/* br-m: 모바일 전용 줄바꿈 */
+.br-m { display: none; }
+@media (max-width: 900px) {
+    .br-m { display: inline; }
+}
+
+/* section-label 하단 간격 (모바일에서 너무 좁아 보이는 문제) */
+.overview-copy .section-label,
+.section-head .section-label,
+.section-head__row + .section-label,
+.business-head .section-label,
+.partner-slider__head .section-label {
+    margin-bottom: 18px;
+}
+@media (max-width: 900px) {
+    .overview-copy .section-label,
+    .section-head .section-label,
+    .business-head .section-label,
+    .partner-slider__head .section-label {
+        margin-bottom: 22px;
+    }
+}
+
+/* 모바일 — 히어로 이미지 비율 유지 (잘림 없이 축소) */
+@media (max-width: 640px) {
+    .hero-media img,
+    .hero-media video {
+        object-fit: contain;
+        background: #0d1f10;
+        transform: scale(1);
+    }
+    .hero-slide.is-active .hero-media img,
+    .hero-slide.is-active .hero-media video {
+        transform: scale(1);
+    }
 }
 
 /* 2. CTA card — 흰색 여백 제거 (PC + 모바일 공통) */
