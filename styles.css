@@ -3268,14 +3268,36 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0 !important;
 }
 .cta-card__overlay { inset: 0 !important; }
+
+/* PC — 카드가 viewport를 가득 채우도록 상하 흰 여백 제거 */
+.cta-card--primary {
+    top: 0 !important;
+    height: 100vh !important;
+    height: 100svh !important;
+}
+.cta-card--secondary {
+    bottom: 0 !important;
+    height: calc(50vh + (var(--stack-progress) * 50vh)) !important;
+}
+/* container는 내부 콘텐츠만 가운데로, 카드 자체는 풀 폭 */
+.cta-card__content.container {
+    width: min(var(--container), calc(100% - 64px));
+    margin: 0 auto;
+    padding-bottom: min(14vh, 120px);
+}
+
 @media (max-width: 900px) {
-    .cta-stack { padding: 0 !important; }
+    .cta-stack { padding: 0 !important; background: transparent !important; }
     .cta-stage { gap: 0 !important; }
     .cta-card,
     .cta-card--primary,
     .cta-card--secondary {
-        height: 480px;
+        height: 480px !important;
         border-radius: 0 !important;
+    }
+    .cta-card__content.container {
+        width: calc(100% - 40px);
+        padding-bottom: 40px;
     }
 }
 
