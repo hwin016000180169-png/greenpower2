@@ -3205,6 +3205,28 @@ body.is-search-open { overflow: hidden; }
     .br-m { display: inline; }
 }
 
+/* ──────────────────────────────────────────
+   타이포그래피 단락 균형 (widow 방지)
+   - 한글 단어 보존 + 마지막 줄이 너무 짧지 않도록
+────────────────────────────────────────── */
+p, li, dd, blockquote {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    word-break: keep-all;
+    text-wrap: balance;
+}
+/* 큰 화면에서 본문 단락이 한 줄에 펼쳐지지 않도록 적절한 폭 가이드 */
+.section-head p,
+.overview-copy p,
+.news-card p,
+.cta-card__content p:not(.section-label),
+.global-network__content p:not(.section-label) {
+    max-width: 56ch;
+}
+
 /* section-label 하단 간격 (모바일에서 너무 좁아 보이는 문제) */
 .overview-copy .section-label,
 .section-head .section-label,

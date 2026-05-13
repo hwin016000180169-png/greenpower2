@@ -5,6 +5,25 @@
    Relies on variables defined in styles.css
    ========================================================================== */
 
+/* 단락 균형 (widow 방지, 한글 단어 보존) */
+.page-body p,
+.page-body li,
+.page-body dd,
+.page-hero__sub,
+.product-intro p,
+.info-section p,
+.notice-card p {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+}
+.page-body h1, .page-body h2, .page-body h3, .page-body h4,
+.page-hero__title,
+.product-intro__title {
+    word-break: keep-all;
+    text-wrap: balance;
+}
+
 /* --------------------------------------------------------------------------
    1. Page Hero
    -------------------------------------------------------------------------- */
