@@ -3222,12 +3222,12 @@ body.is-search-open { overflow: hidden; }
     }
 }
 
-/* 모바일 — 히어로 이미지 비율 유지 (잘림 없이 축소) */
-@media (max-width: 640px) {
+/* 모바일 — 히어로 이미지 (전용 _mo 자산 사용, cover 유지하되 scale 완화) */
+@media (max-width: 768px) {
     .hero-media img,
     .hero-media video {
-        object-fit: contain;
-        background: #0d1f10;
+        object-fit: cover;
+        object-position: center;
         transform: scale(1);
     }
     .hero-slide.is-active .hero-media img,
