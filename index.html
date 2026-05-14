@@ -534,7 +534,7 @@
                         var reveal = rng(p, 0, 0.35);
                         curtain.style.opacity = 1 - reveal;          // 검정 → 투명
                         bg.style.opacity      = reveal;               // 이미지 페이드 인
-                        overlay.style.opacity = reveal * 0.18;        // 그라데이션 최대 0.18
+                        overlay.style.opacity = reveal * 0.2;         // 그라데이션 최대 0.2
 
                         // 배경: 커튼 열리며 살짝 줌 아웃 (1.12 → 1.0)
                         var bgScale = 1.12 - rng(p, 0, 0.5) * 0.12;
