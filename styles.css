@@ -3280,7 +3280,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 .cta-card__content--center h2,
 .cta-card__content--center p:not(.section-label):not(.cta-stat) {
-    text-shadow: 0 2px 18px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5) !important;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2) !important;
+}
+/* 제품 자료실(ghost) 가독성 보강 */
+.cta-card__content--center .button--ghost {
+    background: rgba(255,255,255,0.92) !important;
+    color: #1b5e20 !important;
+    border-color: #1b5e20 !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.cta-card__content--center .button--ghost:hover {
+    background: #1b5e20 !important;
+    color: #fff !important;
 }
 
 /* 40+ 강조 스탯 — 단색 / 볼드 / 타이트 */
