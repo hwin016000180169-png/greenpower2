@@ -1275,10 +1275,7 @@ body.suppress-section-tab-hover .section-tabs__item.is-active:hover {
     isolation: isolate;
 }
 .greeting-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(100deg, rgba(8,20,10,0.78) 0%, rgba(8,20,10,0.55) 45%, rgba(8,20,10,0.15) 100%);
-    z-index: 1;
+    display: none;
 }
 .greeting-hero__inner {
     position: relative;
@@ -1311,9 +1308,6 @@ body.suppress-section-tab-hover .section-tabs__item.is-active:hover {
 
 @media (max-width: 900px) {
     .greeting-hero { min-height: 0; padding: 56px 0; }
-    .greeting-hero__overlay {
-        background: linear-gradient(180deg, rgba(8,20,10,0.72) 0%, rgba(8,20,10,0.6) 60%, rgba(8,20,10,0.3) 100%);
-    }
     .greeting-hero__inner { padding: 0 24px; font-size: 14px; }
     .greeting-hero__inner .greeting-lead { font-size: 18px; }
 }
