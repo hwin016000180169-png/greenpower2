@@ -1287,22 +1287,20 @@ body.suppress-section-tab-hover .section-tabs__item.is-active:hover {
     gap: 22px;
     font-size: 15px;
     line-height: 1.85;
-    color: rgba(255,255,255,0.92);
+    color: var(--text);
     word-break: keep-all;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.45);
 }
 .greeting-hero__inner .greeting-lead {
-    font-size: 22px;
+    font-size: 17px;
     font-weight: 700;
-    color: #b8f070;
-    line-height: 1.5;
+    color: var(--accent-dark);
+    line-height: 1.6;
     margin-bottom: 4px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.55);
 }
 .greeting-hero__inner .greeting-sign {
     margin-top: 16px;
     font-weight: 700;
-    color: #fff;
+    color: var(--text);
     font-size: 15px;
 }
 
