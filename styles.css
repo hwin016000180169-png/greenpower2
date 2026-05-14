@@ -3269,6 +3269,52 @@ h1, h2, h3, h4, h5, h6 {
 }
 .cta-card__overlay { inset: 0 !important; }
 
+/* CTA 카드 — 텍스트 가독성 보강 (인증서 배경 위) */
+.cta-card__overlay--light {
+    background: linear-gradient(100deg, rgba(13,30,16,0.78) 0%, rgba(13,30,16,0.55) 45%, rgba(13,30,16,0.2) 100%) !important;
+}
+.cta-card__content--center {
+    justify-content: center !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+.cta-card__content--center h2,
+.cta-card__content--center p:not(.section-label):not(.cta-stat) {
+    text-shadow: 0 2px 18px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* 40+ 강조 스탯 */
+.cta-stat {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    margin-bottom: 18px;
+    text-shadow: 0 6px 24px rgba(118,196,66,0.45), 0 2px 8px rgba(0,0,0,0.4);
+}
+.cta-stat__num {
+    font-size: clamp(72px, 9vw, 140px);
+    background: linear-gradient(180deg, #b8f070 0%, #76c442 60%, #4caf50 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 6px 18px rgba(118,196,66,0.4));
+}
+.cta-stat__plus {
+    font-size: clamp(36px, 4vw, 64px);
+    margin-top: 0.4em;
+    color: #b8f070;
+    -webkit-text-fill-color: #b8f070;
+}
+@media (max-width: 900px) {
+    .cta-stat__num { font-size: 72px; }
+    .cta-stat__plus { font-size: 36px; }
+}
+
 /* PC — 카드가 viewport를 가득 채우도록 상하 흰 여백 제거 */
 .cta-card--primary {
     top: 0 !important;
