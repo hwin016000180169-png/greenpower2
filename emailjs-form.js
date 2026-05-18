@@ -6,7 +6,7 @@
  * -----------------------------------------------
  */
 const EMAILJS_CONFIG = {
-  publicKey:  'mU6CAdExumhexPm-_',
+  publicKey:  'KLtMxETJC391nEG7w',
   serviceId:  'service_65n37uc',
   templateId: '5p8jftp',
 };
