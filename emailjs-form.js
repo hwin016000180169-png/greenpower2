@@ -6,9 +6,9 @@
  * -----------------------------------------------
  */
 const EMAILJS_CONFIG = {
-  publicKey:  'YOUR_PUBLIC_KEY',   // EmailJS > Account > General > Public Key
-  serviceId:  'YOUR_SERVICE_ID',   // EmailJS > Email Services > Service ID
-  templateId: 'YOUR_TEMPLATE_ID',  // EmailJS > Email Templates > Template ID
+  publicKey:  'mU6CAdExumhexPm-_',
+  serviceId:  'service_65n37uc',
+  templateId: '5p8jftp',
 };
 
 /* ─────────────────────────────────────────────
@@ -55,12 +55,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = new FormData(form);
     const fields = Object.fromEntries(data.entries());
 
-    // 폼 유형 판별
-    const pageTitle = document.querySelector('h2.page-hero__title')?.textContent?.trim() || '문의';
+    // 폼 유형 (페이지의 hidden input 또는 페이지 타이틀에서 추출)
+    const formType = fields.form_type
+      || document.querySelector('h2.page-hero__title')?.textContent?.trim()
+      || '문의';
 
-    // 추가 항목 텍스트 조합
+    // 메일 제목용 식별자
+    //  - 도입상담 / 견적문의 → 회사명
+    //  - 서비스요청 → 담당자명
+    //  - 그 외 → 회사명 또는 담당자명
+    let subjectKey = '';
+    if (formType.includes('서비스')) {
+      subjectKey = fields.name || fields.company || '-';
+    } else {
+      subjectKey = fields.company || fields.name || '-';
+    }
+
+    // 부가 항목 (페이지별 선택 필드)
     const extras = [];
-    if (fields.company)  extras.push(`회사명: ${fields.company}`);
     if (fields.scale)    extras.push(`도입 규모: ${fields.scale}`);
     if (fields.schedule) extras.push(`설치 예정: ${fields.schedule}`);
     if (fields.product)  extras.push(`관심 제품: ${fields.product}`);
@@ -68,16 +80,26 @@ document.addEventListener('DOMContentLoaded', function () {
     if (fields.fault)    extras.push(`장애 유형: ${fields.fault}`);
     if (fields.model)    extras.push(`모델명: ${fields.model}`);
 
-    // EmailJS 템플릿 파라미터
+    // 접수 시각 (KST)
+    const submittedAt = new Date().toLocaleString('ko-KR', {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit',
+    });
+
+    // EmailJS 템플릿 파라미터 (템플릿 변수와 1:1 매칭)
     const templateParams = {
-      form_type:    pageTitle,
-      from_name:    fields.name   || '-',
-      from_company: fields.company || '-',
-      from_tel:     fields.tel    || '-',
-      from_email:   fields.email  || '-',
-      message:      fields.message || '-',
+      form_type:    formType,
+      subject_key:  subjectKey,
+      company:      fields.company  || '-',
+      name:         fields.name     || '-',
+      position:     fields.position || '-',
+      phone:        fields.tel      || fields.phone || '-',
+      email:        fields.email    || '-',
+      message:      fields.message  || '-',
       extra_fields: extras.join('\n') || '-',
-      reply_to:     fields.email  || 'greenups@hanmail.net',
+      submitted_at: submittedAt,
+      reply_to:     fields.email || 'greenups@hanmail.net',
     };
 
     // ── 전송 ──
